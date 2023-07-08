@@ -8,8 +8,8 @@ import Owner from '../Owner/Owner';
 import Service from '../Service/Service';
 import NotFound from '../NotFound/NotFound';
 import Search from '../Search/Search';
-import System from '../System/System';
-import { Routes, Route ,Routers} from 'react-router-dom';
+import Management from '../Management/Management';
+import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <>
@@ -23,7 +23,7 @@ function App() {
      <Route path='Service' element={<Service />}/>
      <Route path='Owner' element={<Owner />}/>
      <Route path='Search' element={<Search />}/>
-     <Route path='System' element={<System />}/>
+     <Route path='Management' element={<Management />}/>
 
      
      <Route path='*' element={<NotFound />}/>

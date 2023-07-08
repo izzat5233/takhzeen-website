@@ -19,7 +19,7 @@ const Home = () => {
 
             <div className="header-content__input">
 
-              <button type="button"><Link to="/System">إدارة المخازن</Link></button>
+              <button type="button"><Link to="/Management">إدارة المخازن</Link></button>
               <button type="button"><Link to="/Owner">إعلان لمخزنك</Link> </button>
               <button type="button"><Link to="/Search">البحث عن مخزن</Link> </button>
             </div>
