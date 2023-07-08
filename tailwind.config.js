@@ -6,10 +6,11 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'sans': ['Droid Arabic Kufi', 'serif'],
+                'sans': ['Droid Arabic Kufi', 'serif'], /* default font */
+                'cursive': []
             },
             colors: {
-                'primary': '#FF8A71',
+                'primary': '#ff684c',
                 'secondary': '#F49867',
                 'accent': '#AE67FA',
                 'back': '#fff',
@@ -17,6 +18,9 @@ module.exports = {
                 'fore-neutral': '#031B34',
                 'fore-light': '#81AFDD'
             },
+            backgroundImage: theme => ({
+                'gradient-primary': 'linear-gradient(90deg, #AE67FA 1.84%, #F49867 102.67%)',
+            })
         },
     },
     variants: {},
