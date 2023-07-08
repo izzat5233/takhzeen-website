@@ -17,16 +17,16 @@ const Footer = () => {
         <div className="footer-links_logo m-4 text-center flex-1 w-56 mb-3 order-2 text-2xl md:order-1   md:text-3xl lg:text-3xl">
           <h1 className="mb-4">تخزين هي منصة فلسطينية لتسهيل كل ما يتعلق بالمخازن، نعمل على تطوير دعم لوجستي متكامل ليتناسب مع عملائنا</h1>
           <div className="footer-links_icons mt-2 flex justify-center space-x-2">
-            <a className="flex items-center mr-2" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+            <a className="flex items-center mr-2" href="https://www.facebook.com/ta5zeen" target="_blank" rel="noopener noreferrer">
               <FiFacebook />
             </a>
-            <a className="flex items-center mr-2" href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+            <a className="flex items-center mr-2" href="https://twitter.com/TakhzeenPS" target="_blank" rel="noopener noreferrer">
               <FiTwitter />
             </a>
             <a className="flex items-center mr-2" href="https://www.instagram.com/ta5zeen.ps/" target="_blank" rel="noopener noreferrer">
               <FiInstagram />
             </a>
-            <a className="flex items-center mr-2" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <a className="flex items-center mr-2" href="https://www.linkedin.com/company/takhzeen-ps/" target="_blank" rel="noopener noreferrer">
               <FiLinkedin />
             </a>
           </div>
