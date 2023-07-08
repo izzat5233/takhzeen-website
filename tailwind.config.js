@@ -5,6 +5,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            minWidth: {
+                '210': '210px',
+            },
             fontFamily: {
                 'sans': ['Droid Arabic Kufi', 'serif'], /* default font */
                 'cursive': []
@@ -12,6 +15,7 @@ module.exports = {
             colors: {
                 'primary': '#ff684c',
                 'secondary': '#F49867',
+                'strong': '#FF4820',
                 'accent': '#AE67FA',
                 'back': '#fff',
                 'fore': '#040C18',
