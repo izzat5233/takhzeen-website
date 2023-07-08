@@ -1,109 +1,12 @@
-.footer {
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-
-    background: var(--color-footer);
-    padding-top: 0;
-    padding: 0 0 0.5rem 0;
-
-}
-
-.footer-links {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    margin-top: 5rem;
-    padding: 0 2rem;
-}
-
-.footer-links_contact,
-.footer-links_logo,
-.footer-links_work {
-    flex: 1;
-    margin: 1rem;
-    text-align: center;
-}
-
-.footer-links_logo img:first-child {
-    width: 210px;
-    margin-bottom: 0.75rem;
-}
-.footer-links_work p {
-font-size: 20px;
-}
-.footer-links p {
-    font-size: 20px;
-}
-.footer-links_work p:nth-child(2n + 1) {
-    margin-bottom: 1rem;
-}
-
-.footer-links_icons {
-    margin-top: 0.5rem;
-}
-
-.footer-links_icons svg {
-    color: #fff;
-    margin: 0.5rem;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.footer-links_icons svg:hover {
-    color:#fff;
-}
-
-.footer-headtext {
-    font-family: var(--font-base);
-    color: #fff;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    text-transform: capitalize;
-    font-size: 32px;
-    line-height: 41.6px;
-    margin-bottom: 1rem;
-}
-
-.footer__copyright {
-    margin-top: 3rem;
-}
-.footer__copyright p {
-    font-size: 20px;
-}
-
-@media screen and (min-width: 2000px) {
-    .footer-headtext {
-        font-size: 51px;
-        line-height: 61.6px;
-    }
-}
-.footer-links_logo {
-    order: 2;
-}
-.footer-links_work {
-    order: 3;
-}
-.footer-links_contact {
-    order: 1;
-}
 @media screen and (max-width: 1150px) {
     .footer-links {
         align-items: center;
         flex-direction: column;
         padding: 0;
     }
-
     .footer-links_logo,
     .footer-links_work,
-    .footer-links_contact {
+    .footer-links_work1 {
         margin: 2rem 0;
         width: 100%;
     }
@@ -113,23 +16,10 @@ font-size: 20px;
     .footer-links_work {
         order: 2;
     }
-    .footer-links_contact {
+    .footer-links_work1 {
         order: 3;
     }
 }
 
-@media screen and (max-width: 650px) {
-    .footer {
-        padding: 0 0 0.5rem 0;
 
-    }
-   
-}
-
-@media screen and (max-width: 350px) {
-    .footer-links_logo img:first-child {
-        width: 80%;
-    }
-   
-}
 
