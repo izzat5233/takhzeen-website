@@ -58,19 +58,19 @@ function NavbarSignLinks() {
         <>
             <NavbarSignLink
                 title="الرئيسية"
-                to="Home"
+                to="home"
             />
             <NavbarSignLink
                 title="عن تخزين"
-                to="About"
+                to="about"
             />
             <NavbarSignLink
                 title="تواصل معنا"
-                to="mailto:duhaishtayah@gmail.com"
+                to="contact"
             />
             <NavbarSignLink
                 title="تسجيل الدخول"
-                to="Login"
+                to="login"
             />
         </>
     )

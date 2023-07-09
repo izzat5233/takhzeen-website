@@ -1,9 +1,10 @@
 import React from 'react'
+import ComingSoon from "../Misc/ComingSoon/ComingSoon";
 
 const Owner = () => {
-  return (
-    <div>Owner</div>
-  )
+    return (
+        <ComingSoon/>
+    );
 }
 
 export default Owner
