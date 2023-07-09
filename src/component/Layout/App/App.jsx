@@ -1,16 +1,16 @@
 import './App.css';
 import Navbar from '../Navbar/Navbar';
-import Home from '../Home/Home';
-import About from '../About/About';
-import Login from '../Login/Login';
+import Home from '../../Home/Home';
+import About from '../../About/About';
+import Login from '../../Login/Login';
 import Footer from '../Footer/Footer';
-import Owner from '../Owner/Owner';
-import Service from '../Service/Service';
-import NotFound from '../Misc/NotFound/NotFound';
-import Search from '../Search/Search';
-import Management from '../Management/Management';
+import Owner from '../../Owner/Owner';
+import Service from '../../Service/Service';
+import NotFound from '../../Misc/NotFound/NotFound';
+import Search from '../../Search/Search';
+import Management from '../../Management/Management';
 import {Routes, Route} from 'react-router-dom';
-import Contact from "../Contact/Contact";
+import Contact from "../../Contact/Contact";
 
 function App() {
     return (
