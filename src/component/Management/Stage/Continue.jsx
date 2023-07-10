@@ -1,7 +1,6 @@
 import Form from "../Form/Form";
 import Field from "../Form/Field";
-import Button from "../../Util/Button";
-import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
+import {BackButton, ContinueButton} from "../../Util/Button";
 
 export default function Continue({onSubmit, onBack}) {
     return (
@@ -34,14 +33,12 @@ export default function Continue({onSubmit, onBack}) {
                     </div>
                 </div>
                 <div className="flex gap-6 justify-center">
-                    <Button
+                    <BackButton
                         label="ارجع"
-                        icon={<BsArrowRightShort/>}
                         onClick={() => onBack()}
                     />
-                    <Button
+                    <ContinueButton
                         label="تابع"
-                        icon={<BsArrowLeftShort/>}
                         onClick={() => onSubmit()}
                     />
                 </div>

@@ -1,8 +1,7 @@
 import icon from "../../../assets/management_system.png";
 import Form from "../Form/Form";
 import Field from "../Form/Field";
-import Button from "../../Util/Button";
-import {BsArrowLeftShort} from "react-icons/bs";
+import {ContinueButton} from "../../Util/Button";
 
 export default function Start({onSubmit}) {
     return (
@@ -34,9 +33,8 @@ export default function Start({onSubmit}) {
                     <Field label="البريد الاكتروني" type="email"/>
                     <Field label="اسم الشركة" type="text"/>
                     <Field label="عنوان الموقع الاكتروني" type="url"/>
-                    <Button
+                    <ContinueButton
                         label="ابدأ"
-                        icon={<BsArrowLeftShort/>}
                         onClick={() => onSubmit()}
                     />
                 </Form>

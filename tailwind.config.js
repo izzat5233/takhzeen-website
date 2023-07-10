@@ -16,7 +16,10 @@ module.exports = {
                 'primary': '#ff684c',
                 'secondary': '#F49867',
                 'strong': '#FF4820',
-                'accent': '#AE67FA',
+                'accent1': '#EFCA08',
+                'accent2': '#72A1E5',
+                'accent3': '#AE67FA',
+                'accent4': '#62C370',
                 'back': '#fff',
                 'fore': '#040C18',
                 'fore-neutral': '#031B34',
@@ -24,6 +27,10 @@ module.exports = {
             },
             backgroundImage: theme => ({
                 'gradient-primary': 'linear-gradient(90deg, #AE67FA 1.84%, #F49867 102.67%)',
+                'gradient-accent1': 'linear-gradient(90deg, #EFCA08 1.84%, #F49867 102.67%)',
+                'gradient-accent2': 'linear-gradient(90deg, #72A1E5 1.84%, #F49867 102.67%)',
+                'gradient-green': 'linear-gradient(109.6deg, rgb(170, 255, 169) 11.2%, rgb(17, 255, 189) 91.1%)',
+                'gradient-orange': 'radial-gradient(929px at 0.6% 1.3%, rgb(248, 251, 10) 0%, rgb(248, 47, 47) 82.6%)'
             })
         },
     },
