@@ -42,7 +42,7 @@ const Home = () => {
                         </div>
                         <div className="card">
                             <div className="icon">
-                                <img src={Partial} alt="Partial Logo"/></div>
+                                <img src={time} alt="Partial Logo"/></div>
                             <div className="info">
                                 <h3>تخزين مؤقت</h3>
                                 <p>تتمثل هذه الخدمة بتوفير مساحات للافراد والعائلات لتخزين معدات او ادوات لا يتم
@@ -64,7 +64,7 @@ const Home = () => {
                         </div>
                         <div className="card">
                             <div className="icon">
-                                <img src={time} alt="Time Logo"/></div>
+                                <img src={Partial} alt="Time Logo"/></div>
                             <div className="info">
                                 <h3>تخزين جزئي</h3>
                                 <p>تتمثل هذه الخدمة بمساعدة كل من المؤجرين والمستأجرين باستغلال المساحات التخزينية
