@@ -51,7 +51,7 @@ const Home = () => {
   ];
   return (
     <div>
-      <div>
+      <div className="min-h-screen">
         <div className="header section__padding" id="Home">
           <div className="header-content" style={{ textAlign: "right" }}>
             <h1 className="gradient__text"> مرحبًا بك في شركة تخزين!</h1>
@@ -70,8 +70,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='space'></div>
-      <section className="cards" id="services">
+      <section className="cards min-h-screen mb-20" id="services">
         <h1 className="title">خـــدمـــاتـــنـــا</h1>
         <div className="content">
           {cardsData.map((card, index) => (
@@ -89,9 +88,7 @@ const Home = () => {
           ))}
         </div>
       </section>
-      <div className='space'></div>
-
-      <section className="cards" id="features">
+      <section className="cards min-h-screen mb-20" id="features">
     <h2 className="title">لــمــاذا تــخــزيــن ؟</h2>
     <div className="content">
       {features.map((skill, index) => (
@@ -104,12 +101,8 @@ const Home = () => {
       ))}
     </div>
   </section>
-
-
-
     </div>
   )
-  
 }
 
 export default Home

@@ -4,7 +4,7 @@ import about from '../../assets/about.jpeg';
 
 const About = () => {
   return (
-    <div>
+    <div className="min-h-screen">
     <div className="header1 section__padding" id="Home">
       <div className="header-content1" style={{ textAlign: "right" }}>
         <h1 className="gradient__text">من نحن ؟</h1>
