@@ -10,18 +10,9 @@ export default function Navbar() {
             bg-back z-50 flex
             fixed top-0 left-0 right-0
             justify-between justify-items-center
-            md:py-4 md:px-12
-            sm:py-2 sm:px-8
-            py-0 px-12
+            py-4 px-4 md:px-8
         ">
-            <div className="
-                flex flex-1 justify-start
-                justify-items-center
-            ">
-                <div className="mr-8 pl-12">
-                    <img src={logo} alt="logo" className="w-20 h-12"/>
-                </div>
-            </div>
+            <img src={logo} alt="logo" className="w-20 h-12 justify-start"/>
             <div className="
                 hidden lg:flex flex-row-reverse justify-end
                 pr-8 justify-items-center
