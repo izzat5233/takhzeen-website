@@ -1,9 +1,8 @@
 import Form from "../Form/Form";
 import Field from "../Form/Field";
-import Button from "../../Util/Button";
-import {BsArrowLeftShort} from "react-icons/bs";
+import {BackButton, ContinueButton} from "../../Util/Button";
 
-export default function Continue() {
+export default function Continue({onSubmit, onBack}) {
     return (
         <div className="mx-auto">
             <Form
@@ -33,13 +32,16 @@ export default function Continue() {
                         <Field label="(اختياري) كيف توصلت للموقع الخاص بنا ؟" type=""/>
                     </div>
                 </div>
-
-                <Button
-                    label="تابع"
-                    icon={<BsArrowLeftShort/>}
-                    onClick={() => {
-                    }}
-                />
+                <div className="flex gap-6 justify-center">
+                    <BackButton
+                        label="ارجع"
+                        onClick={() => onBack()}
+                    />
+                    <ContinueButton
+                        label="تابع"
+                        onClick={() => onSubmit()}
+                    />
+                </div>
             </Form>
         </div>
     );

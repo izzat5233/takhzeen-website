@@ -1,0 +1,25 @@
+@media screen and (max-width: 1150px) {
+    .footer-links {
+        align-items: center;
+        flex-direction: column;
+        padding: 0;
+    }
+    .footer-links_logo,
+    .footer-links_work,
+    .footer-links_work1 {
+        margin: 2rem 0;
+        width: 100%;
+    }
+    .footer-links_logo {
+        order: 1;
+    }
+    .footer-links_work {
+        order: 2;
+    }
+    .footer-links_work1 {
+        order: 3;
+    }
+}
+
+
+

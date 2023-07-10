@@ -3,7 +3,7 @@ import {BsArrowRightShort} from "react-icons/bs";
 import React from "react";
 import {useNavigate} from "react-router-dom";
 
-export default function ComingSoon({onBack}) {
+export default function ComingSoon() {
     const navigate = useNavigate();
 
     return (
@@ -15,7 +15,7 @@ export default function ComingSoon({onBack}) {
                 <Button
                     label="ارجع"
                     icon={<BsArrowRightShort/>}
-                    onClick={() => navigate("../")}
+                    onClick={() => navigate(-1)}
                 />
             </div>
         </div>

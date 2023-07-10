@@ -1,4 +1,5 @@
 import React from "react";
+import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
 
 export default function Button({label, icon, onClick}) {
     return (
@@ -18,5 +19,25 @@ export default function Button({label, icon, onClick}) {
                 {icon}
             </button>
         </div>
+    );
+}
+
+export function ContinueButton({label, onClick}) {
+    return (
+        <Button
+            label={label}
+            icon={<BsArrowLeftShort/>}
+            onClick={() => onClick()}
+        />
+    );
+}
+
+export function BackButton({label, onClick}) {
+    return (
+        <Button
+            label={label}
+            icon={<BsArrowRightShort/>}
+            onClick={() => onClick()}
+        />
     );
 }

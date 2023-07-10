@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Start from "./Stage/Start";
 import Continue from "./Stage/Continue";
 import {Route, Routes, useNavigate} from "react-router-dom";
+import ComingSoon from "../Misc/ComingSoon/ComingSoon";
 
 export default function Management() {
     const navigate = useNavigate();
@@ -11,12 +12,39 @@ export default function Management() {
     }, []);
 
     return (
+        <Routes>
+            <Route
+                path="start"
+                element={
+                    <Wrapper>
+                        <Start onSubmit={() => navigate('fill1')}/>
+                    </Wrapper>
+                }
+            />
+            <Route
+                path="fill1"
+                element={
+                    <Wrapper>
+                        <Continue
+                            onSubmit={() => navigate('fill2')}
+                            onBack={() => navigate('start')}
+                        />
+                    </Wrapper>
+                }
+            />
+            <Route
+                path="fill2"
+                element={<ComingSoon/>}
+            />
+        </Routes>
+    );
+}
+
+function Wrapper({children}) {
+    return (
         <div dir="rtl" className="pt-24 bg-back min-h-screen flex flex-col items-center justify-center">
             <div className="z-10">
-                <Routes>
-                    <Route path="start" element={<Start onSubmit={() => navigate('fill')}/>}/>
-                    <Route path="fill" element={<Continue/>}/>
-                </Routes>
+                {children}
             </div>
             <TriangleShape/>
         </div>
