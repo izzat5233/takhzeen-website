@@ -3,6 +3,7 @@ import Start from "./Stage/Start";
 import Continue from "./Stage/Continue";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import ComingSoon from "../Misc/ComingSoon/ComingSoon";
+import NotFound from "../Misc/NotFound/NotFound";
 
 export default function Management() {
     const navigate = useNavigate();
@@ -36,6 +37,7 @@ export default function Management() {
                 path="fill2"
                 element={<ComingSoon/>}
             />
+            <Route path='*' element={<NotFound/>}/>
         </Routes>
     );
 }
