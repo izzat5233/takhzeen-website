@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import Start from "./Stage/Start";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import NotFound from "../Misc/NotFound/NotFound";
 import TempForm from "./Stage/TempForm";
 import PartialForm from "./Stage/PartialForm";
 
-export default function Search() {
+export default function Find() {
     const navigate = useNavigate();
 
     useEffect(() => {

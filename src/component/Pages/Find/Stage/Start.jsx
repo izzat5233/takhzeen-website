@@ -1,6 +1,5 @@
 import partial from "../../../../assets/icons/black/partial.png";
 import temporal from "../../../../assets/icons/black/temporary.png";
-import management from "../../../../assets/icons/black/management.png";
 import React from "react";
 
 export default function Start({navigate}) {

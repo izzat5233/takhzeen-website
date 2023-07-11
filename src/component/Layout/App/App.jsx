@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 import Owner from '../../Pages/Owner/Owner';
 import Service from '../../Pages/Service/Service';
 import NotFound from '../../Pages/Misc/NotFound/NotFound';
-import Search from '../../Pages/Search/Search';
+import Find from '../../Pages/Find/Find';
 import Management from '../../Pages/Management/Management';
 import {Routes, Route} from 'react-router-dom';
 import Contact from "../../Pages/Contact/Contact";
@@ -25,7 +25,7 @@ function App() {
                 <Route path='login' element={<Login/>}/>
                 <Route path='service' element={<Service/>}/>
                 <Route path='owner' element={<Owner/>}/>
-                <Route path='search/*' element={<Search/>}/>
+                <Route path='find/*' element={<Find/>}/>
                 <Route path='management/*' element={<Management/>}/>
 
 
