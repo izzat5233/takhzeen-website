@@ -1,47 +1,30 @@
-import {ContinueButton} from "../../../Util/Button/FormButton";
 import partial from "../../../../assets/icons/black/partial.png";
 import temporal from "../../../../assets/icons/black/temporary.png";
 import management from "../../../../assets/icons/black/management.png";
 import React from "react";
 
-export default function Start({checkboxes, onCheckboxesChange, onSubmit}) {
+export default function Start({navigate}) {
     return (
         <div className="min-h-screen flex flex-col justify-center text-center">
-            <div className="my-24 flex flex-col gap-10">
-                <p className="text-5xl">قبل أن نجد مخزنك المثالي</p>
-                <ContinueButton
-                    label="تابع"
-                    onClick={() => onSubmit()}
-                />
-            </div>
-            <div className="flex flex-col xl:flex-row gap-20 justify-center">
+            <div className="flex flex-col xl:flex-row xl:gap-36 justify-center">
                 <Option
                     icon={partial}
                     description="أرغب في الاستفادة من التخزين الجزئي"
                     bgColor="bg-accent2"
-                    checked={checkboxes.partialChecked}
-                    toggleChecked={() => onCheckboxesChange('partialChecked')}
+                    onClick={() => navigate('temporary')}
                 />
                 <Option
                     icon={temporal}
                     description="أرغب في التخزين لفترة قصيرة"
                     bgColor="bg-accent3"
-                    checked={checkboxes.temporalChecked}
-                    toggleChecked={() => onCheckboxesChange('temporalChecked')}
-                />
-                <Option
-                    icon={management}
-                    description="أرغب في أن تتم إدارة مخزني"
-                    bgColor="bg-accent4"
-                    checked={checkboxes.managementChecked}
-                    toggleChecked={() => onCheckboxesChange('managementChecked')}
+                    onClick={() => navigate('partial')}
                 />
             </div>
         </div>
     );
 }
 
-function Option({icon, description, bgColor, checked, toggleChecked}) {
+function Option({icon, description, bgColor, onClick, checked = false}) {
     return (
         <div className={`
             my-20 mx-auto xl:mx-8 w-80 h-80 p-2
@@ -56,7 +39,7 @@ function Option({icon, description, bgColor, checked, toggleChecked}) {
                     transition-all duration-300
                     ${checked ? "bg-gradient-orange" : bgColor}
                 `}
-                onClick={() => toggleChecked()}
+                onClick={() => onClick()}
             >
                 <div className={`
                     flex flex-col gap-6 transition-opacity hover:opacity-100

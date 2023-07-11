@@ -2,15 +2,10 @@ import React, {useEffect, useState} from 'react'
 import Start from "./Stage/Start";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import NotFound from "../Misc/NotFound/NotFound";
-import Storage from "./Stage/Storage";
+import TempForm from "./Stage/TempForm";
+import PartialForm from "./Stage/PartialForm";
 
 export default function Search() {
-    const [checkboxes, setCheckboxes] = useState({
-        partialChecked: false,
-        temporalChecked: false,
-        managementChecked: false,
-    });
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -19,25 +14,9 @@ export default function Search() {
 
     return (
         <Routes>
-            <Route
-                path="start"
-                element={
-                    <Start
-                        checkboxes={checkboxes}
-                        onCheckboxesChange={(name) => {
-                            setCheckboxes({
-                                ...checkboxes,
-                                [name]: !checkboxes[name],
-                            });
-                        }}
-                        onSubmit={() => navigate('storage')}
-                    />
-                }
-            />
-            <Route
-                path="storage"
-                element={<Storage/>}
-            />
+            <Route path="start" element={<Start navigate={navigate}/>}/>
+            <Route path="temporary" element={<TempForm/>}/>
+            <Route path="partial" element={<PartialForm/>}/>
             <Route path='*' element={<NotFound/>}/>
         </Routes>
     );

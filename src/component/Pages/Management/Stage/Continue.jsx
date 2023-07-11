@@ -4,7 +4,7 @@ import {BackButton, ContinueButton} from "../../../Util/Button/FormButton";
 
 export default function Continue({onSubmit, onBack}) {
     return (
-        <div className="mx-auto">
+        <div className="mx-auto max-w-3xl w-full">
             <Form
                 title="نحتاج منك بعض المعلومات"
                 onSubmit={() => {
