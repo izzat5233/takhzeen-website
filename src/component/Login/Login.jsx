@@ -26,7 +26,7 @@ const Login = () => {
                         placeholder="ايميل المستخدم" 
                         onChange={(e) => setEmail(e.target.value)}
                         />
-                        <IoPersonCircle className="icon"/>
+                        <IoPersonCircle className="login-icon"/>
                     </div>
                     <div className="input-field">
                         <input type="Password" 
@@ -34,7 +34,7 @@ const Login = () => {
                         placeholder="كلمة المرور" 
                         onChange={(e) => setPassword(e.target.value)}
                         />
-                        <IoKey  className="icon" />
+                        <IoKey  className="login-icon" />
                     </div>
                     <div className="input-field">
                         <button type="submit" className="submit" defaultValue="تسجيل الدخول" id >دخــول

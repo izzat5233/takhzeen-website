@@ -43,7 +43,9 @@ header{
     align-items: center;
     direction: rtl;
 }
-.icon{
+
+/* previous name ".icon" was conflicting with ".icon" in home.css for some reason */
+.login-icon{
     direction: rtl;
     position: relative;
     top: -30px;
