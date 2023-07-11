@@ -12,7 +12,7 @@ export default function Navbar() {
             justify-between justify-items-center
             py-4 px-4 md:px-8
         ">
-            <img src={logo} alt="logo" className="w-20 h-12 justify-start"/>
+            <img src={logo} alt="logo" className="w-auto h-10 justify-start"/>
             <div className="
                 hidden lg:flex flex-row-reverse justify-end
                 pr-8 justify-items-center
