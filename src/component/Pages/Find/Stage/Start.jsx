@@ -1,23 +1,28 @@
 import partial from "../../../../assets/icons/black/partial.png";
 import temporal from "../../../../assets/icons/black/temporary.png";
 import React from "react";
+import {FadeIn} from "../../../Util/Animation/TransitionIn";
 
 export default function Start({navigate}) {
     return (
         <div className="min-h-screen flex flex-col justify-center text-center">
-            <div className="flex flex-col xl:flex-row xl:gap-36 justify-center">
-                <Option
-                    icon={partial}
-                    description="أرغب في الاستفادة من التخزين الجزئي"
-                    bgColor="bg-accent2"
-                    onClick={() => navigate('partial')}
-                />
-                <Option
-                    icon={temporal}
-                    description="أرغب في التخزين لفترة قصيرة"
-                    bgColor="bg-accent3"
-                    onClick={() => navigate('temporary')}
-                />
+            <div className="flex flex-col xl:flex-row-reverse xl:gap-36 justify-center">
+                <FadeIn timeout={300}>
+                    <Option
+                        icon={partial}
+                        description="أرغب في الاستفادة من التخزين الجزئي"
+                        bgColor="bg-accent2"
+                        onClick={() => navigate('partial')}
+                    />
+                </FadeIn>
+                <FadeIn timeout={600}>
+                    <Option
+                        icon={temporal}
+                        description="أرغب في التخزين لفترة قصيرة"
+                        bgColor="bg-accent3"
+                        onClick={() => navigate('temporary')}
+                    />
+                </FadeIn>
             </div>
         </div>
     );
