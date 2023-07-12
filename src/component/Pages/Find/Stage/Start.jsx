@@ -10,13 +10,13 @@ export default function Start({navigate}) {
                     icon={partial}
                     description="أرغب في الاستفادة من التخزين الجزئي"
                     bgColor="bg-accent2"
-                    onClick={() => navigate('temporary')}
+                    onClick={() => navigate('partial')}
                 />
                 <Option
                     icon={temporal}
                     description="أرغب في التخزين لفترة قصيرة"
                     bgColor="bg-accent3"
-                    onClick={() => navigate('partial')}
+                    onClick={() => navigate('temporary')}
                 />
             </div>
         </div>
