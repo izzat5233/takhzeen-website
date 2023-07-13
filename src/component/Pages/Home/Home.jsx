@@ -6,6 +6,7 @@ import connection from '../../../assets/icons/normal/mediation.png';
 import time from '../../../assets/icons/normal/temporary.png';
 import './home.css';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 
 const Home = () => {
@@ -50,7 +51,12 @@ const Home = () => {
     },
   ];
   return (
-    <div>
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      transition={{duration: 0.1}}
+    >
       <div className="min-h-screen">
         <div className="header section__padding" id="Home">
           <div className="header-content" style={{ textAlign: "right" }}>
@@ -101,7 +107,7 @@ const Home = () => {
       ))}
     </div>
   </section>
-    </div>
+    </motion.div>
   )
 }
 

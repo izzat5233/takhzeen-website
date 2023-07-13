@@ -9,28 +9,30 @@ import Service from '../../Pages/Service/Service';
 import NotFound from '../../Pages/Misc/NotFound/NotFound';
 import Find from '../../Pages/Find/Find';
 import Management from '../../Pages/Management/Management';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, useLocation} from 'react-router-dom';
 import Contact from "../../Pages/Contact/Contact";
+import {AnimatePresence} from "framer-motion";
 
 function App() {
+    const location = useLocation();
+
     return (
         <>
-
             <Navbar/>
-            <Routes>
-                <Route path='/' element={<Home/>}/>
-                <Route path='home' element={<Home/>}/>
-                <Route path='about' element={<About/>}/>
-                <Route path='contact' element={<Contact/>}/>
-                <Route path='login' element={<Login/>}/>
-                <Route path='service' element={<Service/>}/>
-                <Route path='owner' element={<Owner/>}/>
-                <Route path='find/*' element={<Find/>}/>
-                <Route path='management/*' element={<Management/>}/>
-
-
-                <Route path='*' element={<NotFound/>}/>
-            </Routes>
+            <AnimatePresence>
+                <Routes location={location} key={location.pathname}>
+                    <Route path='/' element={<Home/>}/>
+                    <Route path='home' element={<Home/>}/>
+                    <Route path='about' element={<About/>}/>
+                    <Route path='contact' element={<Contact/>}/>
+                    <Route path='login' element={<Login/>}/>
+                    <Route path='service' element={<Service/>}/>
+                    <Route path='owner' element={<Owner/>}/>
+                    <Route path='find/*' element={<Find/>}/>
+                    <Route path='management/*' element={<Management/>}/>
+                    <Route path='*' element={<NotFound/>}/>
+                </Routes>
+            </AnimatePresence>
             <Footer/>
         </>
     );
