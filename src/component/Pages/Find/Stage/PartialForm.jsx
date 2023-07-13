@@ -14,7 +14,7 @@ export default function PartialForm() {
             <ExpandedBackgroundElement timeout={300} className="right-0 top-0 bg-gradient-primary"/>
             <div className="
                 flex flex-col lg:flex-row justify-around
-                mt-20 w-full px-10 text-center
+                mt-20 w-full px-10
             ">
                 <FadeIn timeout={800}>
                     <div className="flex flex-col gap-20">

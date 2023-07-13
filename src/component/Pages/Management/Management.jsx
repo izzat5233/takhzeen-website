@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Start from "./Stage/Start";
 import Continue from "./Stage/Continue";
 import {Route, Routes, useNavigate} from "react-router-dom";
@@ -8,35 +8,22 @@ import NotFound from "../Misc/NotFound/NotFound";
 export default function Management() {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        navigate('start');
-    }, []);
-
     return (
         <Routes>
-            <Route
-                path="start"
-                element={
-                    <Wrapper>
-                        <Start onSubmit={() => navigate('fill1')}/>
-                    </Wrapper>
-                }
-            />
-            <Route
-                path="fill1"
-                element={
-                    <Wrapper>
-                        <Continue
-                            onSubmit={() => navigate('fill2')}
-                            onBack={() => navigate('start')}
-                        />
-                    </Wrapper>
-                }
-            />
-            <Route
-                path="fill2"
-                element={<ComingSoon/>}
-            />
+            <Route path="" element={
+                <Wrapper>
+                    <Start onSubmit={() => navigate('fill1')}/>
+                </Wrapper>
+            }/>
+            <Route path="fill1" element={
+                <Wrapper>
+                    <Continue
+                        onSubmit={() => navigate('fill2')}
+                        onBack={() => navigate('')}
+                    />
+                </Wrapper>
+            }/>
+            <Route path="fill2" element={<ComingSoon/>}/>
             <Route path='*' element={<NotFound/>}/>
         </Routes>
     );

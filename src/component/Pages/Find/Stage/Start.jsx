@@ -2,33 +2,36 @@ import partial from "../../../../assets/icons/black/partial.png";
 import temporal from "../../../../assets/icons/black/temporary.png";
 import React from "react";
 import {FadeIn} from "../../../Util/Animation/TransitionIn";
+import {Link} from "react-router-dom";
 
-export default function Start({navigate}) {
+export default function Start() {
     return (
         <div className="min-h-screen flex flex-col justify-center text-center">
             <div className="flex flex-col xl:flex-row-reverse xl:gap-36 justify-center">
                 <FadeIn timeout={300}>
-                    <Option
-                        icon={partial}
-                        description="أرغب في الاستفادة من التخزين الجزئي"
-                        bgColor="bg-accent2"
-                        onClick={() => navigate('partial')}
-                    />
+                    <Link to="partial">
+                        <Option
+                            icon={partial}
+                            description="أرغب في الاستفادة من التخزين الجزئي"
+                            bgColor="bg-accent2"
+                        />
+                    </Link>
                 </FadeIn>
                 <FadeIn timeout={600}>
-                    <Option
-                        icon={temporal}
-                        description="أرغب في التخزين لفترة قصيرة"
-                        bgColor="bg-accent3"
-                        onClick={() => navigate('temporary')}
-                    />
+                    <Link to="temporary">
+                        <Option
+                            icon={temporal}
+                            description="أرغب في التخزين لفترة قصيرة"
+                            bgColor="bg-accent3"
+                        />
+                    </Link>
                 </FadeIn>
             </div>
         </div>
     );
 }
 
-function Option({icon, description, bgColor, onClick, checked = false}) {
+function Option({icon, description, bgColor, checked = false}) {
     return (
         <div className={`
             my-20 mx-auto xl:mx-8 w-80 h-80 p-2
@@ -37,14 +40,11 @@ function Option({icon, description, bgColor, onClick, checked = false}) {
             hover:bg-black hover:scale-125 shadow-gray-400
             ${checked ? "bg-gradient-orange shadow-xl rotate-0" : "bg-gray-200 rotate-45"}
         `}>
-            <button
-                className={`
-                    w-full h-full p-6 rounded-2xl
-                    transition-all duration-300
-                    ${checked ? "bg-gradient-orange" : bgColor}
-                `}
-                onClick={() => onClick()}
-            >
+            <button className={`
+                w-full h-full p-6 rounded-2xl
+                transition-all duration-300
+                ${checked ? "bg-gradient-orange" : bgColor}
+            `}>
                 <div className={`
                     flex flex-col gap-6 transition-opacity hover:opacity-100
                     ${checked ? "rotate-0 opacity-100" : "-rotate-45 opacity-80"}
