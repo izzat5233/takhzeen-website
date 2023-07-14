@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import storage from '../../../assets/images/storage.png';
 import sys from '../../../assets/icons/normal/management.png';
 import Partial from '../../../assets/icons/normal/partial.png';
@@ -7,7 +7,7 @@ import time from '../../../assets/icons/normal/temporary.png';
 import './home.css';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import {ScrollProgressBar} from "../../Util/BackgroundElement";
+import {ScrollProgressBar} from "../../Util/Animation/ProgressBar";
 
 
 const Home = () => {
@@ -53,10 +53,10 @@ const Home = () => {
   ];
   return (
     <motion.div
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
-      transition={{duration: 0.1}}
+      initial={{opacity: 0, x: -10, y: 10}}
+      animate={{opacity: 1, x: 0, y: 0}}
+      exit={{opacity: 0, x: 10, y: -10}}
+      transition={{ease: "easeIn"}}
     >
       <ScrollProgressBar/>
       <div className="min-h-screen">
