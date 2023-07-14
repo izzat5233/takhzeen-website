@@ -2,16 +2,34 @@ import React, {useState} from 'react'
 import logo from '../../../assets/icons/normal/logo.png';
 import {RiMenu3Line, RiCloseLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
+import {motion, useMotionValueEvent, useScroll} from "framer-motion";
 
 export default function Navbar() {
     const [toggleMenu, setToggleMenu] = useState(false);
+    const {scrollY} = useScroll();
+    const [prevScrollY, setPrevScrollY] = useState(0);
+    const [hidden, setHidden] = useState(false);
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setHidden(latest > prevScrollY);
+        setPrevScrollY(latest);
+    });
+
     return (
-        <navbar className="
-            bg-back z-50 flex
-            fixed top-0 left-0 right-0
-            justify-between justify-items-center
-            py-4 px-4 md:px-8
-        ">
+        <motion.nav
+            variants={{
+                visible: {opacity: 1, y: 0},
+                hidden: {opacity: 0, y: -25}
+            }}
+            animate={hidden ? "hidden" : "visible"}
+            transition={{ease: [0.1, 0.25, 0.3, 1], duration: 0.6}}
+            className="
+                bg-transparent z-50 flex
+                fixed top-0 left-0 right-0
+                justify-between justify-items-center
+                py-4 px-4 md:px-8
+            "
+        >
             <img src={logo} alt="logo" className="w-auto h-10 justify-start"/>
             <div className="
                 hidden lg:flex flex-row-reverse justify-end
@@ -40,7 +58,7 @@ export default function Navbar() {
                     </div>
                 )}
             </div>
-        </navbar>
+        </motion.nav>
     );
 };
 
