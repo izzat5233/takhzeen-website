@@ -16,6 +16,7 @@
             justify-content: center;
             align-items: center;
         }
+
         #loading img {
             width: 100px;
             height: 100px;
@@ -23,17 +24,10 @@
     </style>
 </head>
 <body>
-<div id="loading">
-    <img src="%PUBLIC_URL%/favicon.ico" alt="...">
+<div id="root">
+    <div id="loading">
+        <img src="%PUBLIC_URL%/favicon.ico" alt="...">
+    </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let loading = document.getElementById('loading');
-        if (loading) {
-            loading.style.display = 'none';
-        }
-    });
-</script>
-<div id="root"></div>
 </body>
 </html>
