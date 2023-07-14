@@ -7,6 +7,7 @@ import time from '../../../assets/icons/normal/temporary.png';
 import './home.css';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import {ScrollProgressBar} from "../../Util/BackgroundElement";
 
 
 const Home = () => {
@@ -57,6 +58,7 @@ const Home = () => {
       exit={{opacity: 0}}
       transition={{duration: 0.1}}
     >
+      <ScrollProgressBar/>
       <div className="min-h-screen">
         <div className="header section__padding" id="Home">
           <div className="header-content" style={{ textAlign: "right" }}>
