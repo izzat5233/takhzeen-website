@@ -1,5 +1,6 @@
 import React from "react";
 import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
+import {IoMdCheckmark} from "react-icons/io";
 
 export default function FormButton({label, icon, onClick}) {
     return (
@@ -11,9 +12,9 @@ export default function FormButton({label, icon, onClick}) {
             <button
                 onClick={onClick}
                 className="
-                text-6xl rounded-full
-                border-2 border-gray-800
-                hover:bg-primary hover:text-white hover:border-primary transition-all
+                    text-6xl rounded-full
+                    border-2 border-gray-800
+                    hover:bg-primary hover:text-white hover:border-primary transition-all
                 "
             >
                 {icon}
@@ -27,7 +28,7 @@ export function ContinueButton({label, onClick}) {
         <FormButton
             label={label}
             icon={<BsArrowLeftShort/>}
-            onClick={() => onClick()}
+            onClick={onClick}
         />
     );
 }
@@ -37,7 +38,17 @@ export function BackButton({label, onClick}) {
         <FormButton
             label={label}
             icon={<BsArrowRightShort/>}
-            onClick={() => onClick()}
+            onClick={onClick}
+        />
+    );
+}
+
+export function FinishButton({label, onClick}) {
+    return (
+        <FormButton
+            label={label}
+            icon={<IoMdCheckmark/>}
+            onClick={onClick}
         />
     );
 }
