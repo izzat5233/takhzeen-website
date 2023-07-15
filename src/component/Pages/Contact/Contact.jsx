@@ -15,7 +15,7 @@ export default function Contact() {
                         </li>
                         <li>
 
-                            <span>ايميل : </span> <a href="mailto:info@takhzeen.ps">info@yoursite.com</a>
+                            <span>ايميل : </span> <a href="mailto:info@takhzeen.ps">info@ta5zeen.ps</a>
                         </li>
                         <li>
 
