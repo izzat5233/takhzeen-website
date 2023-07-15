@@ -63,7 +63,7 @@ const Home = () => {
         <div className="header section__padding" id="Home">
           <div className="header-content" style={{ textAlign: "right" }}>
             <h1 className="gradient__text"> مرحبًا بك في شركة تخزين!</h1>
-            <p>  احصل على حلاً مبتكرًا وفعالًا لتحقيق أهدافك المالية من خلال إدارتنا الفعالة لمستودعاتك .</p>
+            <p>  احصل على حلٍ مبتكر لتحقيق أهدافك المالية من خلال إدارتنا الفعالة لمستودعاتك .</p>
 
             <div className="header-content__input">
 
