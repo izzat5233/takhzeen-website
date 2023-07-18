@@ -73,7 +73,7 @@ function Choice({label, icon, onClick}) {
             flex flex-col justify-center
             duration-300 transition-all
             border-8 border-gray-100 drop-shadow-2xl
-            hover:rounded-3xl hover:z-10  hover:border-black
+            hover:rounded-3xl hover:z-10 hover:scale-90
         ">
             <button
                 onClick={onClick}

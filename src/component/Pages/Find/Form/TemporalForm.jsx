@@ -31,5 +31,23 @@ const fields = [
             label="مكان السكن"
             type="text"
         />
+    </>,
+    <>
+        <Field
+            label="نوع المواد المراد تخزينها"
+            type="text"
+        />
+        <Field
+            label="المدة المتوقعة للاستئجار"
+            type="number"
+        />
+        <Field
+            label="المساحة المراد استئجارها"
+            type="number"
+        />
+        <Field
+            label="المواقع المرغوبة للمخزن"
+            type="text"
+        />
     </>
 ]
