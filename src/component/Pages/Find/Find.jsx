@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 import PartialForm from "./Form/PartialForm";
 import partial from "../../../assets/icons/black/partial.png";
 import temporary from "../../../assets/icons/black/temporary.png";
+import TemporalForm from "./Form/TemporalForm";
 
 export default function Find() {
     const [stage, setStage] = useState("choice");
@@ -30,13 +31,18 @@ export default function Find() {
                     <Choice
                         label="أرغب بالتخزين المؤقت"
                         icon={temporary}
-                        onClick={() => navigate("/comingsoon")}
+                        onClick={() => setStage("temporary")}
                     />
                 </div>}
             <div className="w-fit mx-auto">
                 <AnimatePresence>
                     {stage === "partial" &&
                         <PartialForm
+                            onFinish={() => setStage("finished")}
+                            onReturn={() => setStage("choice")}
+                        />}
+                    {stage === "temporary" &&
+                        <TemporalForm
                             onFinish={() => setStage("finished")}
                             onReturn={() => setStage("choice")}
                         />}
