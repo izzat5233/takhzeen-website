@@ -5,10 +5,10 @@ import {ChoiceWrapper, TextChoice} from "../../Util/Form/Choice";
 
 export default function Owner() {
     return (
-        <FormPage className="w-fit mx-auto py-20 px-10">
+        <FormPage className="w-fit mx-auto">
             <AnimatePresence>
-                <div className="flex flex-col gap-16">
-                    <p className="text-4xl mx-auto">ما الخدمة التي تناسب رغبتك في تاجير مخزنك؟</p>
+                <div className="flex flex-col py-20 px-10">
+                    <p className="text-4xl mx-auto">ما الخدمة التي تناسب رغبتك في تأجير مخزنك؟</p>
                     <ChoiceWrapper>
                         <TextChoice
                             title="تخزينك الوجيز"
