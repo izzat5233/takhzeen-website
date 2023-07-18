@@ -33,27 +33,29 @@ export default function Find() {
                         onClick={() => navigate("/comingsoon")}
                     />
                 </div>}
-            <AnimatePresence>
-                {stage === "partial" &&
-                    <PartialForm
-                        onFinish={() => setStage("finished")}
-                        onReturn={() => setStage("choice")}
-                    />}
-                {stage === "finished" &&
-                    <motion.div
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        exit={{opacity: 0}}
-                        className="text-center text-3xl font-bold flex flex-col gap-5 justify-center"
-                    >
-                        <p>تم إرسال المعلومات بنجاح</p>
-                        <p>سيقوم أحد موظفينا بالاتصال بك خلال فترة قصيرة</p>
-                        <BackButton
-                            label="العودة"
-                            onClick={() => navigate("/")}
-                        />
-                    </motion.div>}
-            </AnimatePresence>
+            <div className="w-fit mx-auto">
+                <AnimatePresence>
+                    {stage === "partial" &&
+                        <PartialForm
+                            onFinish={() => setStage("finished")}
+                            onReturn={() => setStage("choice")}
+                        />}
+                    {stage === "finished" &&
+                        <motion.div
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0}}
+                            className="text-center text-3xl font-bold flex flex-col gap-5 justify-center"
+                        >
+                            <p>تم إرسال المعلومات بنجاح</p>
+                            <p>سيقوم أحد موظفينا بالاتصال بك خلال فترة قصيرة</p>
+                            <BackButton
+                                label="العودة"
+                                onClick={() => navigate("/")}
+                            />
+                        </motion.div>}
+                </AnimatePresence>
+            </div>
         </div>
     );
 }
