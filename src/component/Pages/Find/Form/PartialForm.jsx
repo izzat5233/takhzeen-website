@@ -1,11 +1,11 @@
 import React from "react";
 import storage from "../../../../assets/images/background.jpeg";
 import Field from "../../../Util/Form/Field";
-import {StaticForm} from "./Template";
+import {DynamicForm} from "./FormTemplate";
 
 export default function PartialForm({onFinish, onReturn}) {
     return (
-        <StaticForm
+        <DynamicForm
             title="ابحث عن مخزن"
             image={storage}
             header="دعنا نجد مخزنك المثالي"

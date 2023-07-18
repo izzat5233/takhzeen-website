@@ -1,8 +1,9 @@
 import {motion} from "framer-motion";
 import React, {useState} from "react";
 import {BackButton, ContinueButton, FinishButton} from "../../../Util/Button/FormButton";
+import {BsArrowRight} from "react-icons/bs";
 
-export default function Template({title, image, header, text, form, progress}) {
+export default function FormTemplate({title, image, header, text, form, progress, onReturn}) {
     return (
         <motion.div
             initial={{opacity: 0, x: -10, y: 10}}
@@ -10,13 +11,21 @@ export default function Template({title, image, header, text, form, progress}) {
             exit={{opacity: 0, x: 10, y: -10}}
             transition={{ease: "easeIn"}}
             className="
-                flex flex-col overflow-hidden
+                flex flex-col overflow-hidden relative
                 bg-back lg:rounded-3xl lg:drop-shadow-2xl
             ">
             <div>
-                <div className="flex justify-start py-8 lg:py-4 text-center">
-                    <p className="text-primary"></p>
-                    <h2 className="flex-grow">{title}</h2>
+                <div className="flex justify-center gap-5 py-8 lg:py-2 px-2 text-center">
+                    <button
+                        onClick={onReturn}
+                        className="
+                        flex gap-2 text-primary transition-transform hover:translate-x-1
+                        border-2 border-primary p-1 rounded-full
+                        lg:static absolute top-5 right-16 z-50
+                    ">
+                        <BsArrowRight className="my-auto text-2xl"/>
+                    </button>
+                    <h2 className="lg:flex-grow my-auto">{title}</h2>
                 </div>
                 <hr className="w-full"/>
             </div>
@@ -42,7 +51,7 @@ export default function Template({title, image, header, text, form, progress}) {
     );
 }
 
-export function StaticForm({title, image, header, text, fields, onFinish, onReturn}) {
+export function DynamicForm({title, image, header, text, fields, onFinish, onReturn}) {
     const [formNumber, setFormNumber] = useState(0);
     const [progress, setProgress] = useState(0);
 
@@ -65,12 +74,13 @@ export function StaticForm({title, image, header, text, fields, onFinish, onRetu
     }
 
     return (
-        <Template
+        <FormTemplate
             title={title}
             image={image}
             header={header}
             text={text}
             progress={progress}
+            onReturn={onReturn}
             form={<>
                 {fields[formNumber]}
                 <div className="flex flex-row-reverse gap-4 justify-center">

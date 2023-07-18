@@ -24,7 +24,7 @@ export default function Navbar() {
             animate={hidden ? "hidden" : "visible"}
             transition={{ease: [0.1, 0.25, 0.3, 1], duration: 0.6}}
             className="
-                bg-transparent z-50 flex
+                bg-transparent z-20 flex
                 fixed top-0 left-0 right-0
                 justify-between justify-items-center
                 py-4 px-4 md:px-8

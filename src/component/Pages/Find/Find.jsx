@@ -19,33 +19,8 @@ export default function Find() {
             lg:py-20 lg:px-32 p-0
         ">
             <ExpandedInOutBackground className="bg-gradient-primary"/>
-            {stage === "choice" &&
-                <div className="
-                    flex flex-col lg:flex-row gap-2 justify-center mx-auto
-                ">
-                    <Choice
-                        label="أرغب بالتخزين الجزئي"
-                        icon={partial}
-                        onClick={() => setStage("partial")}
-                    />
-                    <Choice
-                        label="أرغب بالتخزين المؤقت"
-                        icon={temporary}
-                        onClick={() => setStage("temporary")}
-                    />
-                </div>}
             <div className="w-fit mx-auto">
                 <AnimatePresence>
-                    {stage === "partial" &&
-                        <PartialForm
-                            onFinish={() => setStage("finished")}
-                            onReturn={() => setStage("choice")}
-                        />}
-                    {stage === "temporary" &&
-                        <TemporalForm
-                            onFinish={() => setStage("finished")}
-                            onReturn={() => setStage("choice")}
-                        />}
                     {stage === "finished" &&
                         <motion.div
                             initial={{opacity: 0}}
@@ -58,6 +33,33 @@ export default function Find() {
                             <BackButton
                                 label="العودة"
                                 onClick={() => navigate("/")}
+                            />
+                        </motion.div>}
+                    {stage === "partial" &&
+                        <PartialForm
+                            onFinish={() => setStage("finished")}
+                            onReturn={() => setStage("choice")}
+                        />}
+                    {stage === "temporary" &&
+                        <TemporalForm
+                            onFinish={() => setStage("finished")}
+                            onReturn={() => setStage("choice")}
+                        />}
+                    {stage === "choice" &&
+                        <motion.div
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0}}
+                            className="flex flex-col lg:flex-row gap-2 justify-center mx-auto">
+                            <Choice
+                                label="أرغب بالتخزين الجزئي"
+                                icon={partial}
+                                onClick={() => setStage("partial")}
+                            />
+                            <Choice
+                                label="أرغب بالتخزين المؤقت"
+                                icon={temporary}
+                                onClick={() => setStage("temporary")}
                             />
                         </motion.div>}
                 </AnimatePresence>

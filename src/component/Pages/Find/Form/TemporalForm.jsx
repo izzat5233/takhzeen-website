@@ -1,11 +1,11 @@
 import React from "react";
 import storage from "../../../../assets/images/img15.png";
 import Field from "../../../Util/Form/Field";
-import {StaticForm} from "./Template";
+import {DynamicForm} from "./FormTemplate";
 
 export default function TemporalForm({onFinish, onReturn}) {
     return (
-        <StaticForm
+        <DynamicForm
             title="ابحث عن مخزن"
             image={storage}
             header="دعنا نجد مخزنك المثالي"
