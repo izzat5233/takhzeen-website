@@ -12,6 +12,7 @@ import Management from '../../Pages/Management/Management';
 import {Routes, Route, useLocation} from 'react-router-dom';
 import Contact from "../../Pages/Contact/Contact";
 import {AnimatePresence} from "framer-motion";
+import ComingSoon from "../../Pages/Misc/ComingSoon/ComingSoon";
 
 function App() {
     const location = useLocation();
@@ -28,8 +29,9 @@ function App() {
                     <Route path='login' element={<Login/>}/>
                     <Route path='service' element={<Service/>}/>
                     <Route path='owner' element={<Owner/>}/>
-                    <Route path='find/*' element={<Find/>}/>
+                    <Route path='find' element={<Find/>}/>
                     <Route path='management/*' element={<Management/>}/>
+                    <Route path='comingsoon' element={<ComingSoon/>}/>
                     <Route path='*' element={<NotFound/>}/>
                 </Routes>
             </AnimatePresence>
