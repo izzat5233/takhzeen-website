@@ -20,15 +20,18 @@ export default function Choice({children, onClick, className}) {
     );
 }
 
-export function ChoiceWrapper({children, className}) {
+export function ChoiceWrapper({children, className, text}) {
     return (
-        <motion.div
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            className={`flex flex-col lg:flex-row gap-2 justify-center mx-auto py-20 px-10 ${className}`}>
-            {children}
-        </motion.div>
+        <div className="flex flex-col py-20">
+            {text && <p className="text-4xl mx-auto px-10">{text}</p>}
+            <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}
+                className={`flex flex-col lg:flex-row gap-2 justify-center mx-auto py-20 px-10 ${className}`}>
+                {children}
+            </motion.div>
+        </div>
     );
 }
 
@@ -36,7 +39,7 @@ export function IconChoice({icon, label, onClick}) {
     return (
         <Choice onClick={onClick} className="flex flex-col justify-around gap-5 p-10">
             <img src={icon} alt={label} className="w-40 h-40 mx-auto"/>
-            <p className="text-3xl">{label}</p>
+            <p className="text-3xl mx-auto">{label}</p>
         </Choice>
     );
 }
