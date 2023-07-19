@@ -95,10 +95,90 @@
     }
 }
 /*End About*/
-/*Start Space*/
-.space {
-    height: 150px;
+
+
+
+/*Start services*/
+.About_cards{
+    background-color: #fff;
+    padding: 1rem 3rem;
+}
+.About_title {
+    display: flex;
+    justify-content: right;
+    color: #FF4820;
+    font-size: 2.6em;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.About_sub_title {
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.About_content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.About_card {
+    width: 80vw;
+    background-color: #fff;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    transition: 0.1s ease;
+    text-align: right;
+    display: flex;
+    align-items: center;
+}
+
+.About_card:hover {
+    transform: scale(1.1);
+    border: 2px solid #FF4820;
+    box-shadow: 0 10px 30px rgba(1, 1, 1, 0.2); 
+}
+
+.About_card .icon {
+    color: #FF4820;
+    font-size: 5em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    flex: 0 0 auto; 
+    display: flex;
+ 
+}
+
+.About_info {
+    text-align: center;
+    direction: rtl;
+}
+
+.About_info h3{
+    color: #FF4820;
+    font-size: 1.2em;
+    font-weight: 800;
+    margin: 10px;
+}
+/*End services*/
+
+.About_space {
+    height: 100px;
     background-color: #fff;
 }
 
-/*End space*/
+.circular-img {
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  border-radius: 50%;
+  object-fit: cover; /* This ensures the image maintains its aspect ratio while being circular */
+}
