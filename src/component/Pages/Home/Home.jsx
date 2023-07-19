@@ -15,31 +15,31 @@ const Home = () => {
     {
       imgSrc: sys,
       title: "إدارة المخازن",
-      description: "تتمثل هذه الجزئية بتوفير خدمات ادارية وخدمات اشراف على المخازن"
+      description: " نضمن لك خدمات ادارية لخازن تتمثل بأعلى مواصفات الجودة والكفاءة لنحقق لك سلاسة العمليات، من بداية سلسلة تجارتك وحتى نهايتها، من:استلام، جرد، تصنيف، تقسيم ، تهيئة... "
     },
     {
       imgSrc: Partial,
-      title: "تخزين مؤقت",
-      description: "تتمثل هذه الخدمة بتوفير مساحات للافراد والعائلات لتخزين معدات او ادوات لا يتم استخدامها لفترة معينة."
+      title: "تخزينك الوجيز",
+      description: "   نتيح لك الفرصة بتخزين بضاعتك ومقتنياتك في مخازن مختلفة الحجام لفترات زمنية قصيرة ومتراوحة تناسب حاجتك دون ان تشعر بالاضطرار لاستئجار مساحة لفترات زمنية طويلة."
     },
     {
       imgSrc: connection,
-      title: "الربط بين المؤجر والمستأجر",
-      description: "تتمثل الخدمة بتوفير مساحة الكترونية تسمح للمؤجر بعرض مخزنه ومتطلباته لتأجير هذا المخزن"
+      title: "وسيطك",
+      description: " مساحتنا اللكترونية تفتح لك آفاق التواصل لايجاد طلبك من مخزن يلائمك او مستأجر تبحث عنه، نضمن لك المصداقية والكفاءة وبساطة الستخدام، وسهولة الحصول على مخزن بمواصفاتك الخاصة ومستأجر بشروطك التعاقدية."
     },
     {
       imgSrc: time,
       title: "تخزين جزئي",
-      description: "تتمثل هذه الخدمة بمساعدة كل من المؤجرين والمستأجرين باستغلال المساحات التخزينية المتوفرة بما بتناسب مع حاجة المستأجر ومصلحة المؤجر"
+      description: "  نمنحك تجربة استغلال المساحات التخزينية المتوفرة بما يتناسب مع حاجتك كمستأجر ومصلحتك كمؤجر بأساليب تقطيع مبتكرة، مخازن  منفصلة داخل المخزن ذاته مداخل خاصة وكاميرات مراقبة لتضمن  سلامة ممتلكاتك."
     }
   ];
   const features = [
     {
-      title: 'تخزين فعال',
+      title: ' خيارات متنوعة',
       description: 'نساعدك في تنظيم المساحة وترتيب البضائع بطريقة تسمح بتخزين أكبر عدد من السلع في مساحة محدودة.',
     },
     {
-      title: 'توفير الوقت والجهد',
+      title: 'تواصل مجدي',
       description: '',
     },
     {
@@ -50,6 +50,14 @@ const Home = () => {
       title: 'إدارة المخزون',
       description: '',
     },
+    {
+      title: 'تخزين ملائم',
+      description: ''
+    },
+    {
+      title: 'خدمة عملاء فعالة',
+      description: ''
+    }
   ];
   return (
     <motion.div
@@ -63,13 +71,14 @@ const Home = () => {
         <div className="header section__padding" id="Home">
           <div className="header-content" style={{ textAlign: "right" }}>
             <h1 className="gradient__text"> مرحبًا بك في شركة تخزين!</h1>
-            <p>  احصل على حلٍ مبتكر لتحقيق أهدافك المالية من خلال إدارتنا الفعالة لمستودعاتك .</p>
+            <p>  نعمل الى جانب كلً من الستأجرين والؤجرين، نواجه ما يعانونه من تحديات من خلل خلقنا لحلول تخزينية مبتكرة ، لنرقى
+بالكفاءات والخدمات القدمة من قبلهم.</p>
 
             <div className="header-content__input">
 
-              <button type="button"><Link to="/management">إدارة المخازن</Link></button>
-              <button type="button"><Link to="/owner">إعلان لمخزنك</Link> </button>
-              <button type="button"><Link to="/find">البحث عن مخزن</Link> </button>
+              <button type="button"><Link to="/management"> لِنُدّر لك مخزنك</Link></button>
+              <button type="button"><Link to="/owner">اعرض مخزنك</Link> </button>
+              <button type="button"><Link to="/find">ابحث عن مخزنك</Link> </button>
             </div>
           </div>
 
@@ -80,6 +89,8 @@ const Home = () => {
       </div>
       <section className="cards min-h-screen mb-20" id="services">
         <h1 className="title">خـــدمـــاتـــنـــا</h1>
+        <h2 className='sub_title'>احصل على حلول تخزينية محسوبة بالّلي لتنهض بالكفاءات والخدمات القدمة من قبلنا
+</h2>
         <div className="content">
           {cardsData.map((card, index) => (
             <div className="card" key={index}>
@@ -90,7 +101,6 @@ const Home = () => {
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
                 <br />
-                <p>إقرأ المزيد</p>
               </div>
             </div>
           ))}

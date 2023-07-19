@@ -1,8 +1,9 @@
 #section-wrapper{
     direction: rtl;
     margin-top: 5%;
-    width: 100%;
-    padding: 10px;
+    width: 90%;
+    padding: 10px ;
+    margin-left: 5%;
 }
 .box-wrapper{
     position: relative;
@@ -19,9 +20,10 @@
     float: left;
     display: block;
     border-radius: 30px 0px 0px 30px;
-    background: #031B34;
+    background: #042c54;
     color: #fff;
 }
+
 .info-title{
     text-align: right;
     font-size: 28px;
@@ -84,7 +86,7 @@
     float: right;
     padding:40px 25px 35px 25px;
     border-radius: 0px 30px 30px 0px;
-    background: #ecf0f3;
+    background: #042c54;
   
 }
 .form-title{
@@ -92,6 +94,7 @@
     margin-left: 23px;
     font-size: 28px;
     letter-spacing: 0.5px;
+    color: #fff;
 }
 .form-fields{
     display: table;
@@ -104,7 +107,7 @@
     outline:none;
     background: none;
     font-size: 18px;
-    color:#555;
+    color:#fff;
     padding: 20px 10px 20px 5px;
     width:100%
 }
@@ -120,9 +123,11 @@
     border-radius: 25px;
     box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
 }
-.form-fields .form-group:last-child {
+.form-fields .form-group:last-child,
+.form-fields .form-group:first-child {
     width: 96%;
 }
+
 .submit-button{
     width: 96%;
     height: 60px;
@@ -142,7 +147,7 @@
 .submit-button:hover{
     background: #031B34;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1100px) {
     .box-wrapper{
         width: 100%;
     }
@@ -164,6 +169,7 @@
         margin: 25px 0px;
     }
     .form-fields .form-group:last-child, 
+    .form-fields .form-group:first-child,
     .submit-button{
         width: 100%;
     }
