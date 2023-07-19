@@ -14,7 +14,7 @@ export default function Find() {
     const navigate = useNavigate();
 
     return (
-        <FormPage className="w-fit mx-auto">
+        <FormPage>
             <AnimatePresence>
                 {stage === "finished" &&
                     <motion.div

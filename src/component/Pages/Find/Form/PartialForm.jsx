@@ -1,7 +1,7 @@
 import React from "react";
 import storage from "../../../../assets/images/background.jpeg";
 import Field from "../../../Util/Form/Field";
-import {DynamicForm} from "./FormTemplate";
+import {DynamicForm} from "../../../Util/Form/Page";
 
 export default function PartialForm({onFinish, onReturn}) {
     return (
