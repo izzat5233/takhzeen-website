@@ -15,7 +15,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-links_logo m-4 text-center flex-1 w-56 mb-3 order-2 text-2xl md:order-1   md:text-3xl lg:text-3xl">
-          <h1 className="mb-4">تخزين منصة فلسطينية تطرح حلول تخزينية مبتكرة ، كما وتقدم دعماً لوجستياً لامتناهي يناسب عملائنا</h1>
+          <h1 className="mb-4"> تخزين منصة فلسطينية تطرح حلول تخزينية مبتكرة، كما وتقدم دعم لوجستياً لامتناهي يناسب العملاء </h1>
           <div className="footer-links_icons mt-2 flex justify-center space-x-2">
             <a className="flex items-center mr-2" href="https://www.facebook.com/ta5zeen" target="_blank" rel="noopener noreferrer">
               <FiFacebook />

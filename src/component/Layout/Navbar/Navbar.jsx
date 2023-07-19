@@ -89,13 +89,10 @@ function NavbarSignLinks() {
                 title="عن تخزين"
                 to="about"
             />
-            <NavbarSignLink
+
+             <NavbarSignLink
                 title="تواصل معنا"
                 to="contact"
-            />
-            <NavbarSignLink
-                title="تسجيل الدخول"
-                to="login"
             />
         </>
     )

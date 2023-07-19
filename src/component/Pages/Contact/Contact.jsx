@@ -34,11 +34,9 @@ export default function Contact() {
                     <form>
                         <h2 className="form-title"> أرسل رسالتك الآن وتواصل معنا : </h2>
                         <div className="form-fields">
+                            
                             <div className="form-group">
-                                <input type="text" className="fname" placeholder="  اسم العائلة" />
-                            </div>
-                            <div className="form-group">
-                                <input type="text" className="lname" placeholder="الأسم الأول" />
+                                <input type="text" className="lname" placeholder=" الأسم " />
                             </div>
                             <div className="form-group">
                                 <input type="email" className="email" placeholder="الايميل" />
