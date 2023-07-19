@@ -50,7 +50,7 @@ const About = () => {
         
         <div className="About_card" key={index}>
  <div className="icon">
-                <img src={AboutVal.imgSrc} alt={`Card ${index + 1}`} />
+                <img src={AboutVal.imgSrc}  />
               </div>
           <div className="About_info">
             <h3>{AboutVal.title}</h3>
