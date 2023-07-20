@@ -14,7 +14,7 @@ export default function Find() {
     const navigate = useNavigate();
 
     return (
-        <FormPage className="w-fit mx-auto">
+        <FormPage>
             <AnimatePresence>
                 {stage === "finished" &&
                     <motion.div
@@ -41,14 +41,14 @@ export default function Find() {
                         onReturn={() => setStage("choice")}
                     />}
                 {stage === "choice" &&
-                    <ChoiceWrapper>
+                    <ChoiceWrapper text="ما الخدمة التي ترغب بالاستفادة منها ؟">
                         <IconChoice
-                            label="أرغب بالتخزين الجزئي"
+                            label="التخزين الجزئي"
                             icon={partial}
                             onClick={() => setStage("partial")}
                         />
                         <IconChoice
-                            label="أرغب بالتخزين المؤقت"
+                            label="التخزين الوجيز"
                             icon={temporary}
                             onClick={() => setStage("temporary")}
                         />
