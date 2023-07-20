@@ -3,7 +3,7 @@ import {AnimatePresence} from "framer-motion";
 import {ChoiceWrapper, TextChoice} from "../../Util/Form/Choice";
 import warehouse from "../../../assets/images/warehouse.png";
 import Form from "../../Util/Form/Form";
-import Field from "../../Util/Form/Field";
+import TextField from "../../Util/Form/Field";
 import {ContinueButton} from "../../Util/Button/FormButton";
 import {FormPage} from "../../Util/Page/Page";
 
@@ -39,17 +39,17 @@ export default function Owner() {
                             onSubmit={() => {
                             }}
                         >
-                            <Field
+                            <TextField
                                 label="الاسم"
                                 name="userName"
                                 type="text"
                             />
-                            <Field
+                            <TextField
                                 label="رقم الهاتف"
                                 name="phoneNumber"
                                 type="tel"
                             />
-                            <Field
+                            <TextField
                                 label="مكان السكن"
                                 name="residenceLocation"
                                 type="text"

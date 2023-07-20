@@ -1,6 +1,6 @@
 import React from "react";
 import storage from "../../../../assets/images/img15.png";
-import Field from "../../../Util/Form/Field";
+import TextField from "../../../Util/Form/Field";
 import {DynamicExplanatoryForm} from "../../../Util/Form/Form";
 
 export default function TemporalForm({onFinish, onReturn}) {
@@ -19,39 +19,39 @@ export default function TemporalForm({onFinish, onReturn}) {
 
 const fields = [
     <>
-        <Field
+        <TextField
             label="الاسم"
             name="userName"
             type="text"
         />
-        <Field
+        <TextField
             label="رقم الهاتف"
             name="phoneNumber"
             type="tel"
         />
-        <Field
+        <TextField
             label="مكان السكن"
             name="residenceLocation"
             type="text"
         />
     </>,
     <>
-        <Field
+        <TextField
             label="نوع المواد المراد تخزينها"
             name="materialType"
             type="text"
         />
-        <Field
+        <TextField
             label="المدة المتوقعة للاستئجار"
             name="expectedRentalDuration"
             type="number"
         />
-        <Field
+        <TextField
             label="المساحة المراد استئجارها"
             name="requiredStorageSpace"
             type="number"
         />
-        <Field
+        <TextField
             label="المواقع المرغوبة للمخزن"
             name="desiredStorageLocation"
             type="text"

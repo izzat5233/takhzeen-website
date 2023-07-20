@@ -1,5 +1,5 @@
 import icon from "../../../../assets/icons/normal/management.png";
-import Field from "../../../Util/Form/Field";
+import TextField from "../../../Util/Form/Field";
 import {ContinueButton} from "../../../Util/Button/FormButton";
 import SimpleForm from "../../../Util/Form/Form";
 
@@ -19,8 +19,8 @@ export default function Start({onSubmit}) {
                     </h1>
                 </div>
                 <p className="mx-auto mb-20 mr-20 ml-20 text-2xl">
-                نضمن لك خدمات ادارية لمخازنك تتمثل بأعلى مواصفات الجودة والكفاءة؛ لنحقق لك سلاسة عملياتك التخزينية…
-                              </p>
+                    نضمن لك خدمات ادارية لمخازنك تتمثل بأعلى مواصفات الجودة والكفاءة؛ لنحقق لك سلاسة عملياتك التخزينية…
+                </p>
             </div>
             <div className="mx-auto">
                 <SimpleForm
@@ -28,10 +28,10 @@ export default function Start({onSubmit}) {
                     onSubmit={() => {
                     }}
                 >
-                    <Field label="اسم الشركة" type="text"  required />
-                    <Field label="رقم الهاتف" type="tel" required />
-                    <Field label="البريد الاكتروني" type="email"/>
-                    <Field label="رقم الجوال" type="tel"/>
+                    <TextField name="companyName" label="اسم الشركة" type="text" required/>
+                    <TextField name="phoneNumber" label="رقم الهاتف" type="tel" required/>
+                    <TextField name="email" label="البريد الاكتروني" type="email"/>
+                    <TextField name="mobileNumber" label="رقم الجوال" type="tel"/>
                     <ContinueButton
                         label="ابدأ"
                         onClick={() => onSubmit()}

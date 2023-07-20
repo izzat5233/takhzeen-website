@@ -2,8 +2,9 @@ import React, {useState} from "react";
 import {motion} from "framer-motion";
 import {BsArrowRight} from "react-icons/bs";
 import {BackButton, ContinueButton, FinishButton} from "../Button/FormButton";
+import {Formik, Form} from 'formik';
 
-export default function SimpleForm({title, onSubmit, children, className = ""}) {
+export default function SimpleForm({title, initialValues, onSubmit, children, className = ""}) {
     return (
         <div className={`
             p-10 flex flex-col gap-4
@@ -12,12 +13,14 @@ export default function SimpleForm({title, onSubmit, children, className = ""}) 
             ${className}
         `}>
             {title && <h2 className="text-center text-4xl mb-8">{title}</h2>}
-            <form onSubmit={(event) => {
-                event.preventDefault();
-                onSubmit();
-            }}>
-                {children}
-            </form>
+            <Formik
+                initialValues={initialValues || {}}
+                onSubmit={onSubmit}
+            >
+                <Form>
+                    {children}
+                </Form>
+            </Formik>
         </div>
     );
 }
@@ -70,7 +73,7 @@ export function ExplanatoryForm({title, image, header, text, form, progress = 0,
     );
 }
 
-export function DynamicExplanatoryForm({title, image, header, text, fields, onFinish, onReturn}) {
+export function DynamicExplanatoryForm({title, image, header, text, fields, initialValues, onFinish, onReturn}) {
     const [formNumber, setFormNumber] = useState(0);
     const [progress, setProgress] = useState(0);
 
@@ -100,29 +103,35 @@ export function DynamicExplanatoryForm({title, image, header, text, fields, onFi
             text={text}
             progress={progress}
             onReturn={onReturn}
-            form={<>
-                {fields[formNumber]}
-                <div className="flex flex-row-reverse gap-4 justify-center">
-                    {formNumber === fields.length - 1 &&
-                        <FinishButton
-                            label="تابع"
-                            onClick={() => {
-                                incrementProgress();
-                                onFinish();
-                            }}
-                        />}
-                    {formNumber < fields.length - 1 &&
-                        <ContinueButton
-                            label="تابع"
-                            onClick={next}
-                        />}
-                    {formNumber > 0 &&
-                        <BackButton
-                            label="ارجع"
-                            onClick={back}
-                        />}
-                </div>
-            </>}
+            form={
+                <Formik
+                    initialValues={initialValues}
+                    onSubmit={() => {
+                    }}>
+                    <Form>
+                        {fields[formNumber]}
+                        <div className="flex flex-row-reverse gap-4 justify-center">
+                            {formNumber === fields.length - 1 &&
+                                <FinishButton
+                                    label="تابع"
+                                    onClick={() => {
+                                        incrementProgress();
+                                        onFinish();
+                                    }}
+                                />}
+                            {formNumber < fields.length - 1 &&
+                                <ContinueButton
+                                    label="تابع"
+                                    onClick={next}
+                                />}
+                            {formNumber > 0 &&
+                                <BackButton
+                                    label="ارجع"
+                                    onClick={back}
+                                />}
+                        </div>
+                    </Form>
+                </Formik>}
         />
     );
 }
