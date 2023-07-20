@@ -14,7 +14,7 @@ export default function Start({onSubmit}) {
                         className="w-24 md:w-40"
                     />
                     <h1 className="
-                            font-bold text-3xl md:text-6xl bg-gradient-primary bg-clip-text my-auto
+                            font-bold text-3xl md:text-6xl my-auto
                         ">ادارة المخازن
                     </h1>
                 </div>

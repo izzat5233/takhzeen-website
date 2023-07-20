@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
 import Start from "./Stage/Start";
-import Continue from "./Stage/Continue";
-import {FormPage} from "../../Util/Page/Page";
+import Fill from "./Stage/Fill";
 import {motion} from "framer-motion";
 import {useNavigate} from "react-router-dom";
+import Page from "../../Util/Page/Page";
 
 export default function Management() {
     const [stage, setStage] = useState(1);
     const navigate = useNavigate();
 
     return (
-        <FormPage background={<TriangleShape/>}>
+        <Page background={<TriangleShape/>}>
             {stage === 2 &&
-                <Continue
+                <Fill
                     onSubmit={() => navigate("/comingsoon")}
                     onBack={() => setStage(1)}
                 />}
             {stage === 1 && <Start onSubmit={() => setStage(2)}/>}
-        </FormPage>
+        </Page>
     );
 }
 
@@ -27,7 +27,7 @@ function TriangleShape() {
             initial={{translateY: 500}}
             animate={{translateY: 0}}
             transition={{duration: 1, ease: "anticipate"}}
-            className="absolute bottom-0 left-0 w-full h-full"
+            className="absolute bottom-0 left-0 w-full h-full -z-10"
         >
             <div className="absolute bottom-0 left-0 w-full overflow-hidden rotate-180">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"

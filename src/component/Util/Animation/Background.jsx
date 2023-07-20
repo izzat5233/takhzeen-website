@@ -1,13 +1,12 @@
 import {motion} from "framer-motion";
 import React from "react";
 
-export function ExpandedInOutBackground({className, height}) {
+export function ExpandedInOutBackground({className = "bg-gradient-primary", height = "full"}) {
     return (
         <motion.div
             className={`
-                absolute -z-10 origin-right 
-                ${height ? "h-" + height : "h-full"} 
-                w-full right-0 ${className}
+                absolute -z-10 origin-right w-full right-0 
+                ${height} ${className}
             `}
             initial={{scaleX: 0}}
             animate={{scaleX: 1}}
