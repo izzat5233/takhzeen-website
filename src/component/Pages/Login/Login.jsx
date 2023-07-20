@@ -1,20 +1,22 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import './login.css';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
 import { IoPersonCircle , IoKey  } from "react-icons/io5";
-
+import login from '../../../assets/images/login.png'
 const Login = () => {
-   
 
-    const [email,setEmail]=useState('')
+    const [email,setEmail]=useState(''  )
     const [password,setPassword]=useState('')
 
     async function handleSubmit(e){
         e.preventDefault();
-        handleSubmit();
+        // Perform any necessary login/authentication logic here
+       
     }
     return (
             <div className="box">
+                <img src={login}></img>
                 <div className="container">
                     <form onChange={handleSubmit}>
                     <div className="top">
@@ -37,18 +39,13 @@ const Login = () => {
                         <IoKey  className="login-icon" />
                     </div>
                     <div className="input-field">
-                        <button type="submit" className="submit" defaultValue="تسجيل الدخول" id >دخــول
-                        </button>
+                        <button type="submit" className="submit" defaultValue="تسجيل الدخول" id ><Link to="/dashboard">دخــول</Link></button>
+
                     </div>
-                            
-                       
-                    <div className="one-col">
-                        <div className="two">
-                            <label><Link to="#">نسيت كلمة المرور ؟</Link></label>
-                        </div>
-                    </div>
+
                     </form>
                 </div>
+                <div className="space"></div>
             </div>
     );
 }
