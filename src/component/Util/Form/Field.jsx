@@ -5,7 +5,7 @@ export default function TextField({name, label, type, placeholder, required}) {
     const [field, meta] = useField(name);
     return (
         <div className="flex flex-col gap-2 mb-4">
-            {label && <label className="text-gray-800" htmlFor={name}>{label}</label>}
+            {label && <label htmlFor={name}>{label}</label>}
             <Field
                 id={name}
                 name={name}
@@ -25,14 +25,14 @@ export default function TextField({name, label, type, placeholder, required}) {
     );
 }
 
-export function RadioField({name, label, options, required}) {
+export function RadioField({name, label, options, className, required}) {
     const [field, meta] = useField(name);
     return (
         <fieldset className="flex flex-col">
-            <legend className="text-gray-800 mb-4">{label}</legend>
-            <div className="flex gap-6 flex-wrap justify-start text-xl">
+            <legend className="mb-4">{label}</legend>
+            <div className={`flex gap-6 flex-wrap justify-start text-xl ${className}`}>
                 {options.map((option, index) => (
-                    <label key={index} className="inline-flex gap-4 items-center text-gray-700">
+                    <label key={index} className="inline-flex gap-4 items-center">
                         <Field
                             type="radio"
                             name={name}
@@ -59,7 +59,7 @@ export function CheckboxField({name, label}) {
     const [field, meta] = useField({name, type: 'checkbox'});
     return (
         <div className="flex flex-col gap-2 mb-4">
-            <label className="inline-flex items-center text-gray-800 gap-4">
+            <label className="inline-flex items-center gap-4">
                 <input
                     id={name}
                     name={name}

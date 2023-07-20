@@ -4,19 +4,52 @@ import Fill from "./Stage/Fill";
 import {motion} from "framer-motion";
 import {useNavigate} from "react-router-dom";
 import Page from "../../Util/Page/Page";
+import {BackButton} from "../../Util/Button/FormButton";
+import {RadioField} from "../../Util/Form/Field";
+import SimpleForm from "../../Util/Form/Form";
+import {Form, Formik} from "formik";
 
 export default function Management() {
-    const [stage, setStage] = useState(1);
+    const [stage, setStage] = useState("start");
     const navigate = useNavigate();
 
     return (
         <Page background={<TriangleShape/>}>
-            {stage === 2 &&
+            {stage === "finished" &&
+                <motion.div
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}
+                    className="text-start text-xl lg:text-2xl font-bold flex flex-col gap-5 p-4"
+                >
+                    <p className="mx-auto">نشكرك على ثقتك بنا، سنتواصل معك بأقرب وقت خلال اليومين القادمين؛ لنحقق لك
+                        إدارة مخزنية متميزة…</p>
+                    <Formik initialValues={{}} onSubmit={() => {}}>
+                        <Form className="mx-auto">
+                            <RadioField
+                                className="mx-auto"
+                                name="contactMethod"
+                                label="ما الطريقة التي ترغب بأن نتواصل بها معك ؟"
+                                required={true}
+                                options={[
+                                    {value: 'phone', label: 'الهاتف'},
+                                    {value: 'email', label: 'البريد الإلكتروني'},
+                                ]}
+                            />
+                        </Form>
+                    </Formik>
+                    <p className="mx-auto"> في حال واجهتك اية استفسارات أو تخوفات اضافية يرجى التواصل معنا.</p>
+                    <BackButton
+                        label="العودة"
+                        onClick={() => navigate("/")}
+                    />
+                </motion.div>}
+            {stage === "fill" &&
                 <Fill
-                    onSubmit={() => navigate("/comingsoon")}
-                    onBack={() => setStage(1)}
+                    onSubmit={() => setStage("finished")}
+                    onBack={() => setStage("start")}
                 />}
-            {stage === 1 && <Start onSubmit={() => setStage(2)}/>}
+            {stage === "start" && <Start onSubmit={() => setStage("fill")}/>}
         </Page>
     );
 }
