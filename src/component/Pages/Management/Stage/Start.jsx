@@ -14,13 +14,13 @@ export default function Start({onSubmit}) {
                         className="w-24 md:w-40"
                     />
                     <h1 className="
-                            font-bold text-4xl md:text-6xl bg-gradient-primary bg-clip-text my-auto
+                            font-bold text-3xl md:text-6xl bg-gradient-primary bg-clip-text my-auto
                         ">ادارة المخازن
                     </h1>
                 </div>
-                <p className="mx-auto mb-20 text-2xl">
-                    يمكننا الآن مساعدتك في الاشراف على مخازنك
-                </p>
+                <p className="mx-auto mb-20 mr-20 ml-20 text-2xl">
+                نضمن لك خدمات ادارية لمخازنك تتمثل بأعلى مواصفات الجودة والكفاءة؛ لنحقق لك سلاسة عملياتك التخزينية…
+                              </p>
             </div>
             <div className="mx-auto">
                 <Form
@@ -28,11 +28,10 @@ export default function Start({onSubmit}) {
                     onSubmit={() => {
                     }}
                 >
-                    <Field label="الاسم" type="text"/>
-                    <Field label="رقم الهاتف" type="tel"/>
+                    <Field label="اسم الشركة" type="text"  required />
+                    <Field label="رقم الهاتف" type="tel" required />
                     <Field label="البريد الاكتروني" type="email"/>
-                    <Field label="اسم الشركة" type="text"/>
-                    <Field label="عنوان الموقع الاكتروني" type="url"/>
+                    <Field label="رقم الجوال" type="tel"/>
                     <ContinueButton
                         label="ابدأ"
                         onClick={() => onSubmit()}

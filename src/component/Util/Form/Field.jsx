@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Field({label, type}) {
+export default function Field({label, type, required }) {
     const id = label + type;
     return (
         <div className="flex flex-col gap-2 mb-4">
@@ -14,6 +14,7 @@ export default function Field({label, type}) {
                     outline-none border-2 focus:border-primary transition-all
                 "
                 type={type}
+                required={required}
             />
         </div>
     );
