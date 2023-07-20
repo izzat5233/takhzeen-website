@@ -6,8 +6,9 @@ import PartialForm from "./Form/PartialForm";
 import partial from "../../../assets/icons/black/partial.png";
 import temporary from "../../../assets/icons/black/temporary.png";
 import TemporalForm from "./Form/TemporalForm";
-import {FormPage} from "../../Util/Form/Page";
 import {ChoiceWrapper, IconChoice} from "../../Util/Form/Choice";
+
+import {FormPage} from "../../Util/Page/Page";
 
 export default function Find() {
     const [stage, setStage] = useState("choice");

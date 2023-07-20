@@ -1,7 +1,7 @@
 import icon from "../../../../assets/icons/normal/management.png";
-import Form from "../../../Util/Form/Form";
 import Field from "../../../Util/Form/Field";
 import {ContinueButton} from "../../../Util/Button/FormButton";
+import SimpleForm from "../../../Util/Form/Form";
 
 export default function Start({onSubmit}) {
     return (
@@ -23,7 +23,7 @@ export default function Start({onSubmit}) {
                               </p>
             </div>
             <div className="mx-auto">
-                <Form
+                <SimpleForm
                     title="عرفنا عن نفسك"
                     onSubmit={() => {
                     }}
@@ -36,7 +36,7 @@ export default function Start({onSubmit}) {
                         label="ابدأ"
                         onClick={() => onSubmit()}
                     />
-                </Form>
+                </SimpleForm>
             </div>
         </div>
     );

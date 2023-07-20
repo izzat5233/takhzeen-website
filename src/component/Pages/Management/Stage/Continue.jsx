@@ -1,11 +1,11 @@
-import Form from "../../../Util/Form/Form";
 import Field from "../../../Util/Form/Field";
 import {BackButton, ContinueButton} from "../../../Util/Button/FormButton";
+import SimpleForm from "../../../Util/Form/Form";
 
 export default function Continue({onSubmit, onBack}) {
     return (
         <div className="mx-auto max-w-3xl w-full">
-            <Form
+            <SimpleForm
                 title="زودنا بمعلوماتك لنحدد حاجتك
                 "
                 onSubmit={() => {
@@ -40,7 +40,7 @@ export default function Continue({onSubmit, onBack}) {
                         onClick={() => onSubmit()}
                     />
                 </div>
-            </Form>
+            </SimpleForm>
         </div>
     );
 }

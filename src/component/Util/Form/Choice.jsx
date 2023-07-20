@@ -10,10 +10,7 @@ export default function Choice({children, onClick, className}) {
             border-8 border-gray-100 drop-shadow-2xl
             hover:rounded-3xl hover:z-10 hover:scale-90
         ">
-            <button
-                onClick={onClick}
-                className={`flex-grow ${className}`}
-            >
+            <button onClick={onClick} className={`flex-grow ${className}`}>
                 {children}
             </button>
         </div>
@@ -22,7 +19,7 @@ export default function Choice({children, onClick, className}) {
 
 export function ChoiceWrapper({children, className, text}) {
     return (
-        <div className="flex flex-col py-20">
+        <div className={text && `flex flex-col py-20`}>
             {text && <p className="text-4xl mx-auto px-10">{text}</p>}
             <motion.div
                 initial={{opacity: 0}}

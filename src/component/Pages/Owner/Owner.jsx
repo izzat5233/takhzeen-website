@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
-import {DynamicForm, FormPage} from "../../Util/Form/Page";
 import {AnimatePresence} from "framer-motion";
 import {ChoiceWrapper, TextChoice} from "../../Util/Form/Choice";
 import warehouse from "../../../assets/images/warehouse.png";
 import Form from "../../Util/Form/Form";
 import Field from "../../Util/Form/Field";
 import {ContinueButton} from "../../Util/Button/FormButton";
+import {FormPage} from "../../Util/Page/Page";
 
 export default function Owner() {
     const [stage, setStage] = useState("choice");
@@ -41,14 +41,17 @@ export default function Owner() {
                         >
                             <Field
                                 label="الاسم"
+                                name="userName"
                                 type="text"
                             />
                             <Field
                                 label="رقم الهاتف"
+                                name="phoneNumber"
                                 type="tel"
                             />
                             <Field
                                 label="مكان السكن"
+                                name="residenceLocation"
                                 type="text"
                             />
                             <ContinueButton
