@@ -6,7 +6,7 @@ export function ExpandedInOutBackground({className = "bg-gradient-primary", heig
         <motion.div
             className={`
                 absolute -z-10 origin-right w-full right-0 
-                ${height} ${className}
+                ${"h-" + height} ${className}
             `}
             initial={{scaleX: 0}}
             animate={{scaleX: 1}}
