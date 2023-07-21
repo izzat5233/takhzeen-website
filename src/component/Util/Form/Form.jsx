@@ -4,6 +4,16 @@ import {BsArrowRight} from "react-icons/bs";
 import {BackButton, ContinueButton, FinishButton} from "../Button/FormButton";
 import {Formik, Form} from 'formik';
 
+/**
+ * SimpleForm component renders a Formik form with a title and children components.
+ *
+ * @param {object} props - The properties that define the SimpleForm component.
+ * @param {string} props.title - The title of the form.
+ * @param {object} props.initialValues - The initial values of the form fields.
+ * @param {function} props.onSubmit - The function to call when the form is submitted.
+ * @param {React.ReactNode} props.children - The child components of the form.
+ * @param {string} props.className - The CSS classes for the form.
+ */
 export default function SimpleForm({title, initialValues, onSubmit, children, className = ""}) {
     return (
         <div className={`
@@ -25,6 +35,18 @@ export default function SimpleForm({title, initialValues, onSubmit, children, cl
     );
 }
 
+/**
+ * ExplanatoryForm component renders a form with a title, image, header, text, and progress bar.
+ *
+ * @param {object} props - The properties that define the ExplanatoryForm component.
+ * @param {string} props.title - The title of the form.
+ * @param {string} props.image - The URL of the image to display.
+ * @param {string} props.header - The header of the form.
+ * @param {string} props.text - The text of the form.
+ * @param {React.ReactNode} props.form - The form component to render.
+ * @param {number} props.progress - The progress of the form.
+ * @param {function} props.onReturn - The function to call when the return button is clicked.
+ */
 export function ExplanatoryForm({title, image, header, text, form, progress = 0, onReturn}) {
     return (
         <motion.div
@@ -73,6 +95,19 @@ export function ExplanatoryForm({title, image, header, text, form, progress = 0,
     );
 }
 
+/**
+ * DynamicExplanatoryForm component renders a form with a title, image, header, text, and fields that can be dynamically changed.
+ *
+ * @param {object} props - The properties that define the DynamicExplanatoryForm component.
+ * @param {string} props.title - The title of the form.
+ * @param {string} props.image - The URL of the image to display.
+ * @param {string} props.header - The header of the form.
+ * @param {string} props.text - The text of the form.
+ * @param {Array} props.fields - The fields of the form.
+ * @param {object} props.initialValues - The initial values of the form fields.
+ * @param {function} props.onFinish - The function to call when the form is finished.
+ * @param {function} props.onReturn - The function to call when the return button is clicked.
+ */
 export function DynamicExplanatoryForm({title, image, header, text, fields, initialValues, onFinish, onReturn}) {
     const [formNumber, setFormNumber] = useState(0);
     const [progress, setProgress] = useState(0);

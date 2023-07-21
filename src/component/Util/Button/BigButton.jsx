@@ -1,6 +1,15 @@
 import React from "react";
 import {motion} from "framer-motion";
 
+/**
+ * BigButton is a React component that displays a large clickable button.
+ *
+ * @param {object} props - The properties passed to the component.
+ * @param {React.ReactNode} props.children - The child elements to be rendered within the button.
+ * @param {function} props.onClick - The function to be called when the button is clicked.
+ * @param {string} props.className - Additional CSS classes to apply to the button.
+ * @returns {JSX.Element} A div element that wraps a button element.
+ */
 export default function BigButton({children, onClick, className}) {
     return (
         <div className="
@@ -17,6 +26,15 @@ export default function BigButton({children, onClick, className}) {
     );
 }
 
+/**
+ * BigButtonsWrapper is a React component that wraps multiple BigButton components.
+ *
+ * @param {object} props - The properties passed to the component.
+ * @param {React.ReactNode} props.children - The BigButton components to be wrapped.
+ * @param {string} props.className - Additional CSS classes to apply to the wrapper.
+ * @param {string} props.text - The text to be displayed above the buttons.
+ * @returns {JSX.Element} A div element that wraps the provided BigButton components.
+ */
 export function BigButtonsWrapper({children, className, text}) {
     return (
         <div className={text && `flex flex-col py-20`}>
@@ -32,6 +50,15 @@ export function BigButtonsWrapper({children, className, text}) {
     );
 }
 
+/**
+ * IconBigButton is a React component that displays a BigButton with an icon and a label.
+ *
+ * @param {object} props - The properties passed to the component.
+ * @param {string} props.icon - The source URL of the icon to be displayed.
+ * @param {string} props.label - The label to be displayed below the icon.
+ * @param {function} props.onClick - The function to be called when the button is clicked.
+ * @returns {JSX.Element} A BigButton component with an icon and a label.
+ */
 export function IconBigButton({icon, label, onClick}) {
     return (
         <BigButton onClick={onClick} className="flex flex-col justify-around gap-5 p-10">
@@ -41,6 +68,15 @@ export function IconBigButton({icon, label, onClick}) {
     );
 }
 
+/**
+ * TextBigButton is a React component that displays a BigButton with a title and a text.
+ *
+ * @param {object} props - The properties passed to the component.
+ * @param {string} props.title - The title to be displayed at the top of the button.
+ * @param {string} props.text - The text to be displayed below the title.
+ * @param {function} props.onClick - The function to be called when the button is clicked.
+ * @returns {JSX.Element} A BigButton component with a title and a text.
+ */
 export function TextBigButton({title, text, onClick}) {
     return (
         <BigButton onClick={onClick} className="flex flex-col justify-start gap-5 p-6">

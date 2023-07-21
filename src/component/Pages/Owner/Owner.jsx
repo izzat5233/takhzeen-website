@@ -1,12 +1,13 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {AnimatePresence} from "framer-motion";
 import {BigButtonsWrapper, TextBigButton} from "../../Util/Button/BigButton";
 import warehouse from "../../../assets/images/warehouse.png";
 import Form from "../../Util/Form/Form";
 import TextField from "../../Util/Form/Field";
 import {ContinueButton} from "../../Util/Button/FormButton";
-import {FormPage} from "../../Util/Page/Page";
+import Page from "../../Util/Page/Page";
 import useStages from "../../Util/Hook/Stages";
+import {ExpandedInOutBackground} from "../../Util/Page/Background";
 
 export default function Owner() {
     const [stage, goToStage, renderCurrentStage] = useStages({
@@ -59,10 +60,10 @@ export default function Owner() {
     }, "choice");
 
     return (
-        <FormPage className="w-fit mx-auto">
+        <Page background={<ExpandedInOutBackground/>} className="w-fit mx-auto">
             <AnimatePresence>
                 {renderCurrentStage()}
             </AnimatePresence>
-        </FormPage>
+        </Page>
     );
 }

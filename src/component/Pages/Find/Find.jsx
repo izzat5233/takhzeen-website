@@ -7,8 +7,9 @@ import partial from "../../../assets/icons/black/partial.png";
 import temporary from "../../../assets/icons/black/temporary.png";
 import TemporalForm from "./Form/TemporalForm";
 import {BigButtonsWrapper, IconBigButton} from "../../Util/Button/BigButton";
-import {FormPage} from "../../Util/Page/Page";
+import Page from "../../Util/Page/Page";
 import useStages from "../../Util/Hook/Stages";
+import {ExpandedInOutBackground} from "../../Util/Page/Background";
 
 export default function Find() {
     const [stage, goToStage, renderCurrentStage] = useStages({
@@ -40,11 +41,11 @@ export default function Find() {
     }, "choice");
 
     return (
-        <FormPage>
+        <Page background={<ExpandedInOutBackground/>} className="lg:w-fit py-0">
             <AnimatePresence>
                 {renderCurrentStage()}
             </AnimatePresence>
-        </FormPage>
+        </Page>
     );
 }
 

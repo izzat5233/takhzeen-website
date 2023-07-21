@@ -1,6 +1,16 @@
 import React from "react";
 import {Field, useField} from 'formik';
 
+/**
+ * TextField component renders a text input field with label and error message.
+ *
+ * @param {object} props - The properties that define the TextField component.
+ * @param {string} props.name - The name of the field.
+ * @param {string} props.label - The label of the field.
+ * @param {string} props.type - The type of the input field.
+ * @param {string} props.placeholder - The placeholder of the input field.
+ * @param {boolean} props.required - Whether the field is required.
+ */
 export default function TextField({name, label, type, placeholder, required}) {
     const [field, meta] = useField(name);
     return (
@@ -25,6 +35,16 @@ export default function TextField({name, label, type, placeholder, required}) {
     );
 }
 
+/**
+ * RadioField component renders a set of radio buttons with labels and error message.
+ *
+ * @param {object} props - The properties that define the RadioField component.
+ * @param {string} props.name - The name of the field.
+ * @param {string} props.label - The label of the field.
+ * @param {Array} props.options - The options for the radio buttons.
+ * @param {string} props.className - The CSS classes for the radio buttons.
+ * @param {boolean} props.required - Whether the field is required.
+ */
 export function RadioField({name, label, options, className, required}) {
     const [field, meta] = useField(name);
     return (
@@ -55,6 +75,13 @@ export function RadioField({name, label, options, className, required}) {
     );
 }
 
+/**
+ * CheckboxField component renders a checkbox with label and error message.
+ *
+ * @param {object} props - The properties that define the CheckboxField component.
+ * @param {string} props.name - The name of the field.
+ * @param {string} props.label - The label of the field.
+ */
 export function CheckboxField({name, label}) {
     const [field, meta] = useField({name, type: 'checkbox'});
     return (
@@ -80,6 +107,14 @@ export function CheckboxField({name, label}) {
     );
 }
 
+/**
+ * CheckboxFieldList component renders a list of checkboxes with labels.
+ *
+ * @param {object} props - The properties that define the CheckboxFieldList component.
+ * @param {Array} props.names - The names of the fields.
+ * @param {Array} props.labels - The labels of the fields.
+ * @param {string} props.title - The title of the field list.
+ */
 export function CheckboxFieldList({names, labels, title}) {
     return (
         <div className="flex flex-col">
