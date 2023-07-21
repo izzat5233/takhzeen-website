@@ -113,17 +113,23 @@ export function CheckboxField({name, label}) {
  * @param {object} props - The properties that define the CheckboxFieldList component.
  * @param {Array} props.names - The names of the fields.
  * @param {Array} props.labels - The labels of the fields.
+ * @param {Array} props.descriptions - The descriptions of the fields.
+ * @param {boolean} props.separate - Whether fields should be seperated or not.
  * @param {string} props.title - The title of the field list.
  */
-export function CheckboxFieldList({names, labels, title}) {
+export function CheckboxFieldList({names, labels, descriptions, separate, title}) {
     return (
         <div className="flex flex-col">
             <p className="text-gray-800 mb-4">{title}</p>
             {names.map((name, index) => (
-                <CheckboxField
-                    name={name}
-                    label={labels[index]}
-                />
+                <>
+                    <CheckboxField
+                        name={name}
+                        label={labels[index]}
+                    />
+                    {descriptions[index] && <p className="mb-4 px-8">{descriptions[index]}</p>}
+                    {separate && <hr className="last-of-type:hidden mb-4"/>}
+                </>
             ))}
         </div>
     );

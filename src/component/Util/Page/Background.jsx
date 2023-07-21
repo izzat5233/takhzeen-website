@@ -13,7 +13,7 @@ export function ImageBackground({image}) {
         <motion.img
             src={image}
             alt="Backround"
-            className="-z-10 fixed min-h-screen w-screen bg-cover"
+            className="-z-10 fixed top-0 min-h-screen w-screen bg-cover"
             initial={{scale: 1.05}}
             animate={{scale: 1}}
             transition={{duration: 0.5}}
