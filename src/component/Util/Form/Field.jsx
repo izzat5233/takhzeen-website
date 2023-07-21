@@ -30,7 +30,7 @@ export function RadioField({name, label, options, className, required}) {
     return (
         <fieldset className="flex flex-col">
             <legend className="mb-4">{label}</legend>
-            <div className={`flex gap-6 flex-wrap justify-start text-xl ${className}`}>
+            <div className={`flex gap-6 flex-wrap justify-start text-lg ${className}`}>
                 {options.map((option, index) => (
                     <label key={index} className="inline-flex gap-4 items-center">
                         <Field

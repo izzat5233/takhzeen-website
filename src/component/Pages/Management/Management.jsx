@@ -5,9 +5,6 @@ import {motion} from "framer-motion";
 import {useNavigate} from "react-router-dom";
 import Page from "../../Util/Page/Page";
 import {BackButton} from "../../Util/Button/FormButton";
-import {RadioField} from "../../Util/Form/Field";
-import SimpleForm from "../../Util/Form/Form";
-import {Form, Formik} from "formik";
 
 export default function Management() {
     const [stage, setStage] = useState("start");
@@ -24,20 +21,6 @@ export default function Management() {
                 >
                     <p className="mx-auto">نشكرك على ثقتك بنا، سنتواصل معك بأقرب وقت خلال اليومين القادمين؛ لنحقق لك
                         إدارة مخزنية متميزة…</p>
-                    <Formik initialValues={{}} onSubmit={() => {}}>
-                        <Form className="mx-auto">
-                            <RadioField
-                                className="mx-auto"
-                                name="contactMethod"
-                                label="ما الطريقة التي ترغب بأن نتواصل بها معك ؟"
-                                required={true}
-                                options={[
-                                    {value: 'phone', label: 'الهاتف'},
-                                    {value: 'email', label: 'البريد الإلكتروني'},
-                                ]}
-                            />
-                        </Form>
-                    </Formik>
                     <p className="mx-auto"> في حال واجهتك اية استفسارات أو تخوفات اضافية يرجى التواصل معنا.</p>
                     <BackButton
                         label="العودة"

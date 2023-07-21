@@ -1,6 +1,7 @@
 import TextField, {CheckboxField, CheckboxFieldList, RadioField} from "../../../Util/Form/Field";
 import {BackButton, ContinueButton} from "../../../Util/Button/FormButton";
 import SimpleForm from "../../../Util/Form/Form";
+import React from "react";
 
 export default function Fill({onSubmit, onBack}) {
     return (
@@ -45,6 +46,15 @@ export default function Fill({onSubmit, onBack}) {
                     />
                     <TextField name="desiredServices" placeholder="غيرها" type="text"/>
                     <TextField name="howDidYouFindUs" label="(اختياري) كيف توصلت لشركة تخزين ؟" type="text"/>
+                    <RadioField
+                        name="contactMethod"
+                        label="ما الطريقة التي ترغب بأن نتواصل بها معك ؟"
+                        required={true}
+                        options={[
+                            {value: 'phone', label: 'الهاتف'},
+                            {value: 'email', label: 'البريد الإلكتروني'},
+                        ]}
+                    />
                 </div>
                 <div className="flex gap-6 justify-center">
                     <BackButton
