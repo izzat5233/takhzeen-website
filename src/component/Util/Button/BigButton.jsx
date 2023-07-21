@@ -1,7 +1,7 @@
 import React from "react";
 import {motion} from "framer-motion";
 
-export default function Choice({children, onClick, className}) {
+export default function BigButton({children, onClick, className}) {
     return (
         <div className="
             w-96 h-96 bg-back
@@ -17,7 +17,7 @@ export default function Choice({children, onClick, className}) {
     );
 }
 
-export function ChoiceWrapper({children, className, text}) {
+export function BigButtonsWrapper({children, className, text}) {
     return (
         <div className={text && `flex flex-col py-20`}>
             {text && <p className="text-4xl mx-auto px-10">{text}</p>}
@@ -32,20 +32,20 @@ export function ChoiceWrapper({children, className, text}) {
     );
 }
 
-export function IconChoice({icon, label, onClick}) {
+export function IconBigButton({icon, label, onClick}) {
     return (
-        <Choice onClick={onClick} className="flex flex-col justify-around gap-5 p-10">
+        <BigButton onClick={onClick} className="flex flex-col justify-around gap-5 p-10">
             <img src={icon} alt={label} className="w-40 h-40 mx-auto"/>
             <p className="text-3xl mx-auto">{label}</p>
-        </Choice>
+        </BigButton>
     );
 }
 
-export function TextChoice({title, text, onClick}) {
+export function TextBigButton({title, text, onClick}) {
     return (
-        <Choice onClick={onClick} className="flex flex-col justify-start gap-5 p-6">
+        <BigButton onClick={onClick} className="flex flex-col justify-start gap-5 p-6">
             <p className="text-4xl my-6 font-bold mx-auto">{title}</p>
             <p className="text-xl mx-auto">{text}</p>
-        </Choice>
+        </BigButton>
     );
 }
