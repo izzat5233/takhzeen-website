@@ -127,7 +127,7 @@ export function CheckboxFieldList({names, labels, descriptions, separate, title}
                         name={name}
                         label={labels[index]}
                     />
-                    {descriptions[index] && <p className="mb-4 px-8">{descriptions[index]}</p>}
+                    {descriptions && descriptions[index] && <p className="mb-4 px-8">{descriptions[index]}</p>}
                     {separate && <hr className="last-of-type:hidden mb-4"/>}
                 </>
             ))}
