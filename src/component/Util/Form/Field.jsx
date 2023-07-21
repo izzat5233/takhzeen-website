@@ -14,7 +14,7 @@ import {Field, useField} from 'formik';
 export default function TextField({name, label, type, placeholder, required}) {
     const [field, meta] = useField(name);
     return (
-        <div className="flex flex-col gap-2 mb-4">
+        <div className="flex flex-col gap-2 mb-4 text-xl">
             {label && <label htmlFor={name}>{label}</label>}
             <Field
                 id={name}
@@ -48,7 +48,7 @@ export default function TextField({name, label, type, placeholder, required}) {
 export function RadioField({name, label, options, className, required}) {
     const [field, meta] = useField(name);
     return (
-        <fieldset className="flex flex-col">
+        <fieldset className="flex flex-col text-xl">
             <legend className="mb-4">{label}</legend>
             <div className={`flex gap-6 flex-wrap justify-start text-lg ${className}`}>
                 {options.map((option, index) => (
@@ -85,7 +85,7 @@ export function RadioField({name, label, options, className, required}) {
 export function CheckboxField({name, label}) {
     const [field, meta] = useField({name, type: 'checkbox'});
     return (
-        <div className="flex flex-col gap-2 mb-4">
+        <div className="flex flex-col gap-2 mb-4 text-xl">
             <label className="inline-flex items-center gap-4">
                 <input
                     id={name}
@@ -119,7 +119,7 @@ export function CheckboxField({name, label}) {
  */
 export function CheckboxFieldList({names, labels, descriptions, separate, title}) {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col text-xl">
             <p className="text-gray-800 mb-4">{title}</p>
             {names.map((name, index) => (
                 <>
@@ -127,7 +127,7 @@ export function CheckboxFieldList({names, labels, descriptions, separate, title}
                         name={name}
                         label={labels[index]}
                     />
-                    {descriptions && descriptions[index] && <p className="mb-4 px-8">{descriptions[index]}</p>}
+                    {descriptions && descriptions[index] && <p className="mb-4 px-8 text-base">{descriptions[index]}</p>}
                     {separate && <hr className="last-of-type:hidden mb-4"/>}
                 </>
             ))}
