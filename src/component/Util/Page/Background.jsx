@@ -2,6 +2,26 @@ import {motion} from "framer-motion";
 import React from "react";
 
 /**
+ * ImageBackground is a React component that displays an image as a fixed, full-screen background.
+ *
+ * @param {object} props - The properties passed to the component.
+ * @param {string} props.image - The URL of the image to be displayed as the background.
+ * @returns {JSX.Element} A motion.img element from the framer-motion library, which provides animation capabilities.
+ */
+export function ImageBackground({image}) {
+    return (
+        <motion.img
+            src={image}
+            alt="Backround"
+            className="-z-10 fixed min-h-screen w-screen bg-cover"
+            initial={{scale: 1.05}}
+            animate={{scale: 1}}
+            transition={{duration: 0.5}}
+        />
+    );
+}
+
+/**
  * ExpandedInOutBackground is a React component that renders an animated background.
  * The background starts from a scale of 0 (fully contracted) and expands to a scale of 1 (fully expanded).
  * The animation is controlled by framer-motion's `motion.div` component.

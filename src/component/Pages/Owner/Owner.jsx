@@ -1,18 +1,19 @@
 import React from 'react'
 import {AnimatePresence} from "framer-motion";
-import {BigButtonsWrapper, TextBigButton} from "../../Util/Button/BigButton";
+import {TextBigButton} from "../../Util/Button/BigButton";
 import warehouse from "../../../assets/images/warehouse.png";
-import Form from "../../Util/Form/Form";
+import SimpleForm from "../../Util/Form/Form";
 import TextField from "../../Util/Form/Field";
 import {ContinueButton} from "../../Util/Button/FormButton";
 import Page from "../../Util/Page/Page";
 import useStages from "../../Util/Hook/Stages";
 import {ExpandedInOutBackground} from "../../Util/Page/Background";
+import {BigChoiceTemplate} from "../../Util/Page/Template";
 
 export default function Owner() {
     const [stage, goToStage, renderCurrentStage] = useStages({
         "choice":
-            <BigButtonsWrapper text="ما الخدمة التي تناسب رغبتك في تأجير مخزنك؟">
+            <BigChoiceTemplate text="ما الخدمة التي تناسب رغبتك في تأجير مخزنك؟">
                 <TextBigButton
                     title="تخزينك الوجيز"
                     text="نوفر لك فرصة استغلال شاغر المساحة في مخزنك لفترات قصيرة تتراوح ما بين يوم وشهر تبعا لحاجة المستأجر ضمن متابعة من قبلنا"
@@ -28,11 +29,11 @@ export default function Owner() {
                     text="نعمل الى جانبك لفتح افاق التواصل مع المستأجرين لايجاد المستأجر الانسب لمواصفات مساحتك التخزينية"
                     onClick={() => goToStage("start")}
                 />
-            </BigButtonsWrapper>,
+            </BigChoiceTemplate>,
         "start":
             <div className="flex flex-col lg:flex-row gap-20 lg:gap-40">
                 <img src={warehouse} alt="Warehouse" className="w-96 h-fit my-auto"/>
-                <Form
+                <SimpleForm
                     title="عرفنا عن نفسك"
                     onSubmit={() => {
                     }}
@@ -55,7 +56,7 @@ export default function Owner() {
                     <ContinueButton
                         label="المتابعة"
                     />
-                </Form>
+                </SimpleForm>
             </div>
     }, "choice");
 

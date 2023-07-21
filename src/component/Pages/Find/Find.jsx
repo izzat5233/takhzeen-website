@@ -1,50 +1,88 @@
 import React from 'react'
-import {BackButton} from "../../Util/Button/FormButton";
+import {BackButton, ContinueButton} from "../../Util/Button/FormButton";
 import {AnimatePresence, motion} from "framer-motion";
 import {useNavigate} from "react-router-dom";
-import PartialForm from "./Form/PartialForm";
 import partial from "../../../assets/icons/black/partial.png";
 import temporary from "../../../assets/icons/black/temporary.png";
-import TemporalForm from "./Form/TemporalForm";
-import {BigButtonsWrapper, IconBigButton} from "../../Util/Button/BigButton";
+import mediation from "../../../assets/icons/black/mediation.png";
+import storage from "../../../assets/images/img15.png";
+import {IconBigButton} from "../../Util/Button/BigButton";
 import Page from "../../Util/Page/Page";
 import useStages from "../../Util/Hook/Stages";
-import {ExpandedInOutBackground} from "../../Util/Page/Background";
+import {ImageBackground} from "../../Util/Page/Background";
+import ComingSoon from "../Misc/ComingSoon/ComingSoon";
+import {BigChoiceTemplate} from "../../Util/Page/Template";
+import TextField from "../../Util/Form/Field";
+import SimpleForm from "../../Util/Form/Form";
+import Storage from "./Stage/Storage";
 
 export default function Find() {
-    const [stage, goToStage, renderCurrentStage] = useStages({
-        "choice":
-            <BigButtonsWrapper text="ما الخدمة التي ترغب بالاستفادة منها ؟">
-                <IconBigButton
-                    label="التخزين الجزئي"
-                    icon={partial}
-                    onClick={() => goToStage("partial")}
-                />
+    const choiceStage =
+        <Page className="lg:w-fit py-0">
+            <BigChoiceTemplate text="ما الخدمة التي ترغب بالاستفادة منها ؟">
                 <IconBigButton
                     label="التخزين الوجيز"
                     icon={temporary}
-                    onClick={() => goToStage("temporary")}
+                    onClick={() => goToStage("temporal")}
                 />
-            </BigButtonsWrapper>,
-        "partial":
-            <PartialForm
-                onFinish={() => goToStage("finished")}
-                onReturn={() => goToStage("choice")}
-            />,
-        "temporary":
-            <TemporalForm
-                onFinish={() => goToStage("finished")}
-                onReturn={() => goToStage("choice")}
-            />,
-        "finished":
-            <FinishedStage/>
+                <IconBigButton
+                    label="التخزين الجزئي"
+                    hint="قيد التطوير"
+                    icon={partial}
+                    onClick={() => goToStage("comingsoon")}
+                />
+                <IconBigButton
+                    label="التخزين لفترة طويلة"
+                    hint="قيد التطوير"
+                    icon={mediation}
+                    onClick={() => goToStage("comingsoon")}
+                />
+            </BigChoiceTemplate>
+        </Page>;
+
+    const [stage, goToStage, renderCurrentStage] = useStages({
+        "choice": choiceStage,
+        "temporal": <TemporalStage onSubmit={() => goToStage("search")}/>,
+        "search": <Storage/>,
+        "finished": <FinishedStage/>,
+        "comingsoon": <ComingSoon/>
     }, "choice");
 
     return (
-        <Page background={<ExpandedInOutBackground/>} className="lg:w-fit py-0">
-            <AnimatePresence>
-                {renderCurrentStage()}
-            </AnimatePresence>
+        <AnimatePresence>
+            {renderCurrentStage()}
+        </AnimatePresence>
+    );
+}
+
+function TemporalStage({onSubmit}) {
+    return (
+        <Page className="lg:w-fit py-0" background={<ImageBackground image={storage}/>}>
+            <SimpleForm
+                className="bg-opacity-95 mx-4"
+                onSubmit={() => {
+                }}
+            >
+                <TextField
+                    label="الاسم"
+                    name="userName"
+                    type="text"
+                />
+                <TextField
+                    label="رقم الهاتف"
+                    name="phoneNumber"
+                    type="tel"
+                />
+                <TextField
+                    label="مكان السكن"
+                    name="residenceLocation"
+                    type="text"
+                />
+                <ContinueButton
+                    label="ابدأ"
+                    onClick={onSubmit}
+                />
+            </SimpleForm>
         </Page>
     );
 }

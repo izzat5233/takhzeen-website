@@ -3,6 +3,7 @@ import React from "react";
 /**
  * Page is a React component that serves as a wrapper for page content.
  * It provides a consistent layout for pages and can include a background element.
+ * It's recommended to wrap Template components with Page.
  *
  * @param {React.ReactNode} children - The content to be displayed on the page.
  * @param {React.ReactNode} background - An optional background element that will be placed behind the page content.

@@ -14,7 +14,7 @@ import {Formik, Form} from 'formik';
  * @param {React.ReactNode} props.children - The child components of the form.
  * @param {string} props.className - The CSS classes for the form.
  */
-export default function SimpleForm({title, initialValues, onSubmit, children, className = ""}) {
+export default function SimpleForm({title, initialValues, onSubmit, children, className}) {
     return (
         <div className={`
             p-10 flex flex-col gap-4
