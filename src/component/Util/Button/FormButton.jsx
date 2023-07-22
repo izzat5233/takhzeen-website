@@ -9,19 +9,17 @@ import {IoMdCheckmark} from "react-icons/io";
  * @param {string} props.label - The label to be displayed next to the button.
  * @param {React.ReactNode} props.icon - The icon to be displayed within the button.
  * @param {function} props.onClick - The function to be called when the button is clicked.
+ * @param {string} className - A string of class names that will be added to the button. The default class is "mt-8".
  * @returns {JSX.Element} A div element that wraps a button element.
  */
-export default function FormButton({label, icon, onClick}) {
+export default function FormButton({label, icon, onClick, className = "mt-8"}) {
     return (
-        <div className="
-            flex flex-row gap-4
-            mt-8 justify-center
-        ">
-            {label && <p className="text-2xl my-auto">{label}</p>}
+        <div className={`flex flex-row gap-4 justify-center ${className}`}>
+            {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
             <button
                 onClick={onClick}
                 className="
-                    text-6xl rounded-full
+                    text-5xl lg:text-6xl rounded-full
                     border-2 border-gray-800
                     hover:bg-primary hover:text-white hover:border-primary transition-all
                 "

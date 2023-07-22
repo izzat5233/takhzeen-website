@@ -4,7 +4,7 @@ import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi';
 
 const Footer = () => {
   return (
-    <div className="w-full relative text-white flex justify-start items-center flex-col pt-0 z-1 pt-0 pr-0 pb-0.5 pl-0 section__padding footer bg-[#031B34] mt-auto py-3" id="login">
+    <div className="w-full relative text-white flex justify-start items-center flex-col z-1 lg:z-20 pt-0 pr-0 pb-0.5 pl-0 section__padding footer bg-[#031B34] mt-auto py-3" id="login">
       <div className="footer-links  w-full flex justify-between items-start mt-20 pt-0 pb-0 pl-0 pr-0 ">
         <div className="footer-links_work1 m-4 text-center flex-1">
           <h1 className="footer-headtext  text-white font-normal capitalize text-3xl mb-4 tracking-normal leading-normal  md:text-4xl lg:text-4xl">شركة تخزين</h1>
@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-links_work m-4 text-center flex-1 order-3">
-          <h1 className="footer-headtext text-white text-4xl font-normal capitalize text-3xl mb-4 tracking-normal leading-normal  md:text-4xl lg:text-4xl lg:leading-10	">تواصل معنا</h1>
+          <h1 className="footer-headtext text-white font-normal capitalize text-3xl mb-4 tracking-normal leading-normal  md:text-4xl lg:text-4xl lg:leading-10	">تواصل معنا</h1>
           <a href="#"><p className="text-xl mb-4 p__opensans">نابلس - فلسطين</p></a>
           <a href="#"><p className="text-xl mb-4 p__opensans"> +970 59-285-4228</p></a>
           <a href="#"><p className="text-xl mb-4 p__opensans"> +972 593-456-7852</p></a>

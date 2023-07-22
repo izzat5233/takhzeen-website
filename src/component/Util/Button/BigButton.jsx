@@ -15,9 +15,8 @@ export default function BigButton({children, onClick, className}) {
             w-96 h-96 bg-back rounded
             flex flex-col justify-center
             duration-300 transition-all
-            border-4 border-primary drop-shadow-2xl
-            hover:rounded-3xl hover:z-10 hover:scale-95
-            active:bg-primary active:scale-90
+            border-8 border-gray-200 drop-shadow-2xl
+            hover:rounded-3xl hover:scale-95 active:scale-90
         ">
             <button onClick={onClick} className={`flex-grow ${className}`}>
                 {children}

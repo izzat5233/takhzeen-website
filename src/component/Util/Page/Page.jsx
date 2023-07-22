@@ -19,7 +19,7 @@ export default function Page({children, background, className, ...rest}) {
             {...rest}
         >
             {background}
-            <div className={`w-full mx-auto lg:py-20 lg:px-32 px-0 py-4 ${className}`}>
+            <div className={`w-full mx-auto lg:py-20 xl:px-32 lg:px-16 px-0 py-4 ${className}`}>
                 {children}
             </div>
         </div>

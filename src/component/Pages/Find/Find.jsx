@@ -9,7 +9,7 @@ import storage from "../../../assets/images/img15.png";
 import {IconBigButton} from "../../Util/Button/BigButton";
 import Page from "../../Util/Page/Page";
 import useStages from "../../Util/Hook/Stages";
-import {ImageBackground} from "../../Util/Page/Background";
+import {ExpandedInOutBackground, ImageBackground} from "../../Util/Page/Background";
 import ComingSoon from "../Misc/ComingSoon/ComingSoon";
 import {BigChoiceTemplate} from "../../Util/Page/Template";
 import TextField from "../../Util/Form/Field";
@@ -18,7 +18,7 @@ import Storage from "./Stage/Storage";
 
 export default function Find() {
     const choiceStage =
-        <Page className="lg:w-fit py-0">
+        <Page className="lg:w-fit py-0" background={<ExpandedInOutBackground/>}>
             <BigChoiceTemplate text="ما الخدمة التي ترغب بالاستفادة منها ؟">
                 <IconBigButton
                     label="التخزين الوجيز"

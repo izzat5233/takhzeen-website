@@ -30,7 +30,7 @@ function App() {
                     <Route path='service' element={<Service/>}/>
                     <Route path='owner' element={<Owner/>}/>
                     <Route path='find' element={<Find/>}/>
-                    <Route path='management/*' element={<Management/>}/>
+                    <Route path='management' element={<Management/>}/>
                     <Route path='comingsoon' element={<ComingSoon/>}/>
                     <Route path='*' element={<NotFound/>}/>
                 </Routes>

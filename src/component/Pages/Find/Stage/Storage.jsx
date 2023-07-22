@@ -1,30 +1,24 @@
-import {ImCheckmark} from "react-icons/im";
-import {FaXmark} from "react-icons/fa6";
+import useFilters from "../../../Util/Hook/Filters";
+import Page from "../../../Util/Page/Page";
+import FormButton from "../../../Util/Button/FormButton";
+import {BsPlus} from "react-icons/bs";
+import {ExpandedInOutBackground} from "../../../Util/Page/Background";
 
 export default function Storage() {
+    const [filteredData, filters, setFilters] = useFilters(storages);
+
     return (
-        <div dir="rtl" className="min-h-screen flex flex-col justify-center text-center">
-            <div className="
-
-            ">
-
-            </div>
-            <div className="
-                flex flex-col lg:flex-row justify-center
-            ">
-                <div className="
-                    bg-secondary rounded-2xl
-                    text-center flex flex-col justify-center
-                ">
-                    <p className="text-2xl">Filters...</p>
-                    <p className="text-2xl">Filters...</p>
-                    <p className="text-2xl">Filters...</p>
-                    <p className="text-2xl">Filters...</p>
+        <Page background={<ExpandedInOutBackground/>}>
+            <div className="flex flex-col justify-center p-8">
+                <div className="flex flex-wrap justify-center gap-8 mb-8">
+                    <p className="text-xl py-2">البحث من خلال:</p>
+                    <FilterButton label="المساحة"/>
+                    <FilterButton label="الموقع"/>
+                    <FilterButton label="السعر"/>
                 </div>
                 <div className="flex flex-col flex-grow">
-                    {storages.map((storage, index) => (
+                    {filteredData.map((storage, index) => (
                         <Card
-                            show={true}
                             layout="list"
                             storage={storage}
                             key={index}
@@ -32,62 +26,49 @@ export default function Storage() {
                     ))}
                 </div>
             </div>
-        </div>
+        </Page>
     );
 }
 
-function Card({key, show, layout, storage}) {
+function FilterButton({label, choices}) {
     return (
-        <div className={`
-            ${show ? "flex" : "hidden"}
-            rounded-xl my-5 mx-5 p-2
-            bg-gray-100 border-gray-200 border-4
-            transition-all duration-300
-            hover:border-primary hover:z-10
-        `}>
-            <img src={storage.imageURL} alt={"Storage" + key} className="
-                w-36 h-36 object-cover
-                rounded-md
-            "/>
-            <div className={`
-                flex-grow flex
-                ${layout === "list" ? `
-                    flex-row gap-10
-                ` : layout === "grid" ? `
-                    flex-col gap-4
-                ` : ""}
-                text-2xl font-bold
+        <button className="
+            py-2 px-4 rounded transition-all
+            text-lg lg:text-xl text-center
+            shadow-md bg-back hover:scale-105
+        ">
+            <p>{label}:&emsp;الكل</p>
+        </button>
+    );
+}
+
+function Card({key, storage}) {
+    return (
+        <div className="
+            flex justify-around transition-all
+            my-5 mx-5 p-4 rounded-3xl
+            bg-back shadow-xl hover:shadow-2xl
+        ">
+            <img
+                src={storage.imageURL}
+                alt={"Storage" + key}
+                className="w-36 h-36 object-cover rounded-md"
+            />
+            <div className="flex-grow flex flex-col lg:flex-row gap-8">
+                <div className={`
+                lg:flex-grow flex flex-col xl:flex-row
+                text-2xl text-center my-auto justify-around gap-4
             `}>
-                <p>{storage.location}</p>
-                <p>{storage.size + " متر مربع"}</p>
-                <p>{storage.price + " شيكل"}</p>
+                    <p>{storage.location}</p>
+                    <p>{storage.size + " متر مربع"}</p>
+                    <p>{storage.price + " شيكل"}</p>
+                </div>
+                <FormButton
+                    label="طلب استئجار"
+                    icon={<BsPlus/>}
+                    className="font-xl h-fit my-auto"
+                />
             </div>
-            <div className="flex gap-10">
-                {storage.partialOptionAvailable
-                    ? <CheckMark label="تخزين جزئي"/>
-                    : <XMark label="تخزين جزئي"/>}
-                {storage.temporalOptionAvailable
-                    ? <CheckMark label="تخزين مؤقت"/>
-                    : <XMark label="تخزين مؤقت"/>}
-            </div>
-        </div>
-    );
-}
-
-function CheckMark({label}) {
-    return (
-        <div className="flex gap-4 bg-gradient-green w-36 h-36 rounded-full justify-center">
-            <ImCheckmark/>
-            <p>{label}</p>
-        </div>
-    );
-}
-
-function XMark({label}) {
-    return (
-        <div className="flex gap-4 bg-gradient-orange w-36 h-36 rounded-full justify-center">
-            <FaXmark/>
-            <p>{label}</p>
         </div>
     );
 }
