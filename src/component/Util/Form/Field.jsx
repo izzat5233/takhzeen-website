@@ -17,6 +17,7 @@ export default function TextField({name, label, type, placeholder, required}) {
         <div className="flex flex-col gap-2 mb-4 text-xl">
             {label && <label htmlFor={name}>{label}</label>}
             <Field
+                {...field}
                 id={name}
                 name={name}
                 className="
@@ -26,7 +27,6 @@ export default function TextField({name, label, type, placeholder, required}) {
                 type={type}
                 placeholder={placeholder}
                 required={required}
-                {...field}
             />
             {meta.touched && meta.error ? (
                 <div className="error">{meta.error}</div>
@@ -54,6 +54,7 @@ export function RadioField({name, label, options, className, required}) {
                 {options.map((option, index) => (
                     <label key={index} className="inline-flex gap-4 items-center">
                         <Field
+                            {...field}
                             type="radio"
                             name={name}
                             value={option.value}
@@ -62,7 +63,6 @@ export function RadioField({name, label, options, className, required}) {
                                 appearance-none w-3 h-3 checked:bg-primary checked:ring-primary rounded-full
                                 mr-2 text-primary ring-2 ring-gray-300 ring-offset-2 outline-none
                             "
-                            {...field}
                         />
                         {option.label}
                     </label>
@@ -88,6 +88,7 @@ export function CheckboxField({name, label}) {
         <div className="flex flex-col gap-2 mb-4 text-xl">
             <label className="inline-flex items-center gap-4">
                 <input
+                    {...field}
                     id={name}
                     name={name}
                     type="checkbox"
@@ -96,7 +97,6 @@ export function CheckboxField({name, label}) {
                         checked:bg-primary checked:ring-primary border-2 border-back
                         mr-2 text-white align-middle transition-all
                     "
-                    {...field}
                 />
                 {label}
             </label>
@@ -127,7 +127,8 @@ export function CheckboxFieldList({names, labels, descriptions, separate, title}
                         name={name}
                         label={labels[index]}
                     />
-                    {descriptions && descriptions[index] && <p className="mb-4 px-8 text-base">{descriptions[index]}</p>}
+                    {descriptions && descriptions[index] &&
+                        <p className="mb-4 px-8 text-base">{descriptions[index]}</p>}
                     {separate && <hr className="last-of-type:hidden mb-4"/>}
                 </>
             ))}

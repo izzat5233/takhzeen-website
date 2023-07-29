@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {AnimatePresence, motion} from "framer-motion";
 import warehouse from "../../../assets/images/background.jpeg";
 import SimpleForm from "../../Util/Form/Form";
@@ -6,20 +6,23 @@ import TextField, {CheckboxFieldList, RadioField} from "../../Util/Form/Field";
 import {BackButton, ContinueButton} from "../../Util/Button/FormButton";
 import Page from "../../Util/Page/Page";
 import {ImageBackground} from "../../Util/Page/Background";
-import useStages from "../../Util/Hook/Stages";
 import {useNavigate} from "react-router-dom";
 
 export default function Owner() {
-    const [stage, goToStage, renderCurrentStage] = useStages({
-        "start": startForm(() => goToStage("fill")),
-        "fill": fillForm(() => goToStage("finished"), () => goToStage("start")),
-        "finished": <FinishedStage/>
-    }, "start");
+    const [stage, setStage] = useState("start");
 
     return (
         <Page className="mx-auto" background={<ImageBackground image={warehouse}/>}>
             <AnimatePresence>
-                {renderCurrentStage()}
+                <div hidden={stage !== "start"}>
+                    {startForm(() => setStage("continue"))}
+                </div>
+                <div hidden={stage !== "continue"}>
+                    {fillForm(() => setStage("finished"), () => setStage("start"))}
+                </div>
+                <div hidden={stage !== "finished"}>
+                    <FinishedStage/>
+                </div>
             </AnimatePresence>
         </Page>
     );
@@ -27,6 +30,7 @@ export default function Owner() {
 
 const startForm = (onSubmit) =>
     <SimpleForm
+        name="ownerStartForm"
         className="w-fit mx-auto"
         onSubmit={() => {
         }}
@@ -35,6 +39,7 @@ const startForm = (onSubmit) =>
         <TextField label="رقم الهاتف" name="phoneNumber" type="tel"/>
         <TextField label="مكان السكن" name="residenceLocation" type="text"/>
         <ContinueButton
+            type="submit"
             label="تابع"
             onClick={onSubmit}
         />
@@ -43,6 +48,7 @@ const startForm = (onSubmit) =>
 const fillForm = (onSubmit, onReturn) =>
     <div className="mx-auto max-w-screen-md w-full">
         <SimpleForm
+            name="ownerContinueForm"
             onSubmit={() => {
             }}
         >
@@ -86,6 +92,7 @@ const fillForm = (onSubmit, onReturn) =>
                     onClick={onReturn}
                 />
                 <ContinueButton
+                    type="submit"
                     label="تابع"
                     onClick={onSubmit}
                 />

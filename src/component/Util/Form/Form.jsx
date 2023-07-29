@@ -3,18 +3,20 @@ import {motion} from "framer-motion";
 import {BsArrowRight} from "react-icons/bs";
 import {BackButton, ContinueButton, FinishButton} from "../Button/FormButton";
 import {Formik, Form} from 'formik';
+import {Persist} from "formik-persist";
 
 /**
  * SimpleForm component renders a Formik form with a title and children components.
  *
  * @param {object} props - The properties that define the SimpleForm component.
  * @param {string} props.title - The title of the form.
+ * @param {string} props.name - The name of the form. Used to persist values to that form name.
  * @param {object} props.initialValues - The initial values of the form fields.
  * @param {function} props.onSubmit - The function to call when the form is submitted.
  * @param {React.ReactNode} props.children - The child components of the form.
  * @param {string} props.className - The CSS classes for the form.
  */
-export default function SimpleForm({title, initialValues, onSubmit, children, className}) {
+export default function SimpleForm({title, name, initialValues = {}, onSubmit, children, className}) {
     return (
         <div className={`
             p-10 flex flex-col gap-4
@@ -24,11 +26,12 @@ export default function SimpleForm({title, initialValues, onSubmit, children, cl
         `}>
             {title && <h2 className="text-center text-4xl mb-8">{title}</h2>}
             <Formik
-                initialValues={initialValues || {}}
+                initialValues={initialValues}
                 onSubmit={onSubmit}
             >
                 <Form>
                     {children}
+                    <Persist name={name}/>
                 </Form>
             </Formik>
         </div>

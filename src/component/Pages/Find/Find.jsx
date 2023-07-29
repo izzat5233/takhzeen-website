@@ -59,6 +59,7 @@ function TemporalStage({onSubmit}) {
     return (
         <Page className="lg:w-fit py-0" background={<ImageBackground image={storage}/>}>
             <SimpleForm
+                name="findTemporalStartForm"
                 className="bg-opacity-95 mx-4"
                 onSubmit={() => {
                 }}

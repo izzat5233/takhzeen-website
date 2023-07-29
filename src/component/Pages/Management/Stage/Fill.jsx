@@ -7,6 +7,7 @@ export default function Fill({onSubmit, onBack}) {
     return (
         <div className="mx-auto max-w-screen-md w-full">
             <SimpleForm
+                name="managementFillForm"
                 title="زودنا بمعلوماتك لنحدد حاجتك"
                 onSubmit={() => {
                 }}

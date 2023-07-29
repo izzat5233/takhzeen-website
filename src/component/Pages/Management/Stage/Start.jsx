@@ -12,6 +12,7 @@ export default function Start({onSubmit}) {
             text="نضمن لك خدمات ادارية لمخازنك تتمثل بأعلى مواصفات الجودة والكفاءة؛ لنحقق لك سلاسة عملياتك التخزينية…"
             form={
                 <SimpleForm
+                    name="managementStartForm"
                     title="عرفنا عن نفسك"
                     onSubmit={() => {
                     }}

@@ -9,14 +9,16 @@ import {IoMdCheckmark} from "react-icons/io";
  * @param {string} props.label - The label to be displayed next to the button.
  * @param {React.ReactNode} props.icon - The icon to be displayed within the button.
  * @param {function} props.onClick - The function to be called when the button is clicked.
+ * @param {string} props.type - The type of the button (submit, reset, button). The default is "button".
  * @param {string} className - A string of class names that will be added to the button. The default class is "mt-8".
  * @returns {JSX.Element} A div element that wraps a button element.
  */
-export default function FormButton({label, icon, onClick, className = "mt-8"}) {
+export default function FormButton({label, icon, onClick, type = "button", className = "mt-8"}) {
     return (
         <div className={`flex flex-row gap-4 justify-center ${className}`}>
             {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
             <button
+                type={type}
                 onClick={onClick}
                 className="
                     text-5xl lg:text-6xl rounded-full
@@ -32,17 +34,19 @@ export default function FormButton({label, icon, onClick, className = "mt-8"}) {
 
 /**
  * ContinueButton is a React component that displays a FormButton with a left arrow icon.
+ * By default, this is a submit button.
  *
  * @param {object} props - The properties passed to the component.
  * @param {string} props.label - The label to be displayed next to the button.
  * @param {function} props.onClick - The function to be called when the button is clicked.
  * @returns {JSX.Element} A FormButton component with a left arrow icon.
  */
-export function ContinueButton({label, onClick}) {
+export function ContinueButton({label, type = "button", onClick}) {
     return (
         <FormButton
             label={label}
             icon={<BsArrowLeftShort/>}
+            type={type}
             onClick={onClick}
         />
     );
@@ -68,17 +72,19 @@ export function BackButton({label, onClick}) {
 
 /**
  * FinishButton is a React component that displays a FormButton with a checkmark icon.
+ * By default this is a submit button.
  *
  * @param {object} props - The properties passed to the component.
  * @param {string} props.label - The label to be displayed next to the button.
  * @param {function} props.onClick - The function to be called when the button is clicked.
  * @returns {JSX.Element} A FormButton component with a checkmark icon.
  */
-export function FinishButton({label, onClick}) {
+export function FinishButton({label, type = "submit", onClick}) {
     return (
         <FormButton
             label={label}
             icon={<IoMdCheckmark/>}
+            type={type}
             onClick={onClick}
         />
     );
