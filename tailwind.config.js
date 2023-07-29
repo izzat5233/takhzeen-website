@@ -9,7 +9,7 @@ module.exports = {
                 '210': '210px',
             },
             fontFamily: {
-                'sans': ['Droid Arabic Kufi', 'serif'], /* default font */
+                'sans': ['Noto Kufi Arabic', 'serif'], /* default font */
                 'cursive': []
             },
             colors: {
