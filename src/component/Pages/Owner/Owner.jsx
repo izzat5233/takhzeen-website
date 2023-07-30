@@ -3,10 +3,9 @@ import {AnimatePresence, motion} from "framer-motion";
 import warehouse from "../../../assets/images/background.jpeg";
 import SimpleFormTemplate from "../../Util/Form/Template";
 import TextField, {CheckboxFieldList, RadioField} from "../../Util/Form/Field";
-import {BackButton, ContinueButton} from "../../Util/Button/FormButton";
+import {BackButton, BackHomeButton, ContinueButton} from "../../Util/Button/FormButton";
 import Page from "../../Util/Page/Page";
 import {ImageBackground} from "../../Util/Page/Background";
-import {useNavigate} from "react-router-dom";
 import MultiStageForm from "../../Util/Form/Form";
 
 export default function Owner() {
@@ -82,8 +81,6 @@ const fillForm = () =>
     </SimpleFormTemplate>;
 
 export function FinishedStage() {
-    const navigate = useNavigate();
-
     return (
         <motion.div
             initial={{opacity: 0}}
@@ -96,10 +93,7 @@ export function FinishedStage() {
         >
             <p className="mx-auto">نشكرك على ثقتك بنا، سنتواصل معك بأقرب وقت خلال اليومين القادمين</p>
             <p className="mx-auto"> في حال واجهتك اية استفسارات أو تخوفات اضافية يرجى التواصل معنا.</p>
-            <BackButton
-                label="العودة"
-                onClick={() => navigate("/")}
-            />
+            <BackHomeButton label="العودة"/>
         </motion.div>
     );
 }

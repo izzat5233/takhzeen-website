@@ -1,7 +1,6 @@
 import React from 'react'
-import {BackButton, ContinueButton} from "../../Util/Button/FormButton";
+import {BackHomeButton, ContinueButton} from "../../Util/Button/FormButton";
 import {AnimatePresence, motion} from "framer-motion";
-import {useNavigate} from "react-router-dom";
 import partial from "../../../assets/icons/black/partial.png";
 import temporary from "../../../assets/icons/black/temporary.png";
 import mediation from "../../../assets/icons/black/mediation.png";
@@ -51,7 +50,11 @@ export default function Find() {
 
     return (
         <AnimatePresence>
-            <SimpleForm name="findForm">
+            <SimpleForm
+                name="findForm"
+                onSubmit={() => {
+                }}
+            >
                 {renderCurrentStage()}
             </SimpleForm>
         </AnimatePresence>
@@ -87,8 +90,6 @@ function TemporalStage({onSubmit}) {
 }
 
 function FinishedStage() {
-    const navigate = useNavigate();
-
     return (
         <motion.div
             initial={{opacity: 0}}
@@ -98,10 +99,7 @@ function FinishedStage() {
         >
             <p>تم إرسال المعلومات بنجاح</p>
             <p>سيقوم أحد موظفينا بالاتصال بك خلال فترة قصيرة</p>
-            <BackButton
-                label="العودة"
-                onClick={() => navigate("/")}
-            />
+            <BackHomeButton label="العودة"/>
         </motion.div>
     );
 }

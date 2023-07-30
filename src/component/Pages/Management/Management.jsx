@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import Start from "./Stage/Start";
 import Fill from "./Stage/Fill";
 import {AnimatePresence, motion} from "framer-motion";
-import {useNavigate} from "react-router-dom";
 import Page from "../../Util/Page/Page";
-import {BackButton} from "../../Util/Button/FormButton";
+import {BackHomeButton} from "../../Util/Button/FormButton";
 import {TriangleShapeBackground} from "../../Util/Page/Background";
 import MultiStageForm from "../../Util/Form/Form";
 
@@ -30,8 +29,6 @@ export default function Management() {
 }
 
 function FinishedStage() {
-    const navigate = useNavigate();
-
     return (
         <motion.div
             initial={{opacity: 0}}
@@ -42,10 +39,7 @@ function FinishedStage() {
             <p className="mx-auto">نشكرك على ثقتك بنا، سنتواصل معك بأقرب وقت خلال اليومين القادمين؛ لنحقق لك
                 إدارة مخزنية متميزة…</p>
             <p className="mx-auto"> في حال واجهتك اية استفسارات أو تخوفات اضافية يرجى التواصل معنا.</p>
-            <BackButton
-                label="العودة"
-                onClick={() => navigate("/")}
-            />
+            <BackHomeButton label="العودة"/>
         </motion.div>
     );
 }

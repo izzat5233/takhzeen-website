@@ -1,8 +1,7 @@
 import {Form, Formik} from "formik";
 import {Persist} from "formik-persist";
 import {useSequenceStages} from "../Hook/Stages";
-import {FormStageContext} from "../Hook/FormStage";
-import {useEffect} from "react";
+import {FormStageContext} from "../Hook/Form";
 
 /**
  * SimpleForm component renders a single Formik form with no styles.
@@ -38,23 +37,17 @@ export default function MultiStageForm({name, stages, onSubmit}) {
     const {stage, nextStage, prevStage, renderCurrentStage} = useSequenceStages(stages, 0);
 
     const handleSubmit = async (values, {setSubmitting}) => {
+        console.log("submitted");
         if (stage === 1) {
             // after first stage, create the form...
-            setSubmitting(false);
         } else if (stage === stages.length) {
             // after last stage, clear the form...
-            setSubmitting(false);
+            await onSubmit();
         } else {
             // update the form...
-            setSubmitting(false);
         }
+        setSubmitting(false);
     };
-
-    useEffect(() => {
-        if (stage === stages.length && onSubmit) {
-            onSubmit();
-        }
-    }, [stage]);
 
     return (
         <FormStageContext.Provider value={{stage, nextStage, prevStage}}>
