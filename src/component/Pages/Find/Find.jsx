@@ -13,8 +13,9 @@ import {ExpandedInOutBackground, ImageBackground} from "../../Util/Page/Backgrou
 import ComingSoon from "../Misc/ComingSoon/ComingSoon";
 import {BigChoiceTemplate} from "../../Util/Page/Template";
 import TextField from "../../Util/Form/Field";
-import SimpleForm from "../../Util/Form/Form";
+import SimpleFormTemplate from "../../Util/Form/Template";
 import Storage from "./Stage/Storage";
+import {SimpleForm} from "../../Util/Form/Form";
 
 export default function Find() {
     const choiceStage =
@@ -40,7 +41,7 @@ export default function Find() {
             </BigChoiceTemplate>
         </Page>;
 
-    const [stage, goToStage, renderCurrentStage] = useStages({
+    const {goToStage, renderCurrentStage} = useStages({
         "choice": choiceStage,
         "temporal": <TemporalStage onSubmit={() => goToStage("search")}/>,
         "search": <Storage/>,
@@ -50,7 +51,9 @@ export default function Find() {
 
     return (
         <AnimatePresence>
-            {renderCurrentStage()}
+            <SimpleForm name="findForm">
+                {renderCurrentStage()}
+            </SimpleForm>
         </AnimatePresence>
     );
 }
@@ -58,12 +61,7 @@ export default function Find() {
 function TemporalStage({onSubmit}) {
     return (
         <Page className="lg:w-fit py-0" background={<ImageBackground image={storage}/>}>
-            <SimpleForm
-                name="findTemporalStartForm"
-                className="bg-opacity-95 mx-4"
-                onSubmit={() => {
-                }}
-            >
+            <SimpleFormTemplate className="bg-opacity-95 mx-4">
                 <TextField
                     label="الاسم"
                     name="userName"
@@ -83,7 +81,7 @@ function TemporalStage({onSubmit}) {
                     label="ابدأ"
                     onClick={onSubmit}
                 />
-            </SimpleForm>
+            </SimpleFormTemplate>
         </Page>
     );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import storage from "../../../../assets/images/img15.png";
 import TextField from "../../../Util/Form/Field";
-import {DynamicExplanatoryForm} from "../../../Util/Form/Form";
+import {DynamicExplanatoryForm} from "../../../Util/Form/Template";
 
 export default function TemporalForm({onFinish, onReturn}) {
     return (

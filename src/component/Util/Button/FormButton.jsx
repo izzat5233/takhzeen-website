@@ -1,9 +1,11 @@
 import React from "react";
 import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
 import {IoMdCheckmark} from "react-icons/io";
+import useFormStage from "../Hook/FormStage";
 
 /**
  * FormButton is a React component that displays a button with an icon and a label.
+ * Its designed to fit in a form.
  *
  * @param {object} props - The properties passed to the component.
  * @param {string} props.label - The label to be displayed next to the button.
@@ -35,25 +37,36 @@ export default function FormButton({label, icon, onClick, type = "button", class
 /**
  * ContinueButton is a React component that displays a FormButton with a left arrow icon.
  * By default, this is a submit button.
+ * In a MultiStageForm, it will move the form to its next stage.
  *
  * @param {object} props - The properties passed to the component.
  * @param {string} props.label - The label to be displayed next to the button.
  * @param {function} props.onClick - The function to be called when the button is clicked.
  * @returns {JSX.Element} A FormButton component with a left arrow icon.
  */
-export function ContinueButton({label, type = "button", onClick}) {
+export function ContinueButton({label, type = "submit", onClick}) {
+    const {nextStage} = useFormStage();
+
     return (
         <FormButton
             label={label}
             icon={<BsArrowLeftShort/>}
             type={type}
-            onClick={onClick}
+            onClick={() => {
+                if (onClick) {
+                    onClick();
+                }
+                if (nextStage) {
+                    nextStage();
+                }
+            }}
         />
     );
 }
 
 /**
  * BackButton is a React component that displays a FormButton with a right arrow icon.
+ * In a MultiStageForm, it will move the form to its previous stage.
  *
  * @param {object} props - The properties passed to the component.
  * @param {string} props.label - The label to be displayed next to the button.
@@ -61,11 +74,20 @@ export function ContinueButton({label, type = "button", onClick}) {
  * @returns {JSX.Element} A FormButton component with a right arrow icon.
  */
 export function BackButton({label, onClick}) {
+    const {prevStage} = useFormStage();
+
     return (
         <FormButton
             label={label}
             icon={<BsArrowRightShort/>}
-            onClick={onClick}
+            onClick={() => {
+                if (onClick) {
+                    onClick();
+                }
+                if (prevStage) {
+                    prevStage();
+                }
+            }}
         />
     );
 }
@@ -73,6 +95,7 @@ export function BackButton({label, onClick}) {
 /**
  * FinishButton is a React component that displays a FormButton with a checkmark icon.
  * By default this is a submit button.
+ * In a MultiStageForm, it will move the form to its next stage.
  *
  * @param {object} props - The properties passed to the component.
  * @param {string} props.label - The label to be displayed next to the button.
@@ -80,12 +103,21 @@ export function BackButton({label, onClick}) {
  * @returns {JSX.Element} A FormButton component with a checkmark icon.
  */
 export function FinishButton({label, type = "submit", onClick}) {
+    const {nextStage} = useFormStage();
+
     return (
         <FormButton
             label={label}
             icon={<IoMdCheckmark/>}
             type={type}
-            onClick={onClick}
+            onClick={() => {
+                if (onClick) {
+                    onClick();
+                }
+                if (nextStage) {
+                    nextStage();
+                }
+            }}
         />
     );
 }

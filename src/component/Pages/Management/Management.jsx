@@ -1,27 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Start from "./Stage/Start";
 import Fill from "./Stage/Fill";
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import {useNavigate} from "react-router-dom";
 import Page from "../../Util/Page/Page";
 import {BackButton} from "../../Util/Button/FormButton";
-import useStages from "../../Util/Hook/Stages";
 import {TriangleShapeBackground} from "../../Util/Page/Background";
+import MultiStageForm from "../../Util/Form/Form";
 
 export default function Management() {
-    const [stage, goToStage, renderCurrentStage] = useStages({
-        "start": <Start onSubmit={() => goToStage("fill")}/>,
-        "fill":
-            <Fill
-                onSubmit={() => goToStage("finished")}
-                onBack={() => goToStage("start")}
-            />,
-        "finished": <FinishedStage/>
-    }, "start");
+    const [finished, setFinished] = useState(false);
 
     return (
         <Page background={<TriangleShapeBackground/>}>
-            {renderCurrentStage()}
+            <AnimatePresence>
+                {!finished ?
+                    <MultiStageForm
+                        name="managementForm"
+                        stages={[
+                            <Start/>,
+                            <Fill/>
+                        ]}
+                        onSubmit={() => setFinished(true)}
+                    /> :
+                    <FinishedStage/>}
+            </AnimatePresence>
         </Page>
     );
 }

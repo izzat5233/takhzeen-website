@@ -87,7 +87,7 @@ export function CheckboxField({name, label}) {
     return (
         <div className="flex flex-col gap-2 mb-4 text-xl">
             <label className="inline-flex items-center gap-4">
-                <input
+                <Field
                     {...field}
                     id={name}
                     name={name}
@@ -122,15 +122,15 @@ export function CheckboxFieldList({names, labels, descriptions, separate, title}
         <div className="flex flex-col text-xl">
             <p className="text-gray-800 mb-4">{title}</p>
             {names.map((name, index) => (
-                <>
+                <div className="flex flex-col" key={index}>
                     <CheckboxField
                         name={name}
                         label={labels[index]}
                     />
                     {descriptions && descriptions[index] &&
                         <p className="mb-4 px-8 text-base">{descriptions[index]}</p>}
-                    {separate && <hr className="last-of-type:hidden mb-4"/>}
-                </>
+                    {separate && index !== names.length - 1 && <hr className="mb-4"/>}
+                </div>
             ))}
         </div>
     );

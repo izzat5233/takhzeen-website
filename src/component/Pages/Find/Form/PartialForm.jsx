@@ -1,7 +1,7 @@
 import React from "react";
 import storage from "../../../../assets/images/background.jpeg";
 import TextField from "../../../Util/Form/Field";
-import {DynamicExplanatoryForm} from "../../../Util/Form/Form";
+import {DynamicExplanatoryForm} from "../../../Util/Form/Template";
 
 export default function PartialForm({onFinish, onReturn}) {
     return (

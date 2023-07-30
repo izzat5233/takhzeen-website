@@ -1,17 +1,12 @@
-import TextField, {CheckboxField, CheckboxFieldList, RadioField} from "../../../Util/Form/Field";
+import TextField, {CheckboxFieldList, RadioField} from "../../../Util/Form/Field";
 import {BackButton, ContinueButton} from "../../../Util/Button/FormButton";
-import SimpleForm from "../../../Util/Form/Form";
+import SimpleFormTemplate from "../../../Util/Form/Template";
 import React from "react";
 
-export default function Fill({onSubmit, onBack}) {
+export default function Fill() {
     return (
         <div className="mx-auto max-w-screen-md w-full">
-            <SimpleForm
-                name="managementFillForm"
-                title="زودنا بمعلوماتك لنحدد حاجتك"
-                onSubmit={() => {
-                }}
-            >
+            <SimpleFormTemplate title="زودنا بمعلوماتك لنحدد حاجتك">
                 <div className="flex flex-col gap-5">
                     <TextField name="storageSize" label="ما هي مساحة مخزنك ؟" type="number"/>
                     <TextField name="storageFinish" label="ما درجة تشطيب مخزنك ؟" type="text"/>
@@ -58,16 +53,10 @@ export default function Fill({onSubmit, onBack}) {
                     />
                 </div>
                 <div className="flex gap-6 justify-center">
-                    <BackButton
-                        label="ارجع"
-                        onClick={onBack}
-                    />
-                    <ContinueButton
-                        label="تابع"
-                        onClick={onSubmit}
-                    />
+                    <BackButton label="ارجع"/>
+                    <ContinueButton label="تابع"/>
                 </div>
-            </SimpleForm>
+            </SimpleFormTemplate>
         </div>
     );
 }
