@@ -1,9 +1,11 @@
 import './contact.css';
 import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi';
+import {SimpleForm} from "../../Util/Form/Form";
+import {Field} from "formik";
 
 export default function Contact() {
     return (
-        
+
         <section id="section-wrapper">
             <div className="box-wrapper">
                 <div className="info-wrap">
@@ -31,25 +33,35 @@ export default function Contact() {
                     </ul>
                 </div>
                 <div className="form-wrap">
-                    <form>
+                    <SimpleForm
+                        name="contactForm"
+                        initialValues={{
+                            name: '',
+                            email: '',
+                            phone: '',
+                            message: ''
+                        }}
+                        onSubmit={() => {
+                        }}
+                    >
                         <h2 className="form-title"> أرسل رسالتك الآن وتواصل معنا : </h2>
                         <div className="form-fields">
-                            
+
                             <div className="form-group">
-                                <input type="text" className="lname" placeholder=" الأسم " />
+                                <Field type="text" className="lname input" placeholder=" الأسم " name="name"/>
                             </div>
                             <div className="form-group">
-                                <input type="email" className="email" placeholder="الايميل" />
+                                <Field type="email" className="email input" placeholder="الايميل" name="email" />
                             </div>
                             <div className="form-group">
-                                <input type="number" className="phone" placeholder="رقم الهاتف" />
+                                <Field type="number" className="phone input" placeholder="رقم الهاتف" name="phone" />
                             </div>
                             <div className="form-group">
-                                <textarea name="message" id placeholder="اكتب رسالتك هنا" defaultValue={""} />
+                                <Field type="textarea" className="textarea" name="message" id placeholder="اكتب رسالتك هنا" />
                             </div>
                         </div>
                         <input type="submit" defaultValue="Send Message" className="submit-button" />
-                    </form>
+                    </SimpleForm>
                 </div>
             </div>
             <div className='space'></div>

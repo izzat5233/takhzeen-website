@@ -1,5 +1,6 @@
 import {Form, Formik} from "formik";
-import {Persist} from "formik-persist";
+import {finishForm, createForm, startForm, updateForm} from "./Api";
+import {useState} from "react";
 import {useSequenceStages} from "../Hook/Stages";
 import {FormStageContext} from "../Hook/Form";
 
@@ -8,17 +9,29 @@ import {FormStageContext} from "../Hook/Form";
  *
  * @param {object} props - The properties that define the component.
  * @param {Array} props.children - The children of the component.
+ * @param {object} props.initialValues - The initial values of the fields.
  * @param {function} props.onSubmit - The function to call when the form is submitted.
  */
-export function SimpleForm({name, children, onSubmit}) {
+export function SimpleForm({name, children, initialValues, onSubmit}) {
+    const handleSubmit = async (values, {setSubmitting, resetForm}) => {
+        try {
+            await createForm(name, values);
+            await resetForm();
+            await onSubmit();
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
     return (
         <Formik
-            initialValues={{}}
-            onSubmit={onSubmit}
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
         >
             <Form>
                 {children}
-                <Persist name={name}/>
             </Form>
         </Formik>
     );
@@ -31,34 +44,44 @@ export function SimpleForm({name, children, onSubmit}) {
  *
  * @param {object} props - The properties that define the MultiStageForm component.
  * @param {Array} props.stages - The stages of the form. Wrapped in any way.
+ * @param {object} props.initialValues - The initial values of the fields.
  * @param {function} props.onSubmit - The function to call when the form is submitted.
  */
-export default function MultiStageForm({name, stages, onSubmit}) {
+export default function MultiStageForm({name, stages, initialValues, onSubmit}) {
     const {stage, nextStage, prevStage, renderCurrentStage} = useSequenceStages(stages, 0);
+    const [hasStarted, setHasStarted] = useState(false);
 
-    const handleSubmit = async (values, {setSubmitting}) => {
-        console.log("submitted");
-        if (stage === 1) {
-            // after first stage, create the form...
-        } else if (stage === stages.length) {
-            // after last stage, clear the form...
-            await onSubmit();
-        } else {
-            // update the form...
+    const handleSubmit = async (values, {setSubmitting, resetForm}) => {
+        try {
+            if (stage === 1 && !hasStarted) {
+                await startForm(name, values);
+                setHasStarted(true);
+            } else if (stage === stages.length) {
+                await finishForm(name, values);
+                await resetForm();
+                await onSubmit();
+            } else {
+                await updateForm(name, values);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            setSubmitting(false);
         }
-        setSubmitting(false);
     };
 
     return (
         <FormStageContext.Provider value={{stage, nextStage, prevStage}}>
             <Formik
-                initialValues={{}}
+                initialValues={initialValues}
                 onSubmit={handleSubmit}
             >
-                <Form>
-                    {renderCurrentStage()}
-                    <Persist name={name}/>
-                </Form>
+                {({isSubmitting}) => (
+                    <Form>
+                        {renderCurrentStage()}
+                        {isSubmitting && <div>Loading...</div>}
+                    </Form>
+                )}
             </Formik>
         </FormStageContext.Provider>
     );

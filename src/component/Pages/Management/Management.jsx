@@ -20,6 +20,7 @@ export default function Management() {
                             <Start/>,
                             <Fill/>
                         ]}
+                        initialValues={initialValues}
                         onSubmit={() => setFinished(true)}
                     /> :
                     <FinishedStage/>}
@@ -44,3 +45,23 @@ function FinishedStage() {
     );
 }
 
+const initialValues = {
+    companyName: '',
+    phoneNumber: '',
+    email: '',
+    mobileNumber: '',
+    storageSize: '',
+    storageFinish: '',
+    goodsNature: '',
+    insurance: '',
+    stockRenewalFrequency: '',
+    servicesPreparation: false,
+    servicesReceipt: false,
+    servicesArrangement: false,
+    servicesClassification: false,
+    servicesInventory: false,
+    servicesDelivery: false,
+    desiredServices: '',
+    howDidYouFindUs: '',
+    contactMethod: '',
+};

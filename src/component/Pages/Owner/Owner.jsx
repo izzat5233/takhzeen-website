@@ -21,6 +21,7 @@ export default function Owner() {
                             startForm(),
                             fillForm()
                         ]}
+                        initialValues={initialValues}
                         onSubmit={() => setFinished(true)}
                     /> :
                     <FinishedStage/>
@@ -29,6 +30,18 @@ export default function Owner() {
         </Page>
     );
 }
+
+const initialValues = {
+    userName: '',
+    phoneNumber: '',
+    residenceLocation: '',
+    storageSize: '',
+    storageFinish: '',
+    servicesTemporal: false,
+    servicesPartial: false,
+    servicesMediation: false,
+    contactMethod: '',
+};
 
 const startForm = () =>
     <SimpleFormTemplate className="w-fit mx-auto">

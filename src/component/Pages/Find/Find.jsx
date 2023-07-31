@@ -52,6 +52,7 @@ export default function Find() {
         <AnimatePresence>
             <SimpleForm
                 name="findForm"
+                initialValues={initialValues}
                 onSubmit={() => {
                 }}
             >
@@ -60,6 +61,12 @@ export default function Find() {
         </AnimatePresence>
     );
 }
+
+const initialValues = {
+    userName: '',
+    phoneNumber: '',
+    residenceLocation: '',
+};
 
 function TemporalStage({onSubmit}) {
     return (
