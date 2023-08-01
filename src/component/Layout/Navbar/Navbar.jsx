@@ -49,28 +49,27 @@ export default function Navbar() {
                     flex flex-row-reverse justify-end
                     pr-8 justify-items-center
                 ">
-                    <NavbarSignLinks/>
+                    <ExpandedNavbar/>
                 </div>
-
             </div>
-            <div className="
-                ml-4 flex lg:hidden relative my-auto
-            ">
+            <div className="ml-4 flex lg:hidden relative my-auto">
                 {toggleMenu
                     ? <RiCloseLine color="#000" size={27} onClick={() => setToggleMenu(false)}
                                    className="cursor-pointer"/>
                     : <RiMenu3Line color="#000" size={27} onClick={() => setToggleMenu(true)}
                                    className="cursor-pointer"/>}
                 {toggleMenu && (
-                    <div className="
-                        scale-up-center absolute right-0
-                        flex flex-col justify-end
-                        justify-items-end text-end
-                        bg-gradient-primary rounded
-                        p-8 top-5 sm:top-10 mt-4 min-w-210
-                        shadow-md shadow-gray-950
-                      ">
-                        <NavbarSignLinks/>
+                    <div
+                        className="
+                            scale-up-center absolute right-0
+                            flex flex-col justify-end gap-6
+                            justify-items-end text-center w-fit text-xl
+                            bg-back border-strong border-2 rounded-xl
+                            p-8 top-5 sm:top-10 mt-4 min-w-210
+                            drop-shadow-lg
+                        "
+                    >
+                        <FoldedNavbar toggle={() => setToggleMenu(!toggleMenu)}/>
                     </div>
                 )}
             </div>
@@ -78,41 +77,53 @@ export default function Navbar() {
     );
 };
 
-function NavbarSignLinks() {
-    return (
-        <>
-            <NavbarSignLink
-                title="الرئيسية"
-                to="home"
-            />
-            <NavbarSignLink
-                title="عن تخزين"
-                to="about"
-            />
+const navbarLinks = [
+    {
+        title: "الرئيسية",
+        to: "home"
+    },
+    {
+        title: "عن تخزين",
+        to: "about"
+    },
+    {
+        title: "تواصل معنا",
+        to: "contact"
+    },
+];
 
-             <NavbarSignLink
-                title="تواصل معنا"
-                to="contact"
-            />
-        </>
-    )
+function ExpandedNavbar() {
+    return (
+        <div className="flex flex-row-reverse gap-8">
+            {navbarLinks.map(link => (
+                <Link to={link.to} className="relative text-md">
+                    <div className="
+                        before:content-{}
+                        before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5
+                        before:bg-strong before:text-back
+                        before:scale-x-0 before:origin-left before:transition before:duration-200 before:ease-out
+                        hover:before:scale-x-100
+                    ">
+                        {link.title}
+                    </div>
+                </Link>
+            ))}
+        </div>
+    );
 }
 
-function NavbarSignLink({title, to}) {
+function FoldedNavbar({toggle}) {
     return (
-        <p className="
-            relative mx-4 cursor-pointer
-            text-fore leading-6 capitalize
-        ">
-            <Link to={to} className="
-                before:content-{}
-                before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5
-                before:bg-strong before:text-back
-                before:scale-x-0 before:origin-left before:transition before:duration-200 before:ease-out
-                hover:before:scale-x-100
-            ">
-                {title}
-            </Link>
-        </p>
+        <button className="flex flex-col gap-8 text-xl">
+            {navbarLinks.map(link => (
+                <Link
+                    to={link.to}
+                    onClick={toggle}
+                    className="active:bg-gray-200 rounded text-center py-2 px-4 w-full"
+                >
+                    {link.title}
+                </Link>
+            ))}
+        </button>
     );
 }
