@@ -5,12 +5,20 @@ import {BsPlus} from "react-icons/bs";
 import {ExpandedInOutBackground} from "../../../Util/Page/Background";
 import {BiSolidDownArrow} from "react-icons/bi";
 import {useEffect, useState} from "react";
+import {getStorages} from "../../../Util/Api/StorageApi";
 
 export default function Storage() {
+    const [storages, setStorages] = useState([]);
     const [filteredData, filters, setFilters] = useFilters(storages);
     const [areaChoice, setAreaChoice] = useState(null);
     const [locationChoice, setLocationChoice] = useState(null);
     const [priceChoice, setPriceChoice] = useState(null);
+
+    useEffect(() => {
+        getStorages()
+            .then(data => setStorages(data))
+            .catch(error => console.error(error));
+    }, []);
 
     useEffect(() => {
         let filter = {}
@@ -30,8 +38,8 @@ export default function Storage() {
 
     return (
         <Page background={<ExpandedInOutBackground/>}>
-            <div className="flex flex-col justify-center p-8">
-                <div className="flex flex-wrap justify-center gap-8 mb-8">
+            <div className="min-h-screen flex flex-col p-8">
+                <div className="flex flex-wrap flex-initial justify-center gap-8 mb-8">
                     <p className="text-xl py-2">البحث من خلال:</p>
                     <FilterButton
                         title="المساحة"
@@ -89,6 +97,7 @@ function FilterButton({title, labels, currentLabel, setCurrentLabel}) {
 
     return (
         <button
+            type="button"
             onClick={() => setExpanded(!expanded)}
             className="
                 py-2 px-4 h-fit
@@ -124,7 +133,7 @@ function Card({key, storage}) {
             bg-back shadow-xl
         ">
             <img
-                src={storage.imageURL}
+                src={storage['imageURL']}
                 alt={"Storage" + key}
                 className="w-36 h-36 object-cover rounded-md"
             />
@@ -133,9 +142,9 @@ function Card({key, storage}) {
                 lg:flex-grow flex flex-col xl:flex-row
                 text-2xl text-center my-auto justify-around gap-4
             `}>
-                    <p>{storage.location}</p>
-                    <p>{storage.size + " متر مربع"}</p>
-                    <p>{storage.price + " شيكل"}</p>
+                    <p>{storage['location']}</p>
+                    <p>{storage['size'] + " متر مربع"}</p>
+                    <p>{storage['price'] + " شيكل"}</p>
                 </div>
                 <FormButton
                     label="طلب استئجار"
@@ -146,86 +155,3 @@ function Card({key, storage}) {
         </div>
     );
 }
-
-const storages = [
-    {
-        size: 10, /* in m^2 */
-        price: 1000, /* in nis */
-        location: "نابلس",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: true,
-        temporalOptionAvailable: false
-    },
-    {
-        size: 20,
-        price: 2000,
-        location: "رام الله",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: false,
-        temporalOptionAvailable: true
-    },
-    {
-        size: 30,
-        price: 3000,
-        location: "طولكرم",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: true,
-        temporalOptionAvailable: true
-    },
-    {
-        size: 40,
-        price: 4000,
-        location: "الخليل",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: false,
-        temporalOptionAvailable: false
-    },
-    {
-        size: 50,
-        price: 5000,
-        location: "نابلس",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: true,
-        temporalOptionAvailable: false
-    },
-    {
-        size: 60,
-        price: 6000,
-        location: "رام الله",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: false,
-        temporalOptionAvailable: true
-    },
-    {
-        size: 70,
-        price: 7000,
-        location: "طولكرم",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: true,
-        temporalOptionAvailable: true
-    },
-    {
-        size: 80,
-        price: 8000,
-        location: "الخليل",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: false,
-        temporalOptionAvailable: false
-    },
-    {
-        size: 90,
-        price: 9000,
-        location: "نابلس",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: true,
-        temporalOptionAvailable: false
-    },
-    {
-        size: 100,
-        price: 10000,
-        location: "الخليل",
-        imageURL: "https://picsum.photos/200/300",
-        partialOptionAvailable: false,
-        temporalOptionAvailable: true
-    }
-];
