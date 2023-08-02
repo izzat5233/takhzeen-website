@@ -3,7 +3,7 @@ import {finishForm, createForm, startForm, updateForm} from "./Api";
 import {useState} from "react";
 import {useSequenceStages} from "../Hook/Stages";
 import {FormStageContext} from "../Hook/Form";
-import LoadingSpinner from "../Animation/Loading";
+import {SyncLoader} from "react-spinners";
 
 /**
  * SimpleForm component renders a single Formik form with no styles.
@@ -34,7 +34,7 @@ export function SimpleForm({name, children, initialValues, onSubmit}) {
             {({isSubmitting}) => (
                 <Form>
                     {children}
-                    {isSubmitting && <LoadingSpinner className="text-back"/>}
+                    {isSubmitting && <div className="flex justify-center"><SyncLoader color="white" size={14}/></div>}
                 </Form>
             )}
         </Formik>
@@ -83,7 +83,7 @@ export default function MultiStageForm({name, stages, initialValues, onSubmit}) 
                 {({isSubmitting}) => (
                     <Form>
                         {isSubmitting
-                            ? <LoadingSpinner className="text-back"/>
+                            ? <div className="flex justify-center"><SyncLoader color="white" size={14}/></div>
                             : renderCurrentStage()
                         }
                     </Form>

@@ -89,13 +89,13 @@ const Home = () => {
             </section>
             <section
                 className="
-                    min-h-screen flex flex-col justify-center text-center gap-10 p-20
+                    min-h-screen flex flex-col justify-center text-center gap-10 py-20
                     bg-gradient-primary snap-start
                 "
                 id="services"
             >
-                <h1 className="text-6xl font-bold">خـــدمـــاتـــنـــا</h1>
-                <h2 className="sub_title">احصل على حلول تخزينية محسوبة بالملّي؛ لتنهض بالكفاءات والخدمات القدمة من قبلنا</h2>
+                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">خـــدمـــاتـــنـــا</h1>
+                <h2 className="sub_title px-4">احصل على حلول تخزينية محسوبة بالملّي؛ لتنهض بالكفاءات والخدمات المقدمة من قبلنا</h2>
                 <div className="content">
                     {cardsData.map((card, index) => (
                         <div className="card flex flex-col gap-3" key={index}>
@@ -110,8 +110,8 @@ const Home = () => {
                     ))}
                 </div>
             </section>
-            <section className="cards min-h-screen flex flex-col justify-center pb-20 snap-start" id="features">
-                <h2 className="title">لــمــاذا تــخــزيــن ؟</h2>
+            <section className="cards min-h-screen flex flex-col justify-center text-center pb-20 snap-start" id="features">
+                <h2 className="title lg:text">لــمــاذا تــخــزيــن؟</h2>
                 <div className="content">
                     {features.map((skill, index) => (
                         <div className="card card-rounded" key={index}>

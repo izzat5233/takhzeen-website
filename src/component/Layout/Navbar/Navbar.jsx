@@ -4,6 +4,8 @@ import logoWithText from '../../../assets/icons/normal/logoWithText.png';
 import {RiMenu3Line, RiCloseLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 import {motion, useMotionValueEvent, useScroll} from "framer-motion";
+import onClickOutsideHOC from "react-onclickoutside";
+import DropdownMenu from "./DropdownMenu";
 
 export default function Navbar() {
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -58,20 +60,10 @@ export default function Navbar() {
                                    className="cursor-pointer"/>
                     : <RiMenu3Line color="#000" size={27} onClick={() => setToggleMenu(true)}
                                    className="cursor-pointer"/>}
-                {toggleMenu && (
-                    <div
-                        className="
-                            scale-up-center absolute right-0
-                            flex flex-col justify-end gap-6
-                            justify-items-end text-center w-fit text-xl
-                            bg-back border-strong border-2 rounded-xl
-                            p-8 top-5 sm:top-10 mt-4 min-w-210
-                            drop-shadow-lg
-                        "
-                    >
-                        <FoldedNavbar toggle={() => setToggleMenu(!toggleMenu)}/>
-                    </div>
-                )}
+                {toggleMenu &&
+                    <DropdownMenu toggle={setToggleMenu}>
+                        <FoldedNavbar toggle={setToggleMenu}/>
+                    </DropdownMenu>}
             </div>
         </motion.nav>
     );
@@ -118,7 +110,7 @@ function FoldedNavbar({toggle}) {
             {navbarLinks.map(link => (
                 <Link
                     to={link.to}
-                    onClick={toggle}
+                    onClick={() => toggle(false)}
                     className="active:bg-gray-200 rounded text-center py-2 px-4 w-full"
                 >
                     {link.title}
