@@ -13,10 +13,11 @@ import {useNavigate} from "react-router-dom";
  * @param {string} props.label - The label to be displayed next to the button.
  * @param {React.ReactNode} props.icon - The icon to be displayed within the button.
  * @param {function} props.onClick - The function to be called when the button is clicked.
+ * @param {boolean} props.disabled - Whether the button is disabled. The default is false.
  * @param {string} className - A string of class names that will be added to the button. The default class is "mt-8".
  * @returns {JSX.Element} A div element that wraps a button element.
  */
-export default function FormButton({label, icon, onClick, className = "mt-8"}) {
+export default function FormButton({label, icon, onClick, disabled = false, className = "mt-8"}) {
     return (
         <div className={`flex flex-row gap-4 justify-center ${className}`}>
             {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
@@ -25,9 +26,10 @@ export default function FormButton({label, icon, onClick, className = "mt-8"}) {
                 onClick={onClick}
                 className="
                     text-5xl lg:text-6xl rounded-full
-                    border-2 border-gray-800
+                    border-2 border-gray-800 disabled:text-gray-500
                     hover:bg-primary hover:text-white hover:border-primary transition-all
                 "
+                disabled={disabled}
             >
                 {icon}
             </button>
@@ -46,12 +48,13 @@ export default function FormButton({label, icon, onClick, className = "mt-8"}) {
  * @returns {JSX.Element} A submit button component.
  */
 export function SubmitButton({label, icon, onClick}) {
-    const {handleSubmit} = useFormikContext();
+    const {handleSubmit, isSubmitting} = useFormikContext();
 
     return (
         <FormButton
             label={label}
             icon={icon}
+            disabled={isSubmitting}
             onClick={() => {
                 if (handleSubmit) {
                     handleSubmit();

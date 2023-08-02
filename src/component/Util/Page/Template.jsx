@@ -45,7 +45,7 @@ export function BigChoiceTemplate({children, className, text}) {
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
-                className={`flex flex-col lg:flex-row gap-2 justify-center mx-auto py-20 px-10 ${className}`}>
+                className={`flex flex-col lg:flex-row flex-wrap gap-2 justify-center mx-auto py-20 px-10 ${className}`}>
                 {children}
             </motion.div>
         </div>

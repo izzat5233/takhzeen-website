@@ -95,8 +95,8 @@ const navbarLinks = [
 function ExpandedNavbar() {
     return (
         <div className="flex flex-row-reverse gap-8">
-            {navbarLinks.map(link => (
-                <Link to={link.to} className="relative text-md">
+            {navbarLinks.map((link, index) => (
+                <Link to={link.to} className="relative text-md" key={index}>
                     <div className="
                         before:content-{}
                         before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5
