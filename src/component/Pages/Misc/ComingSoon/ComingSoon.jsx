@@ -1,7 +1,7 @@
-import FormButton from "../../../Util/Button/FormButton";
 import {BsArrowRightShort} from "react-icons/bs";
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import SmallButton from "../../../Util/Button/SmallButton";
 
 export default function ComingSoon() {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ export default function ComingSoon() {
                 <p className="text-5xl sm:text-7xl font-bold">
                     قيد التطوير<br/>
                 </p>
-                <FormButton
+                <SmallButton
                     label="ارجع"
                     icon={<BsArrowRightShort/>}
                     onClick={() => navigate(-1)}

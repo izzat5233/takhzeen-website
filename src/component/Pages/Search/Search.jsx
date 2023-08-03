@@ -1,13 +1,13 @@
-import useFilters from "../../../Util/Hook/Filters";
-import Page from "../../../Util/Page/Page";
-import FormButton from "../../../Util/Button/FormButton";
+import useFilters from "../../Util/Hook/Filters";
+import Page from "../../Util/Page/Page";
 import {BsPlus} from "react-icons/bs";
-import {ExpandedInOutBackground} from "../../../Util/Page/Background";
+import {ExpandedInOutBackground} from "../../Util/Page/Background";
 import {BiSolidDownArrow} from "react-icons/bi";
 import {useEffect, useState} from "react";
-import {getStorages} from "../../../Util/Api/StorageApi";
+import {getStorages} from "../../Util/Api/StorageApi";
+import SmallButton from "../../Util/Button/SmallButton";
 
-export default function Storage() {
+export default function Search() {
     const [storages, setStorages] = useState([]);
     const [filteredData, filters, setFilters] = useFilters(storages);
     const [areaChoice, setAreaChoice] = useState(null);
@@ -37,56 +37,54 @@ export default function Storage() {
     }, [areaChoice, locationChoice, priceChoice]);
 
     return (
-        <Page background={<ExpandedInOutBackground/>}>
-            <div className="min-h-screen flex flex-col p-8">
-                <div className="flex flex-wrap flex-initial justify-center gap-8 mb-8">
-                    <p className="text-xl py-2">البحث من خلال:</p>
-                    <FilterButton
-                        title="المساحة"
-                        labels={[
-                            "الكل",
-                            "10 - 20",
-                            "20 - 40",
-                            "40 - 80",
-                            "80 - 100"
-                        ]}
-                        currentLabel={areaChoice}
-                        setCurrentLabel={setAreaChoice}
+        <Page background={<ExpandedInOutBackground/>} className="px-dynamic py-dynamic">
+            <div className="flex flex-wrap flex-initial justify-center gap-8 mb-8">
+                <p className="text-xl py-2">البحث من خلال:</p>
+                <FilterButton
+                    title="المساحة"
+                    labels={[
+                        "الكل",
+                        "10 - 20",
+                        "20 - 40",
+                        "40 - 80",
+                        "80 - 100"
+                    ]}
+                    currentLabel={areaChoice}
+                    setCurrentLabel={setAreaChoice}
+                />
+                <FilterButton
+                    title="الموقع"
+                    labels={[
+                        "الكل",
+                        "نابلس",
+                        "رام الله",
+                        "طولكرم",
+                        "الخليل"
+                    ]}
+                    currentLabel={locationChoice}
+                    setCurrentLabel={setLocationChoice}
+                />
+                <FilterButton
+                    title="السعر"
+                    labels={[
+                        "الكل",
+                        "1000 - 2000",
+                        "2000 - 4000",
+                        "4000 - 8000",
+                        "8000 - 10000"
+                    ]}
+                    currentLabel={priceChoice}
+                    setCurrentLabel={setPriceChoice}
+                />
+            </div>
+            <div className="flex flex-col flex-grow">
+                {filteredData.map((storage, index) => (
+                    <Card
+                        layout="list"
+                        storage={storage}
+                        key={index}
                     />
-                    <FilterButton
-                        title="الموقع"
-                        labels={[
-                            "الكل",
-                            "نابلس",
-                            "رام الله",
-                            "طولكرم",
-                            "الخليل"
-                        ]}
-                        currentLabel={locationChoice}
-                        setCurrentLabel={setLocationChoice}
-                    />
-                    <FilterButton
-                        title="السعر"
-                        labels={[
-                            "الكل",
-                            "1000 - 2000",
-                            "2000 - 4000",
-                            "4000 - 8000",
-                            "8000 - 10000"
-                        ]}
-                        currentLabel={priceChoice}
-                        setCurrentLabel={setPriceChoice}
-                    />
-                </div>
-                <div className="flex flex-col flex-grow">
-                    {filteredData.map((storage, index) => (
-                        <Card
-                            layout="list"
-                            storage={storage}
-                            key={index}
-                        />
-                    ))}
-                </div>
+                ))}
             </div>
         </Page>
     );
@@ -146,7 +144,7 @@ function Card({key, storage}) {
                     <p>{storage['size'] + " متر مربع"}</p>
                     <p>{storage['price'] + " شيكل"}</p>
                 </div>
-                <FormButton
+                <SmallButton
                     label="طلب استئجار"
                     icon={<BsPlus/>}
                     className="font-xl h-fit my-auto"

@@ -6,23 +6,14 @@ import {Link} from 'react-router-dom';
 import {motion, useMotionValueEvent, useScroll} from "framer-motion";
 import onClickOutsideHOC from "react-onclickoutside";
 import DropdownMenu from "./DropdownMenu";
+import useIsWideScreen from "../../Util/Hook/Screen";
 
 export default function Navbar() {
     const [toggleMenu, setToggleMenu] = useState(false);
     const {scrollY} = useScroll();
     const [prevScrollY, setPrevScrollY] = useState(0);
     const [hidden, setHidden] = useState(false);
-    const [isWideScreen, setIsWideScreen] = useState(window.innerWidth > 1024); // lg
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsWideScreen(window.innerWidth > 1024);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    const isWideScreen = useIsWideScreen();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         setHidden(latest > prevScrollY);

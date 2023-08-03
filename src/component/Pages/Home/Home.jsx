@@ -28,7 +28,7 @@ const cardsData = [
     {
         imgSrc: sys,
         title: "إدارة المخازن",
-        description: " نضمن لك خدمات ادارية لمخازنك تتمثل بأعلى مواصفات الجودة والكفاءة؛ لنحقق لك سلالة عملياتك التخزينية، من بداية سلسلة تجارتك وحتى نهايتها، من:استلام، جرد، تصنيف، تقسيم ، تهيئة... "
+        description: " نضمن لك خدمات ادارية لمخازنك تتمثل بأعلى مواصفات الجودة والكفاءة؛ لنحقق لك السلالة في عملياتك التخزينية، من بداية سلسلة تجارتك وحتى نهايتها، من:استلام، جرد، تصنيف، تقسيم ، تهيئة... "
     },
 ];
 
@@ -73,9 +73,7 @@ const Home = () => {
                 <div className="header section__padding" id="Home">
                     <div className="header-content" style={{textAlign: "right"}}>
                         <h1 className="gradient__text"> مرحبًا بك في شركة تخزين!</h1>
-                        <p> نعمل الى جانب كلاً من المستأجرين والمؤجرين، نواجه ما يعانونه من تحديات من خلال خلقنا لحلول
-                            تخزينية مبتكرة ، لنرقى
-                            بالكفاءات والخدمات المقدمة من قبلهم.</p>
+                        <p> نعمل الى جانب كلاً من المستأجرين والمؤجرين، نواجه ما يعانونه من تحديات من خلال خلقنا لحلول تخزينية مبتكرة.</p>
                         <div className="header-content__input">
                             <button type="button"><Link to="/management"> لِنُدّر لك مخزنك</Link></button>
                             <button type="button"><Link to="/owner">اعرض مخزنك</Link></button>
@@ -95,10 +93,11 @@ const Home = () => {
                 id="services"
             >
                 <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">خـــدمـــاتـــنـــا</h1>
-                <h2 className="sub_title px-4">احصل على حلول تخزينية محسوبة بالملّي؛ لتنهض بالكفاءات والخدمات المقدمة من قبلنا</h2>
+                <h2 className="sub_title px-4">احصل على حلول تخزينية محسوبة بالملّي؛ لتنهض بالكفاءات والخدمات المقدمة من
+                    قبلنا</h2>
                 <div className="content">
                     {cardsData.map((card, index) => (
-                        <div className="card flex flex-col gap-3" key={index}>
+                        <div className="card flex flex-col gap-3 bg-opacity-95" key={index}>
                             <div className="icon mx-auto">
                                 <img src={card.imgSrc} alt={`Card ${index + 1}`}/>
                             </div>
@@ -110,7 +109,8 @@ const Home = () => {
                     ))}
                 </div>
             </section>
-            <section className="cards min-h-screen flex flex-col justify-center text-center pb-20 snap-start" id="features">
+            <section className="cards min-h-screen flex flex-col justify-center text-center pb-20 snap-start"
+                     id="features">
                 <h2 className="title lg:text">لــمــاذا تــخــزيــن؟</h2>
                 <div className="content">
                     {features.map((skill, index) => (

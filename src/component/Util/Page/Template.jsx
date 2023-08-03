@@ -1,5 +1,6 @@
 import React from "react";
 import {motion} from "framer-motion";
+import {GoToContactButton, ReturnHomeButton} from "../Button/SmallButton";
 
 /**
  * FormStartTemplate displays a simple form page with an icon, title, and a text.
@@ -13,17 +14,15 @@ import {motion} from "framer-motion";
  */
 export function FormStartTemplate({icon, title, text, form}) {
     return (
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2">
-            <div className="flex flex-col gap-10">
+        <div className="pt-16 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0">
+            <div className="mx-auto flex flex-col gap-10 px-4 md:px-8 lg:px-9">
                 <div className="mx-auto flex flex-row gap-10 mb-5 md:mb-10">
-                    {icon && <img src={icon} alt="Logo" className="w-24 md:w-40"/>}
-                    {title && <h1 className="font-bold text-3xl md:text-6xl my-auto">{title}</h1>}
+                    {icon && <img src={icon} alt="Logo" className="w-32 md:w-40"/>}
+                    {title && <h1 className="font-bold text-5xl md:text-6xl my-auto">{title}</h1>}
                 </div>
-                <p className="mx-auto mb-20 mr-20 ml-20 text-2xl">{text}</p>
+                <p className="text-xl lg:text-2xl">{text}</p>
             </div>
-            <div className="mx-auto">
-                {form}
-            </div>
+            {form}
         </div>
     );
 }
@@ -39,15 +38,46 @@ export function FormStartTemplate({icon, title, text, form}) {
  */
 export function BigChoiceTemplate({children, className, text}) {
     return (
-        <div className={text && `flex flex-col py-20`}>
+        <div className={`${className} ${text && "flex flex-col py-20 text-center"}`}>
             {text && <p className="text-4xl mx-auto px-10">{text}</p>}
             <motion.div
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
-                className={`flex flex-col lg:flex-row flex-wrap gap-2 justify-center mx-auto py-20 px-10 ${className}`}>
+                className="flex flex-col lg:flex-row flex-wrap gap-2 justify-center mx-auto py-20">
                 {children}
             </motion.div>
         </div>
+    );
+}
+
+/**
+ * FormFinishedTemplate is a page shown after finishing a form.
+ * It shows the user several messages, a return button, and a contact button.
+ *
+ * @param messages - All messages to be displayed
+ * @returns {Element}
+ */
+export function FormFinishedTemplate({messages, className}) {
+    return (
+        <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            className={`
+                px-dynamic mx-auto
+                flex flex-col gap-5
+                text-start text-md md:text-xl lg:text-2xl
+                ${className ? className : ""}
+            `}
+        >
+            {messages.map((message, index) => (
+                <p key={index}>{message}</p>
+            ))}
+            <div className="flex gap-4 justify-center flex-wrap">
+                <ReturnHomeButton label="العودة"/>
+                <GoToContactButton label="اتصل الآن"/>
+            </div>
+        </motion.div>
     );
 }

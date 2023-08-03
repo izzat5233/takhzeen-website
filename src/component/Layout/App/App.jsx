@@ -5,7 +5,6 @@ import About from '../../Pages/About/About';
 import Login from '../../Pages/Login/Login';
 import Footer from '../Footer/Footer';
 import Owner from '../../Pages/Owner/Owner';
-import Service from '../../Pages/Service/Service';
 import NotFound from '../../Pages/Misc/NotFound/NotFound';
 import Find from '../../Pages/Find/Find';
 import Management from '../../Pages/Management/Management';
@@ -13,6 +12,7 @@ import {Routes, Route, useLocation} from 'react-router-dom';
 import Contact from "../../Pages/Contact/Contact";
 import {AnimatePresence} from "framer-motion";
 import ComingSoon from "../../Pages/Misc/ComingSoon/ComingSoon";
+import Search from "../../Pages/Search/Search";
 
 function App() {
     const location = useLocation();
@@ -27,9 +27,9 @@ function App() {
                     <Route path='about' element={<About/>}/>
                     <Route path='contact' element={<Contact/>}/>
                     <Route path='login' element={<Login/>}/>
-                    <Route path='service' element={<Service/>}/>
                     <Route path='owner' element={<Owner/>}/>
-                    <Route path='find' element={<Find/>}/>
+                    <Route path='find/*' element={<Find/>}/>
+                    <Route path='search' element={<Search/>}/>
                     <Route path='management' element={<Management/>}/>
                     <Route path='comingsoon' element={<ComingSoon/>}/>
                     <Route path='*' element={<NotFound/>}/>

@@ -1,112 +1,53 @@
-import React from 'react'
-import {BackHomeButton, ContinueButton} from "../../Util/Button/FormButton";
-import {AnimatePresence, motion} from "framer-motion";
-import partial from "../../../assets/icons/black/partial.png";
-import temporary from "../../../assets/icons/black/temporary.png";
-import mediation from "../../../assets/icons/black/mediation.png";
-import storage from "../../../assets/images/img15.png";
-import {IconBigButton} from "../../Util/Button/BigButton";
-import Page from "../../Util/Page/Page";
+import React, {useEffect, useState} from 'react'
 import useStages from "../../Util/Hook/Stages";
-import {ExpandedInOutBackground, ImageBackground} from "../../Util/Page/Background";
 import ComingSoon from "../Misc/ComingSoon/ComingSoon";
-import {BigChoiceTemplate} from "../../Util/Page/Template";
-import TextField from "../../Util/Form/Field";
-import SimpleFormTemplate from "../../Util/Form/Template";
-import Storage from "./Stage/Storage";
-import {SimpleForm} from "../../Util/Form/Form";
+import Search from "../Search/Search";
+import ServiceChoice from "./Stage/ServiceChoice";
+import TemporalForm from "./Stage/TemporalForm";
+import PartialForm from "./Stage/PartialForm";
+import Page from "../../Util/Page/Page";
+import {ExpandedInOutBackground, ImageBackground} from "../../Util/Page/Background";
+import storage from "../../../assets/images/img15.png";
+import {useNavigate} from "react-router-dom";
+import {FormFinishedTemplate} from "../../Util/Page/Template";
+
+const background1 = <ExpandedInOutBackground/>;
+const background2 = <ImageBackground image={storage}/>;
 
 export default function Find() {
-    const choiceStage =
-        <Page className="lg:w-fit py-0" background={<ExpandedInOutBackground/>}>
-            <BigChoiceTemplate text="ما الخدمة التي ترغب بالاستفادة منها ؟">
-                <IconBigButton
-                    label="التخزين الوجيز"
-                    icon={temporary}
-                    onClick={() => goToStage("temporal")}
-                />
-                <IconBigButton
-                    label="التخزين الجزئي"
-                    hint="قيد التطوير"
-                    icon={partial}
-                    onClick={() => goToStage("comingsoon")}
-                />
-                <IconBigButton
-                    label="التخزين لفترة طويلة"
-                    hint="قيد التطوير"
-                    icon={mediation}
-                    onClick={() => goToStage("comingsoon")}
-                />
-            </BigChoiceTemplate>
-        </Page>;
+    const navigate = useNavigate();
+    const [background, setBackground] = useState(background1);
 
-    const {goToStage, renderCurrentStage} = useStages({
-        "choice": choiceStage,
-        "temporal": <TemporalStage onSubmit={() => goToStage("search")}/>,
-        "search": <Storage/>,
-        "finished": <FinishedStage/>,
-        "comingsoon": <ComingSoon/>
+    const {stage, goToStage, renderCurrentStage} = useStages({
+        "choice":
+            <ServiceChoice
+                onChoice={(choice) => goToStage(choice)}
+                choices={["temporal", "partial", "mediation"]}
+            />,
+        "temporal": <TemporalForm onSubmit={() => navigate("/search")}/>,
+        "partial": <PartialForm onSubmit={() => goToStage("finished")}/>,
+        "mediation": <ComingSoon/>,
+        "search": <Search/>,
+        "finished":
+            <FormFinishedTemplate
+                messages={[
+                    "نشكرك على ثقتك بنا، سنتواصل معك بأقرب وقت خلال اليومين القادمين؛ لنحقق لك إدارة مخزنية متميزة…",
+                    "في حال واجهتك اية استفسارات يرجى التواصل معنا."
+                ]}
+            />,
     }, "choice");
 
-    return (
-        <AnimatePresence>
-            <SimpleForm
-                name="findForm"
-                initialValues={initialValues}
-                onSubmit={() => {
-                }}
-            >
-                {renderCurrentStage()}
-            </SimpleForm>
-        </AnimatePresence>
-    );
-}
+    useEffect(() => {
+        if (stage === "partial" || stage === "temporal") {
+            setBackground(background2);
+        } else {
+            setBackground(background1);
+        }
+    }, [stage]);
 
-const initialValues = {
-    userName: '',
-    phoneNumber: '',
-    residenceLocation: '',
-};
-
-function TemporalStage({onSubmit}) {
     return (
-        <Page className="lg:w-fit py-0" background={<ImageBackground image={storage}/>}>
-            <SimpleFormTemplate className="bg-opacity-95 mx-4">
-                <TextField
-                    label="الاسم"
-                    name="userName"
-                    type="text"
-                />
-                <TextField
-                    label="رقم الهاتف"
-                    name="phoneNumber"
-                    type="tel"
-                />
-                <TextField
-                    label="مكان السكن"
-                    name="residenceLocation"
-                    type="text"
-                />
-                <ContinueButton
-                    label="ابدأ"
-                    onClick={onSubmit}
-                />
-            </SimpleFormTemplate>
+        <Page background={background}>
+            {renderCurrentStage()}
         </Page>
-    );
-}
-
-function FinishedStage() {
-    return (
-        <motion.div
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            className="text-center text-3xl font-bold flex flex-col gap-5 justify-center"
-        >
-            <p>تم إرسال المعلومات بنجاح</p>
-            <p>سيقوم أحد موظفينا بالاتصال بك خلال فترة قصيرة</p>
-            <BackHomeButton label="العودة"/>
-        </motion.div>
     );
 }

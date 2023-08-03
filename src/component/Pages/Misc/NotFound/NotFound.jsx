@@ -1,7 +1,7 @@
 import React from 'react'
-import FormButton from "../../../Util/Button/FormButton";
 import {BsArrowRightShort} from "react-icons/bs";
 import {useNavigate} from "react-router-dom";
+import SmallButton from "../../../Util/Button/SmallButton";
 
 export default function NotFound() {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function NotFound() {
                 <p className="text-3xl">
                     الصفحة غير موجودة<br/>
                 </p>
-                <FormButton
+                <SmallButton
                     label="ارجع"
                     icon={<BsArrowRightShort/>}
                     onClick={() => navigate("/", {replace: true})}
