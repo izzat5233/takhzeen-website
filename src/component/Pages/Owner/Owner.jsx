@@ -1,19 +1,21 @@
 import React, {useState} from 'react'
 import {AnimatePresence} from "framer-motion";
-import warehouse from "../../../assets/images/background.jpeg";
 import SimpleFormTemplate from "../../Util/Form/Template";
 import TextField, {CheckboxFieldList, RadioField} from "../../Util/Form/Field";
 import {BackButton, ContinueButton} from "../../Util/Button/FormButton";
 import Page from "../../Util/Page/Page";
-import {ImageBackground} from "../../Util/Page/Background";
+import {SimpleWaveBackground} from "../../Util/Page/Background";
 import MultiStageForm from "../../Util/Form/Form";
-import {FormFinishedTemplate} from "../../Util/Page/Template";
+import {FormFinishedTemplate, FormStartTemplate} from "../../Util/Page/Template";
+import icon from "../../../assets/icons/normal/mediation.png";
+import useIsWideScreen from "../../Util/Hook/Screen";
 
 export default function Owner() {
     const [finished, setFinished] = useState(false);
+    const isWideScreen = useIsWideScreen();
 
     return (
-        <Page background={<ImageBackground image={warehouse}/>} className="lg:py-28">
+        <Page background={isWideScreen && <SimpleWaveBackground/>}>
             <AnimatePresence>
                 {!finished ?
                     <MultiStageForm
@@ -21,9 +23,9 @@ export default function Owner() {
                         stages={[<Start/>, <Fill/>]}
                         initialValues={initialValues}
                         onSubmit={() => setFinished(true)}
+                        loaderColor="#ff684c"
                     /> :
                     <FormFinishedTemplate
-                        className="bg-back bg-opacity-95 w-full py-4"
                         messages={[
                             "نشكرك على ثقتك بنا، سنتواصل معك بأقرب وقت خلال اليومين القادمين؛ لنحقق لك إدارة مخزنية متميزة…",
                             "في حال واجهتك اية استفسارات يرجى التواصل معنا."
@@ -49,18 +51,25 @@ const initialValues = {
 
 function Start() {
     return (
-        <SimpleFormTemplate className="w-dynamic max-w-md">
-            <TextField label="الاسم" name="userName" type="text"/>
-            <TextField label="رقم الهاتف" name="phoneNumber" type="tel"/>
-            <TextField label="مكان السكن" name="residenceLocation" type="text"/>
-            <ContinueButton label="تابع"/>
-        </SimpleFormTemplate>
+        <FormStartTemplate
+            icon={icon}
+            title="اعرض مخزنك"
+            text="مساحتنا الالكترونية تفتح لك آفاق التواصل؛ لايجاد طلبك من مخزن يلائمك أو مستأجر تبحث عنه."
+            form={
+                <SimpleFormTemplate className="w-dynamic max-w-md">
+                    <TextField label="الاسم" name="userName" type="text"/>
+                    <TextField label="رقم الهاتف" name="phoneNumber" type="tel"/>
+                    <TextField label="مكان السكن" name="residenceLocation" type="text"/>
+                    <ContinueButton label="تابع"/>
+                </SimpleFormTemplate>
+            }
+        />
     );
 }
 
 function Fill() {
     return (
-        <SimpleFormTemplate className="mx-auto py-16 lg:py-10 w-full lg:max-w-screen-md">
+        <SimpleFormTemplate className="mx-auto py-16 lg:py-10 lg:my-28 w-full lg:max-w-screen-md">
             <div className="flex flex-col gap-5 mb-8">
                 <TextField name="storageSize" label="ما هي مساحة مخزنك ؟" type="number"/>
                 <TextField name="storageFinish" label="ما درجة تشطيب مخزنك ؟" type="text"/>

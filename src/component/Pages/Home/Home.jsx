@@ -9,9 +9,8 @@ import {Link} from 'react-router-dom';
 import {motion} from 'framer-motion';
 import {ScrollProgressBar} from "../../Util/Animation/ProgressBar";
 import Page from "../../Util/Page/Page";
-import {UniformWaveSvg} from "../../Util/Page/Svg";
-import {FaTh, FaComments, FaShieldAlt, FaClipboardList, FaBoxOpen, FaHeadset, FaWarehouse} from 'react-icons/fa';
-
+import {SineWaveSvg} from "../../Util/Page/Svg";
+import {FaTh, FaComments, FaShieldAlt, FaClipboardList, FaBoxOpen, FaHeadset} from 'react-icons/fa';
 
 const cardsData = [
     {
@@ -82,7 +81,7 @@ const Home = () => {
                 <div className="header section__padding" id="Home">
                     <div className="header-content" style={{textAlign: "right"}}>
                         <h1 className="gradient__text"> مرحبًا بك في شركة تخزين!</h1>
-                        <p> نعمل الى جانب كلاً من المستأجرين والمؤجرين، نواجه ما يعانونه من تحديات من خلال خلقنا لحلول
+                        <p> نعمل الى جانب كلاً من المستأجرين والمؤجرين، نواجه ما يعانوه من تحديات من خلال خلقنا لحلول
                             تخزينية مبتكرة.</p>
                         <div className="header-content__input">
                             <button type="button"><Link to="/find">ابحث عن مخزنك</Link></button>
@@ -97,7 +96,7 @@ const Home = () => {
             </Page>
             <Page id="services" className="gap-10 py-20 md:py-28 lg:py-36 bg-gradient-primary text-center">
                 <div className="absolute -top-0.5 right-0 min-w-full overflow-hidden rotate-180">
-                    <UniformWaveSvg shadowOffset="3"/>
+                    <SineWaveSvg shadowOffset="3"/>
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-6xl font-black drop-shadow-xl">خـــدمـــاتـــنـــا</h1>
                 <h2 className="sub_title px-4 text-md lg:text-2xl">احصل على حلول تخزينية محسوبة بالملّي؛ لتنهض بالكفاءات
@@ -117,7 +116,7 @@ const Home = () => {
                     ))}
                 </div>
                 <div className="absolute -bottom-0.5 right-0 min-w-full overflow-hidden">
-                    <UniformWaveSvg fill="rgb(249 250 251)"/>
+                    <SineWaveSvg fill="rgb(249 250 251)"/>
                 </div>
             </Page>
             <Page id="features" className="bg-gray-50 text-center py-dynamic px-dynamic gap-4">

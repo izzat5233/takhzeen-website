@@ -13,6 +13,7 @@ import Contact from "../../Pages/Contact/Contact";
 import {AnimatePresence} from "framer-motion";
 import ComingSoon from "../../Pages/Misc/ComingSoon/ComingSoon";
 import Search from "../../Pages/Search/Search";
+import ScrollToTobButton from "../../Util/Button/ScrollButton";
 
 function App() {
     const location = useLocation();
@@ -35,6 +36,7 @@ function App() {
                     <Route path='*' element={<NotFound/>}/>
                 </Routes>
             </AnimatePresence>
+            <ScrollToTobButton/>
             <Footer/>
         </>
     );
