@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import logo from '../../../assets/icons/normal/logo.png';
 import logoWithText from '../../../assets/icons/normal/logoWithText.png';
 import {RiMenu3Line, RiCloseLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 import {motion, useMotionValueEvent, useScroll} from "framer-motion";
-import onClickOutsideHOC from "react-onclickoutside";
 import DropdownMenu from "./DropdownMenu";
 import useIsWideScreen from "../../Util/Hook/Screen";
 
@@ -16,7 +15,7 @@ export default function Navbar() {
     const isWideScreen = useIsWideScreen();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
-        setHidden(latest > prevScrollY);
+        setHidden(latest > 30 && latest > prevScrollY);
         setPrevScrollY(latest);
     });
 

@@ -1,7 +1,6 @@
 
 .header {
     display: flex;
-    flex-direction: row-reverse;
     background: #fff;
     
 }
@@ -11,7 +10,7 @@
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-direction: column;
     margin-right: 5rem;
 }
@@ -22,7 +21,7 @@
     font-size: 50px;
     line-height: 85px;
     letter-spacing: -0.04em;
-    align-items: flex-end;
+    align-items: flex-start;
     margin: 3rem 0 3rem;
     direction: rtl;
 
@@ -202,7 +201,6 @@
 
 /*Start services*/
 .cards{
-    background-color: #fff;
     padding: 1rem 3rem;
 }
 .title {
@@ -216,7 +214,6 @@
 .sub_title {
     display: flex;
     justify-content: center;
-    font-size: 1em;
     font-weight: 500;
     margin-bottom: 20px;
 }
@@ -232,9 +229,9 @@
     background-color: #fff;
     width: 21.25em;
     box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
-    border-radius: 10px;
-    padding: 25px;
-    margin: 15px;
+    @apply rounded-2xl xl:rounded-tl-none xl:rounded-br-none;
+    @apply p-4 lg:p-6;
+    @apply m-2 lg:m-4;
     transition: 0.3s ease;
     align-items: center;
 }
@@ -243,9 +240,9 @@
     border-radius: 30px;
 }
 
-.card:hover {
+/*.card:hover {
     transform: scale(1.1);
-}
+}*/
 
 .card .icon {
     font-size: 5em;

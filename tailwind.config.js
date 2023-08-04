@@ -10,7 +10,7 @@ module.exports = {
             },
             fontFamily: {
                 'sans': ['Noto Kufi Arabic', 'serif'], /* default font */
-                'cursive': []
+                'cursive': ['arslan', 'cursive']
             },
             colors: {
                 'primary': '#ff684c',

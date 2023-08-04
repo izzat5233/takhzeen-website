@@ -1,13 +1,17 @@
 import React from 'react'
 import storage from '../../../assets/images/storage.png';
-import sys from '../../../assets/icons/black/management.png';
-import Partial from '../../../assets/icons/black/partial.png';
-import connection from '../../../assets/icons/black/mediation.png';
-import time from '../../../assets/icons/black/temporary.png';
+import sys from '../../../assets/icons/normal/management.png';
+import Partial from '../../../assets/icons/normal/partial.png';
+import connection from '../../../assets/icons/normal/mediation.png';
+import time from '../../../assets/icons/normal/temporary.png';
 import './home.css';
 import {Link} from 'react-router-dom';
 import {motion} from 'framer-motion';
 import {ScrollProgressBar} from "../../Util/Animation/ProgressBar";
+import Page from "../../Util/Page/Page";
+import {UniformWaveSvg} from "../../Util/Page/Svg";
+import {FaTh, FaComments, FaShieldAlt, FaClipboardList, FaBoxOpen, FaHeadset, FaWarehouse} from 'react-icons/fa';
+
 
 const cardsData = [
     {
@@ -34,26 +38,32 @@ const cardsData = [
 
 const features = [
     {
+        icon: <FaTh/>,
         title: ' خيارات متنوعة',
         description: ''/*'نساعدك في تنظيم المساحة وترتيب البضائع بطريقة تسمح بتخزين أكبر عدد من السلع في مساحة محدودة.'*/,
     },
     {
+        icon: <FaComments/>,
         title: 'تواصل مجدي',
         description: '',
     },
     {
+        icon: <FaShieldAlt/>,
         title: 'الأمان والحماية ',
         description: ''
     },
     {
+        icon: <FaClipboardList/>,
         title: 'إدارة المخزون',
         description: '',
     },
     {
+        icon: <FaBoxOpen/>,
         title: 'تخزين ملائم',
         description: ''
     },
     {
+        icon: <FaHeadset/>,
         title: 'خدمة عملاء فعالة',
         description: ''
     }
@@ -66,38 +76,36 @@ const Home = () => {
             animate={{opacity: 1, x: 0, y: 0}}
             exit={{opacity: 0, x: 10, y: -10}}
             transition={{ease: "easeIn"}}
-            className="flex flex-col gap-10 snap-y snap-mandatory overflow-y-hidden min-h-full"
         >
             <ScrollProgressBar/>
-            <section className="min-h-screen flex flex-col justify-center pb-20 snap-start">
+            <Page>
                 <div className="header section__padding" id="Home">
                     <div className="header-content" style={{textAlign: "right"}}>
                         <h1 className="gradient__text"> مرحبًا بك في شركة تخزين!</h1>
-                        <p> نعمل الى جانب كلاً من المستأجرين والمؤجرين، نواجه ما يعانونه من تحديات من خلال خلقنا لحلول تخزينية مبتكرة.</p>
+                        <p> نعمل الى جانب كلاً من المستأجرين والمؤجرين، نواجه ما يعانونه من تحديات من خلال خلقنا لحلول
+                            تخزينية مبتكرة.</p>
                         <div className="header-content__input">
-                            <button type="button"><Link to="/management"> لِنُدّر لك مخزنك</Link></button>
-                            <button type="button"><Link to="/owner">اعرض مخزنك</Link></button>
                             <button type="button"><Link to="/find">ابحث عن مخزنك</Link></button>
+                            <button type="button"><Link to="/owner">اعرض مخزنك</Link></button>
+                            <button type="button"><Link to="/management"> لِنُدر لك مخزنك</Link></button>
                         </div>
                     </div>
                     <div className="header-image">
                         <img src={storage} alt="Storage Company"/>
                     </div>
                 </div>
-            </section>
-            <section
-                className="
-                    min-h-screen flex flex-col justify-center text-center gap-10 py-20
-                    bg-gradient-primary snap-start
-                "
-                id="services"
-            >
-                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">خـــدمـــاتـــنـــا</h1>
-                <h2 className="sub_title px-4">احصل على حلول تخزينية محسوبة بالملّي؛ لتنهض بالكفاءات والخدمات المقدمة من
+            </Page>
+            <Page id="services" className="gap-10 py-20 md:py-28 lg:py-36 bg-gradient-primary text-center">
+                <div className="absolute -top-0.5 right-0 min-w-full overflow-hidden rotate-180">
+                    <UniformWaveSvg shadowOffset="3"/>
+                </div>
+                <h1 className="text-3xl md:text-4xl lg:text-6xl font-black drop-shadow-xl">خـــدمـــاتـــنـــا</h1>
+                <h2 className="sub_title px-4 text-md lg:text-2xl">احصل على حلول تخزينية محسوبة بالملّي؛ لتنهض بالكفاءات
+                    والخدمات المقدمة من
                     قبلنا</h2>
                 <div className="content">
                     {cardsData.map((card, index) => (
-                        <div className="card flex flex-col gap-3 bg-opacity-95" key={index}>
+                        <div className="card border-4 border-gray-200 flex flex-col gap-3" key={index}>
                             <div className="icon mx-auto">
                                 <img src={card.imgSrc} alt={`Card ${index + 1}`}/>
                             </div>
@@ -108,24 +116,29 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-            </section>
-            <section className="cards min-h-screen flex flex-col justify-center text-center pb-20 snap-start"
-                     id="features">
-                <h2 className="title lg:text">لــمــاذا تــخــزيــن؟</h2>
+                <div className="absolute -bottom-0.5 right-0 min-w-full overflow-hidden">
+                    <UniformWaveSvg fill="rgb(249 250 251)"/>
+                </div>
+            </Page>
+            <Page id="features" className="bg-gray-50 text-center py-dynamic px-dynamic gap-4">
+                <h2 className="title">لــمــاذا تــخــزيــن؟</h2>
                 <div className="content">
                     {features.map((skill, index) => (
                         <div className="card card-rounded" key={index}>
                             <div className="info">
-                                <h3 className="text-strong">{skill.title}</h3>
-                                <p>{skill.description.split('\n').map((item, i) => <span
-                                    key={i}>{item}<br/></span>)}</p>
+                                <div className="flex flex-wrap gap-2 justify-center text-strong">
+                                    <div className="text-2xl my-auto">{skill.icon}</div>
+                                    <h3>{skill.title}</h3>
+                                </div>
+                                {/*<p>{skill.description.split('\n').map((item, i) => <span
+                                    key={i}>{item}<br/></span>)}</p>*/}
                             </div>
                         </div>
                     ))}
                 </div>
-            </section>
+            </Page>
         </motion.div>
-    )
+    );
 }
 
 export default Home;
