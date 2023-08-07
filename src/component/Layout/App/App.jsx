@@ -14,9 +14,14 @@ import {AnimatePresence} from "framer-motion";
 import ComingSoon from "../../Pages/Misc/ComingSoon/ComingSoon";
 import Search from "../../Pages/Search/Search";
 import ScrollToTobButton from "../../Util/Button/ScrollButton";
+import {useEffect} from "react";
 
 function App() {
     const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
 
     return (
         <>
