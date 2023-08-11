@@ -37,7 +37,7 @@ function Start() {
             <TextField
                 label="رقم الهاتف"
                 name="phoneNumber"
-                type="tel"
+                type="text"
             />
             <TextField
                 label="مكان السكن"
@@ -60,12 +60,12 @@ function Fill() {
             <TextField
                 label="المدة المتوقعة للاستئجار"
                 name="expectedRentalDuration"
-                type="number"
+                type="text"
             />
             <TextField
                 label="المساحة المراد استئجارها"
                 name="requiredStorageSpace"
-                type="number"
+                type="text"
             />
             <TextField
                 label="المواقع المرغوبة للمخزن"

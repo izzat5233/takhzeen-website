@@ -15,7 +15,7 @@ export default function StorageShowcase({storage, onReturn}) {
 
     return submitted ? <FormFinishedTemplate
         messages={[
-            "تم طلب المخزن... سنتواصل مع في أقرب فرصة",
+            "تم طلب المخزن... سنتواصل معك في أقرب فرصة",
             "في حال واجهتك اية استفسارات يرجى التواصل معنا."
         ]}
     /> : (
@@ -88,7 +88,7 @@ export default function StorageShowcase({storage, onReturn}) {
                             <TextField
                                 label="المدة المتوقعة للاستئجار"
                                 name="expectedRentalDuration"
-                                type="number"
+                                type="text"
                             />
                             <ContinueButton label="اطلب"/>
                         </div>

@@ -24,7 +24,7 @@ export default function TemporalForm({onSubmit}) {
                 <TextField
                     label="رقم الهاتف"
                     name="phoneNumber"
-                    type="tel"
+                    type="text"
                 />
                 <TextField
                     label="مكان السكن"
