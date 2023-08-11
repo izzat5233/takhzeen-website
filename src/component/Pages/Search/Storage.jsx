@@ -1,7 +1,7 @@
 import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import storage1 from "../../../assets/images/background.jpeg";
-import storage2 from "../../../assets/images/img15.png";
+import storage1 from "../../../assets/images/img15.png";
+import storage2 from "../../../assets/images/storage-inside.jpeg";
 import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
 import React, {useState} from "react";
 import {FaArrowRightLong} from "react-icons/fa6";
