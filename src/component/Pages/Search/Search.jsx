@@ -6,13 +6,13 @@ import {BiSolidDownArrow} from "react-icons/bi";
 import {useEffect, useState} from "react";
 import {getStorages} from "../../Util/Api/StorageApi";
 import SmallButton from "../../Util/Button/SmallButton";
+import StorageShowcase from "./Storage";
 
 export default function Search() {
     const [storages, setStorages] = useState([]);
     const [filteredData, filters, setFilters] = useFilters(storages);
     const [areaChoice, setAreaChoice] = useState(null);
     const [locationChoice, setLocationChoice] = useState(null);
-    const [priceChoice, setPriceChoice] = useState(null);
 
     useEffect(() => {
         getStorages()
@@ -29,63 +29,57 @@ export default function Search() {
         if (locationChoice && (locationChoice !== "الكل")) {
             filter.location = (location) => locationChoice === location;
         }
-        if (priceChoice && (priceChoice !== "الكل")) {
-            let range = priceChoice.split("-");
-            filter.price = (price) => (Number(range[0]) <= price && price <= Number(range[1]));
-        }
         setFilters(filter);
-    }, [areaChoice, locationChoice, priceChoice]);
+    }, [areaChoice, locationChoice]);
+
+    const [selectedStorage, setSelectedStorage] = useState(null);
 
     return (
         <Page background={<ExpandedInOutBackground/>} className="px-dynamic py-dynamic">
-            <div className="flex flex-wrap flex-initial justify-center gap-8 mb-8">
-                <p className="text-xl py-2">البحث من خلال:</p>
-                <FilterButton
-                    title="المساحة"
-                    labels={[
-                        "الكل",
-                        "10 - 20",
-                        "20 - 40",
-                        "40 - 80",
-                        "80 - 100"
-                    ]}
-                    currentLabel={areaChoice}
-                    setCurrentLabel={setAreaChoice}
-                />
-                <FilterButton
-                    title="الموقع"
-                    labels={[
-                        "الكل",
-                        "نابلس",
-                        "رام الله",
-                        "طولكرم",
-                        "الخليل"
-                    ]}
-                    currentLabel={locationChoice}
-                    setCurrentLabel={setLocationChoice}
-                />
-                <FilterButton
-                    title="السعر"
-                    labels={[
-                        "الكل",
-                        "1000 - 2000",
-                        "2000 - 4000",
-                        "4000 - 8000",
-                        "8000 - 10000"
-                    ]}
-                    currentLabel={priceChoice}
-                    setCurrentLabel={setPriceChoice}
-                />
-            </div>
-            <div className="flex flex-col flex-grow">
-                {filteredData.map((storage, index) => (
-                    <Card
-                        layout="list"
-                        storage={storage}
-                        key={index}
+            {selectedStorage === null && <>
+                <div className="flex flex-wrap flex-initial justify-center gap-8 mb-8">
+                    <p className="text-xl py-2">البحث من خلال:</p>
+                    <FilterButton
+                        title="المساحة"
+                        labels={[
+                            "الكل",
+                            "10 - 20",
+                            "20 - 40",
+                            "40 - 80",
+                            "80 - 100"
+                        ]}
+                        currentLabel={areaChoice}
+                        setCurrentLabel={setAreaChoice}
                     />
-                ))}
-            </div>
+                    <FilterButton
+                        title="الموقع"
+                        labels={[
+                            "الكل",
+                            "نابلس",
+                            "رام الله",
+                            "طولكرم",
+                            "الخليل"
+                        ]}
+                        currentLabel={locationChoice}
+                        setCurrentLabel={setLocationChoice}
+                    />
+                </div>
+                <div className="flex flex-col flex-grow">
+                    {filteredData.map((storage, index) => (
+                        <Card
+                            layout="list"
+                            storage={storage}
+                            key={index}
+                            onSubmit={() => setSelectedStorage(storage)}
+                        />
+                    ))}
+                </div>
+            </>}
+            {selectedStorage &&
+                <StorageShowcase
+                    storage={selectedStorage}
+                    onReturn={() => setSelectedStorage(null)}
+                />}
         </Page>
     );
 }
@@ -123,33 +117,29 @@ function FilterButton({title, labels, currentLabel, setCurrentLabel}) {
     );
 }
 
-function Card({key, storage}) {
+function Card({key, storage, onSubmit}) {
     return (
         <div className="
-            flex justify-around transition-all
-            my-5 mx-5 p-4 rounded-3xl
-            bg-back shadow-xl
+            flex flex-wrap justify-around items-center
+            my-4 p-2 sm:p-4 gap-12
+            rounded-2xl sm:rounded-3xl bg-back shadow-xl
+            text-xl lg:text-2xl xl:text-3xl text-center
         ">
             <img
                 src={storage['imageURL']}
                 alt={"Storage" + key}
-                className="w-36 h-36 object-cover rounded-md"
+                className="w-44 h-44 object-cover rounded-xl drop-shadow-xl border-4 border-gray-300"
             />
-            <div className="flex-grow flex flex-col lg:flex-row gap-8">
-                <div className={`
-                lg:flex-grow flex flex-col xl:flex-row
-                text-2xl text-center my-auto justify-around gap-4
-            `}>
-                    <p>{storage['location']}</p>
-                    <p>{storage['size'] + " متر مربع"}</p>
-                    <p>{storage['price'] + " شيكل"}</p>
-                </div>
-                <SmallButton
-                    label="طلب استئجار"
-                    icon={<BsPlus/>}
-                    className="font-xl h-fit my-auto"
-                />
+            <div className="flex flex-wrap items-center gap-4">
+                <p className="bg-gray-300 bg-opacity-50 rounded-full p-2 xl:p-4 w-full">{storage['location']}</p>
+                <p className="bg-gray-300 bg-opacity-50 rounded-full p-2 xl:p-4 w-full">{storage['size'] + " متر مربع"}</p>
             </div>
+            <SmallButton
+                label="طلب استئجار"
+                icon={<BsPlus/>}
+                className="whitespace-nowrap flex-wrap-reverse"
+                onClick={onSubmit}
+            />
         </div>
     );
 }
