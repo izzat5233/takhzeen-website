@@ -4,9 +4,10 @@ import {BsPlus} from "react-icons/bs";
 import {ExpandedInOutBackground} from "../../Util/Page/Background";
 import {BiSolidDownArrow} from "react-icons/bi";
 import {useEffect, useState} from "react";
-import {getStorages} from "../../Util/Api/StorageApi";
+import {getStorageImages, getStorages} from "../../Util/Api/StorageApi";
 import SmallButton from "../../Util/Button/SmallButton";
 import StorageShowcase from "./Storage";
+import placeholder from "../../../assets/images/warehouse.png";
 
 export default function Search() {
     const [storages, setStorages] = useState([]);
@@ -15,7 +16,13 @@ export default function Search() {
     const [locationChoice, setLocationChoice] = useState(null);
 
     useEffect(() => {
-        getStorages()
+        getStorages([
+            "size",
+            "location",
+            "sublocation",
+            "numberOfImages",
+            "imageFormat"
+        ])
             .then(data => setStorages(data))
             .catch(error => console.error(error));
     }, []);
@@ -43,10 +50,11 @@ export default function Search() {
                         title="المساحة"
                         labels={[
                             "الكل",
-                            "10 - 20",
-                            "20 - 40",
-                            "40 - 80",
-                            "80 - 100"
+                            "0 - 100",
+                            "100 - 200",
+                            "200 - 300",
+                            "300 - 400",
+                            "400 - 500"
                         ]}
                         currentLabel={areaChoice}
                         setCurrentLabel={setAreaChoice}
@@ -77,7 +85,7 @@ export default function Search() {
             </>}
             {selectedStorage &&
                 <StorageShowcase
-                    storage={selectedStorage}
+                    initialData={selectedStorage}
                     onReturn={() => setSelectedStorage(null)}
                 />}
         </Page>
@@ -123,16 +131,22 @@ function Card({key, storage, onSubmit}) {
             flex flex-wrap justify-around items-center
             my-4 p-2 sm:p-4 gap-12
             rounded-2xl sm:rounded-3xl bg-back shadow-xl
-            text-xl lg:text-2xl xl:text-3xl text-center
+            text-xl lg:text-xl xl:text-2xl text-center
         ">
             <img
-                src={storage['imageURL']}
+                src={storage['numberOfImages'] > 0
+                    ? getStorageImages(storage['_id'], 1, storage['imageFormat'])[0]
+                    : placeholder}
                 alt={"Storage" + key}
                 className="w-44 h-44 object-cover rounded-xl drop-shadow-xl border-4 border-gray-300"
             />
             <div className="flex flex-wrap items-center gap-4">
-                <p className="bg-gray-300 bg-opacity-50 rounded-full p-2 xl:p-4 w-full">{storage['location']}</p>
-                <p className="bg-gray-300 bg-opacity-50 rounded-full p-2 xl:p-4 w-full">{storage['size'] + " متر مربع"}</p>
+                <p className="bg-gray-300 bg-opacity-50 rounded-full p-2 xl:p-4 w-full">
+                    {`${storage['location']}${storage['sublocation'] ? ` - ${storage['sublocation']}` : ""}`}
+                </p>
+                <p className="bg-gray-300 bg-opacity-50 rounded-full p-2 xl:p-4 w-full">
+                    {storage['size'] + " متر مربع"}
+                </p>
             </div>
             <SmallButton
                 label="طلب استئجار"
