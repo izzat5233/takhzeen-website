@@ -1,4 +1,4 @@
-const API_URL = 'https://takhzeen.azurewebsites.net/form';
+const API_URL = 'https://api.takhzeen.ps/form';
 
 /**
  * Sends a POST request to create a new form.

@@ -1,4 +1,4 @@
-const API_URL = 'https://takhzeen.azurewebsites.net/storage';
+const API_URL = 'https://api.takhzeen.ps/storage';
 const IMAGE_URL = 'https://takhzeen.blob.core.windows.net/storages'
 
 /**
