@@ -91,3 +91,11 @@
 .w-dynamic {
   @apply mx-auto w-full sm:w-fit;
 }
+
+.text-big-dynamic {
+  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+}
+
+.text-small-dynamic {
+  @apply text-lg sm:text-2xl md:text-3xl;
+}

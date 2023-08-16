@@ -34,7 +34,7 @@ const ServicesPage = ({...rest}) => {
                 </div>
             </div>
             <div className="absolute -bottom-0.5 right-0 min-w-full overflow-hidden">
-                <SineWaveSvg fill="rgb(249 250 251)"/>
+                <SineWaveSvg/>
             </div>
         </Page>
     );

@@ -5,6 +5,7 @@ import {ScrollProgressBar} from "../../Util/Animation/ProgressBar";
 import WelcomePage from "./Page/Welcome";
 import ServicesPage from "./Page/Services";
 import MorePage from "./Page/More";
+import AboutPage from "./Page/About";
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <ScrollProgressBar/>
             <WelcomePage/>
             <ServicesPage/>
+            <AboutPage/>
             <MorePage/>
         </motion.div>
     );

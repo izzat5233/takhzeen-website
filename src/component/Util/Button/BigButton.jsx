@@ -12,11 +12,11 @@ import React from "react";
 export default function BigButton({children, onClick, className}) {
     return (
         <div className="
-            w-80 h-80 sm:w-96 sm:h-96 bg-back rounded
+            max-w-[72] max-h-[72] lg:w-80 lg:h-80 xl:w-96 xl:h-96 bg-back rounded
             flex flex-col justify-center
             duration-300 transition-all
             border-8 border-gray-200 drop-shadow-2xl
-            hover:rounded-3xl hover:scale-95 active:scale-90
+            only-hover:hover:rounded-3xl only-hover:hover:scale-95
         ">
             <button type="button" onClick={onClick} className={`flex-grow ${className}`}>
                 {children}
