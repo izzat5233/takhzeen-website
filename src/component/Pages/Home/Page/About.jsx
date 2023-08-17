@@ -9,26 +9,25 @@ import React from "react";
 export default function AboutPage() {
     return (
         <Page className="items-center">
-            <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex flex-col md:flex-row gap-8 items-center py-dynamic mb-8">
                 <img src={login} alt="Takhzeen"/>
                 <h1 className="text-strong text-big-dynamic font-bold w-fit py-2">من نحن ؟</h1>
             </div>
             {paragraphs.map(paragraph => (
                 <div className="
-                        w-full flex flex-col sm:flex-row justify-end items-center text-center gap-8
-                        sm:odd:flex-row-reverse sm:odd:justify-start sm:odd:text-end sm:even:text-start
-                        even:bg-gray-100 py-2 sm:py-8 px-dynamic
-                    ">
+                    w-full flex flex-col sm:flex-row justify-center items-center text-center gap-8
+                    even:bg-gray-100 py-16 sm:py-32 xl:py-44 px-dynamic relative group
+                ">
                     <p className="
-                            text-big-dynamic text-strong rounded-full p-4 sm:p-8 border-4 sm:border-8 border-strong
-                            only-hover:hover:text-back only-hover:hover:bg-strong transition-colors
-                        ">
+                        absolute-center-x top-0 -translate-y-1/3 bg-back
+                        text-medium-dynamic text-strong rounded-full p-4 sm:p-8 border-4 sm:border-8 border-strong
+                        only-hover:group-hover:text-back only-hover:group-hover:bg-strong transition-colors
+                    ">
                         {paragraph.icon}
                     </p>
                     <p className="text-small-dynamic">
                         {paragraph.description}
                     </p>
-                    <p className="hidden opacity-0 sm:inline-block">{paragraph.icon}</p>
                 </div>
             ))}
         </Page>
@@ -38,7 +37,7 @@ export default function AboutPage() {
 const paragraphs = [
     {
         icon: <FaBuilding/>,
-        description: "شركة تخزين هي شركة محلية فلسطينية المنشأ، نطرح خدمات متنوعة عبر موقعنا الاكتروني، تستهدف مختلف فئات المستأجرين واصحاب المخازن."
+        description: "تخزين هي شركة محلية فلسطينية المنشأ، نطرح خدمات متنوعة عبر موقعنا الاكتروني، تستهدف مختلف فئات المستأجرين واصحاب المخازن."
     },
     {
         icon: <FaLink/>,

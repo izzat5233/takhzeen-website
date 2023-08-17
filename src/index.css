@@ -96,6 +96,18 @@
   @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
 }
 
+.text-medium-dynamic {
+  @apply text-2xl sm:text-4xl md:text-5xl lg:text-6xl
+}
+
 .text-small-dynamic {
   @apply text-lg sm:text-2xl md:text-3xl;
+}
+
+.absolute-center-x {
+  @apply absolute left-1/2 transform -translate-x-1/2;
+}
+
+.absolute-center-y {
+  @apply absolute top-1/2 transform -translate-y-1/2;
 }
