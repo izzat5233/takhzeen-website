@@ -1,20 +1,21 @@
 import React from "react";
 import {motion} from "framer-motion";
 import Page from "../../../Util/Page/Page";
-import {SineWaveSvg} from "../../../Util/Page/Svg";
 import connection from "../../../../assets/icons/normal/mediation.png";
 import time from "../../../../assets/icons/normal/temporary.png";
 import Partial from "../../../../assets/icons/normal/partial.png";
 import sys from "../../../../assets/icons/normal/management.png";
 import {FaArrowLeftLong} from "react-icons/fa6";
 import {Link} from "react-router-dom";
+import Svg, {ShadowFilter, SineWavePath} from "../../../Util/Page/Svg";
 
 const ServicesPage = ({...rest}) => {
     return (
-        <Page className="relative py-20 md:py-32 lg:py-44 xl:py-48 bg-gradient-primary text-center">
-            <div className="absolute -top-0.5 right-0 min-w-full overflow-hidden rotate-180">
-                <SineWaveSvg shadowOffset="3"/>
-            </div>
+        <Page className="relative py-20 md:py-32 lg:py-44 xl:py-48 bg-gradient-primary text-center" {...rest}>
+            <Svg viewBox="0 0 900 50" defs={<ShadowFilter id="shadow" offset="3"/>}
+                 className="svg-layer -top-0.5 right-0 rotate-180">
+                <SineWavePath fill="#ffffff" filter="url(#shadow)" stroke="#ffffff"/>
+            </Svg>
             <div className="flex flex-col justify-center gap-10 lg:gap-14 xl:gap-16">
                 <div className="flex flex-col justify-center gap-10 lg:gap-14 xl:gap-16">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black drop-shadow-xl">خـــدمـــاتـــنـــا</h1>
@@ -33,9 +34,10 @@ const ServicesPage = ({...rest}) => {
                     ))}
                 </div>
             </div>
-            <div className="absolute -bottom-0.5 right-0 min-w-full overflow-hidden">
-                <SineWaveSvg/>
-            </div>
+            <Svg viewBox="0 0 900 50" defs={<ShadowFilter id="shadow" offset="5"/>}
+                 className="svg-layer -bottom-0.5 right-0">
+                <SineWavePath fill="#ffffff" filter="url(#shadow)" stroke="#ffffff"/>
+            </Svg>
         </Page>
     );
 }

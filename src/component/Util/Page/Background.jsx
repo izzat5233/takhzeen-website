@@ -1,6 +1,6 @@
 import {motion} from "framer-motion";
 import React from "react";
-import {SimpleWaveSvg} from "./Svg";
+import Svg, {ShadowFilter, SimpleWavePath} from "./Svg";
 
 /**
  * A HOC wrapper that adds a background to the component.
@@ -34,7 +34,7 @@ export function ImageBackground({image}) {
         <motion.img
             src={image}
             alt="Backround"
-            className="-z-10 fixed top-0 min-h-screen w-screen object-cover"
+            className="-z-10 fixed top-0 left-0 min-h-screen w-screen object-cover"
             initial={{scale: 1.05}}
             animate={{scale: 1}}
             transition={{duration: 0.5}}
@@ -77,9 +77,10 @@ export function SimpleWaveBackground() {
             transition={{duration: 1, ease: "anticipate"}}
             className="absolute min-h-screen bottom-0 left-0 w-full h-full -z-10"
         >
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-                <SimpleWaveSvg/>
-            </div>
+            <Svg className="absolute bottom-0 left-0 w-full overflow-hidden"
+                 viewBox="0 0 1600 450" defs={<ShadowFilter id="shadow" offset="2"/>}>
+                <SimpleWavePath fill="#ff684c" filter="url(#shadow)"/>
+            </Svg>
         </motion.div>
     );
 }

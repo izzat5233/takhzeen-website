@@ -5,8 +5,7 @@ import {Field} from "formik";
 
 export default function Contact() {
     return (
-
-        <section id="section-wrapper">
+        <section id="section-wrapper" className="min-h-screen">
             <div className="box-wrapper">
                 <div className="info-wrap">
                     <h2 className="info-title">معلومات الاتصال </h2>
@@ -17,11 +16,11 @@ export default function Contact() {
                         </li>
                         <li>
 
-                            <span>ايميل : </span> <a href="mailto:info@takhzeen.ps">info@ta5zeen.ps</a>
+                            <span>ايميل : </span> <a href="mailto:info@takhzeen.ps">info@takhzeen.ps</a>
                         </li>
                         <li>
 
-                            <span> الموقع :</span> <a href="http://ta5zeen.ps/">ta5zeen.ps</a>
+                            <span> الموقع :</span> <a href="https://takhzeen.ps/">takhzeen.ps</a>
                         </li>
                     </ul>
                     <ul className="social-icons">
@@ -60,7 +59,7 @@ export default function Contact() {
                                 <Field type="textarea" className="textarea" name="message" id placeholder="اكتب رسالتك هنا" />
                             </div>
                         </div>
-                        <input type="submit" defaultValue="Send Message" className="submit-button" />
+                        <input type="submit" defaultValue="Send Message" className="submit-button" value="ارسل"/>
                     </SimpleForm>
                 </div>
             </div>

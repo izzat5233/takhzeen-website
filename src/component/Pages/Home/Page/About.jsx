@@ -5,10 +5,11 @@ import about1 from "../../../../assets/images/about1.jpg";
 import about from "../../../../assets/images/about.jpeg";
 import login from "../../../../assets/images/login.png";
 import React from "react";
+import Svg, {SineWavePath} from "../../../Util/Page/Svg";
 
-export default function AboutPage() {
+export default function AboutPage({...rest}) {
     return (
-        <Page className="items-center">
+        <Page className="items-center" {...rest}>
             <div className="flex flex-col md:flex-row gap-8 items-center py-dynamic mb-8">
                 <img src={login} alt="Takhzeen"/>
                 <h1 className="text-strong text-big-dynamic font-bold w-fit py-2">من نحن ؟</h1>
@@ -18,6 +19,9 @@ export default function AboutPage() {
                     w-full flex flex-col sm:flex-row justify-center items-center text-center gap-8
                     even:bg-gray-100 py-16 sm:py-32 xl:py-44 px-dynamic relative group
                 ">
+                    <Svg viewBox="0 0 900 50" className="svg-layer -top-0.5 right-0 rotate-180">
+                        <SineWavePath fill="#ffffff" stroke="#ffffff"/>
+                    </Svg>
                     <p className="
                         absolute-center-x top-0 -translate-y-1/3 bg-back
                         text-medium-dynamic text-strong rounded-full p-4 sm:p-8 border-4 sm:border-8 border-strong
@@ -49,7 +53,7 @@ const paragraphs = [
     },
     {
         icon: <FaLightbulb/>,
-        description: "نهدف في تخزين الى خلق حلول لمختلف المشاكل التي قد تواجه المستأجرين واصحاب المخازن عن طريق تقديم خدمات مبتكرة وفريدة من نوعها تخدم كلا الطرفين."
+        description: "نهدف في تخزين الى خلق حلول لمختلف المشاكل التي تواجه المستأجرين واصحاب المخازن عن طريق تقديم خدمات مبتكرة وفريدة تخدم كلا الطرفين."
     },
 ]
 
