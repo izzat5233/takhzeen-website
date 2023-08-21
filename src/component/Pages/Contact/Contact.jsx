@@ -26,7 +26,7 @@ export default function Contact() {
                     <ul className="social-icons">
                         <li><a href="https://www.facebook.com/ta5zeen" target="_blank"><FiFacebook /></a></li>
                         <li><a href="https://twitter.com/TakhzeenPS" target="_blank"><FiTwitter /></a></li>
-                        <li><a href="https://www.instagram.com/ta5zeen.ps/" target="_blank"><FiInstagram /></a></li>
+                        <li><a href="https://www.instagram.com/takhzeen.ps/" target="_blank"><FiInstagram /></a></li>
                         <li><a href="https://www.linkedin.com/company/takhzeen-ps/" target="_blank"><FiLinkedin /></a></li>
 
                     </ul>

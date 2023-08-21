@@ -40,7 +40,6 @@ const initialValues = {
     companyName: '',
     phoneNumber: '',
     email: '',
-    mobileNumber: '',
     storageSize: '',
     storageFinish: '',
     goodsNature: '',
@@ -68,7 +67,6 @@ function Start() {
                     <TextField name="companyName" label="اسم الشركة" type="text" required/>
                     <TextField name="phoneNumber" label="رقم الهاتف" type="tel" required/>
                     <TextField name="email" label="البريد الاكتروني" type="email"/>
-                    <TextField name="mobileNumber" label="رقم الجوال" type="tel"/>
                     <ContinueButton label="ابدأ"/>
                 </SimpleFormTemplate>
             }

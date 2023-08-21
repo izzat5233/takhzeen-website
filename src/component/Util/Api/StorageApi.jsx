@@ -1,5 +1,5 @@
-const API_URL = 'https://api.takhzeen.ps/storage';
-const IMAGE_URL = 'https://takhzeen.blob.core.windows.net/storages'
+const API_URL = process.env.REACT_APP_API_URL_STORAGE;
+const IMAGE_URL = process.env.REACT_APP_API_URL_BLOB;
 
 /**
  * @param {string} [baseURL] - The base url;
