@@ -4,10 +4,10 @@ import {ContinueButton} from "../../../Util/Button/FormButton";
 import React from "react";
 import TextField from "../../../Util/Form/Field";
 
-export default function TemporalForm({onSubmit}) {
+export default function BasicForm({name, onSubmit}) {
     return (
         <SimpleForm
-            name="temporalForm"
+            name={name}
             onSubmit={onSubmit}
             initialValues={{
                 userName: '',
