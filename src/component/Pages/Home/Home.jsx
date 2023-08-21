@@ -1,11 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './home.css';
 import {motion} from 'framer-motion';
 import {ScrollProgressBar} from "../../Util/Animation/ProgressBar";
 import WelcomePage from "./Page/Welcome";
 import ServicesPage from "./Page/Services";
 import MorePage from "./Page/More";
-import AboutPage from "./Page/About";
 
 export default function Home() {
     return (
@@ -18,7 +17,6 @@ export default function Home() {
             <ScrollProgressBar/>
             <WelcomePage id="welcomeSection"/>
             <ServicesPage id="serviceSection"/>
-            <AboutPage id="aboutSection"/>
             <MorePage id="moreSection"/>
         </motion.div>
     );

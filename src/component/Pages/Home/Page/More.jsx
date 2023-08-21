@@ -1,13 +1,9 @@
 import Page from "../../../Util/Page/Page";
 import React from "react";
 import {FaBoxOpen, FaClipboardList, FaComments, FaHeadset, FaShieldAlt, FaTh} from "react-icons/fa";
-import Svg, {SineWavePath} from "../../../Util/Page/Svg";
 
 const MorePage = ({...rest}) => (
-    <Page className="bg-gray-100 text-center py-dynamic px-dynamic gap-4"{...rest}>
-        <Svg viewBox="0 0 900 50" className="svg-layer -top-0.5 right-0 rotate-180">
-            <SineWavePath fill="#ffffff" stroke="#ffffff"/>
-        </Svg>
+    <Page className="text-center py-dynamic px-dynamic gap-4" {...rest}>
         <h2 className="title">لــمــاذا تــخــزيــن؟</h2>
         <div className="content">
             {features.map((skill, index) => (

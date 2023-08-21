@@ -3,6 +3,7 @@ import MultiStageForm from "../../../Util/Form/Form";
 import SimpleFormTemplate from "../../../Util/Form/Template";
 import {BackButton, ContinueButton} from "../../../Util/Button/FormButton";
 import TextField from "../../../Util/Form/Field";
+import {BasicFormTemplate} from "./BasicForm";
 
 export default function PartialForm({onSubmit}) {
     return (
@@ -19,33 +20,10 @@ export default function PartialForm({onSubmit}) {
                 desiredStorageLocation: '',
             }}
             stages={[
-                <Start/>,
+                <BasicFormTemplate/>,
                 <Fill/>
             ]}
         />
-    );
-}
-
-function Start() {
-    return (
-        <SimpleFormTemplate className="w-dynamic max-w-md">
-            <TextField
-                label="الاسم"
-                name="userName"
-                type="text"
-            />
-            <TextField
-                label="رقم الهاتف"
-                name="phoneNumber"
-                type="text"
-            />
-            <TextField
-                label="مكان السكن"
-                name="residenceLocation"
-                type="text"
-            />
-            <ContinueButton label="ابدأ"/>
-        </SimpleFormTemplate>
     );
 }
 
