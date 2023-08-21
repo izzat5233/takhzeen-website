@@ -35,11 +35,32 @@ export default function AboutPage({...rest}) {
                         ">
                             {paragraph.icon}
                         </p>
-                        <p className="text-small-dynamic">
+                        <p className="text-small-dynamic font-light">
                             {paragraph.description}
                         </p>
                     </div>
                 ))}
+            </Page>
+            <Page className="items-center bg-gray-100 py-dynamic xl:py-44">
+                <Svg viewBox="0 0 900 50" className="svg-layer -top-0.5 right-0 rotate-180">
+                    <SineWavePath fill="#ffffff" stroke="#ffffff"/>
+                </Svg>
+                <div className="
+                    flex flex-col px-dynamic gap-8 lg:gap-16 mt-8 lg:mt-16
+                    text-small-dynamic font-light drop-shadow-xl
+                ">
+                    {features.map((feature, index) => (
+                        <div className="
+                            px-dynamic py-8 lg:py-16 flex flex-col gap-8 lg:gap-16 text-center
+                            bg-back rounded-3xl group transition-all only-hover:hover:bg-primary-800
+                        " key={index}>
+                            <h2 className="text-medium-dynamic text-strong font-bold only-hover:group-hover:text-back">
+                                {feature.title}
+                            </h2>
+                            <p className="">{feature.description}</p>
+                        </div>
+                    ))}
+                </div>
             </Page>
         </motion.div>
     );

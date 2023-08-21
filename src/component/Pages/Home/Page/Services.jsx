@@ -24,7 +24,7 @@ const ServicesPage = ({...rest}) => {
                     </h2>
                 </div>
                 <div className="
-                    flex flex-col justify-center
+                    flex flex-col justify-center font-light
                     gap-2 sm:gap-8 lg:gap-12 xl:gap-16 mx-auto
                     px-2 sm:px-8 lg:px-16 xl:px-32 2xl:px-48
                     text-sm sm:text-lg lg:text-xl xl:text-2xl
