@@ -3,7 +3,7 @@ import './login.css';
 import { useNavigate, Link } from 'react-router-dom';
 
 import { IoPersonCircle , IoKey  } from "react-icons/io5";
-import login from '../../../assets/images/login.png'
+import login from '../../../assets/designs/about.png'
 const Login = () => {
 
     const [email,setEmail]=useState(''  )

@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 import {getStorageImages, getStorages} from "../../Util/Api/StorageApi";
 import SmallButton from "../../Util/Button/SmallButton";
 import StorageShowcase from "./Storage";
-import placeholder from "../../../assets/images/warehouse.png";
+import placeholder from "../../../assets/icons/normal/warehouse.png";
 
 export default function Search() {
     const [storages, setStorages] = useState([]);

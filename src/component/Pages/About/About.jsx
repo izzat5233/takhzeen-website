@@ -1,5 +1,5 @@
 import {FaBox, FaBuilding, FaLightbulb, FaLink} from "react-icons/fa";
-import login from "../../../assets/images/login.png";
+import login from "../../../assets/designs/about.png";
 import React from "react";
 import Page from "../../Util/Page/Page";
 import Svg, {SineWavePath} from "../../Util/Page/Svg";
