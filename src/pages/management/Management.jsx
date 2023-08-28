@@ -5,7 +5,7 @@ import {BackButton, ContinueButton} from "../../components/form/FormButton";
 import {SimpleWaveBackground} from "../../components/page/Background";
 import MultiStageForm from "../../components/form/Form";
 import {FormFinishedTemplate, FormStartTemplate} from "../../components/page/Template";
-import icon from "../../../assets/icons/normal/management.png";
+import icon from "../../assets/icons/normal/management.png";
 import SimpleFormTemplate from "../../components/form/Template";
 import TextField, {CheckboxFieldList, RadioField} from "../../components/form/Field";
 import useIsWideScreen from "../../utils/hook/Screen";

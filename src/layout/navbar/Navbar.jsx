@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import logo from '../../../assets/icons/normal/logo.png';
-import logoWithText from '../../../assets/icons/normal/logoWithText.png';
+import logo from '../../assets/icons/normal/logo.png';
+import logoWithText from '../../assets/icons/normal/logoWithText.png';
 import {RiMenu3Line, RiCloseLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 import {motion, useMotionValueEvent, useScroll} from "framer-motion";

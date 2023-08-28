@@ -1,6 +1,6 @@
 import Page from "../../../components/page/Page";
 import {Link} from "react-router-dom";
-import storage from "../../../../assets/designs/storage.png";
+import storage from "../../../assets/designs/storage.png";
 import React from "react";
 
 const WelcomePage = ({...rest}) => (

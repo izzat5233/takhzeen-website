@@ -7,7 +7,7 @@ import Page from "../../components/page/Page";
 import {SimpleWaveBackground} from "../../components/page/Background";
 import MultiStageForm from "../../components/form/Form";
 import {FormFinishedTemplate, FormStartTemplate} from "../../components/page/Template";
-import icon from "../../../assets/icons/normal/mediation.png";
+import icon from "../../assets/icons/normal/mediation.png";
 import useIsWideScreen from "../../utils/hook/Screen";
 
 export default function Owner() {

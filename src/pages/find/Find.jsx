@@ -6,7 +6,7 @@ import BasicForm from "./stage/BasicForm";
 import PartialForm from "./stage/PartialForm";
 import Page from "../../components/page/Page";
 import {ExpandedInOutBackground, ImageBackground} from "../../components/page/Background";
-import storage from "../../../assets/images/storage2.png";
+import storage from "../../assets/images/storage2.png";
 import {useNavigate} from "react-router-dom";
 import {FormFinishedTemplate} from "../../components/page/Template";
 

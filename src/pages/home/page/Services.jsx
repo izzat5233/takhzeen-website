@@ -1,10 +1,10 @@
 import React from "react";
 import {motion} from "framer-motion";
 import Page from "../../../components/page/Page";
-import connection from "../../../../assets/icons/normal/mediation.png";
-import time from "../../../../assets/icons/normal/temporary.png";
-import Partial from "../../../../assets/icons/normal/partial.png";
-import sys from "../../../../assets/icons/normal/management.png";
+import connection from "../../../assets/icons/normal/mediation.png";
+import time from "../../../assets/icons/normal/temporary.png";
+import Partial from "../../../assets/icons/normal/partial.png";
+import sys from "../../../assets/icons/normal/management.png";
 import {FaArrowLeftLong} from "react-icons/fa6";
 import {Link} from "react-router-dom";
 import Svg, {ShadowFilter, SineWavePath} from "../../../components/page/Svg";
