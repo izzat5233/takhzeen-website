@@ -13,9 +13,9 @@ export default function Home() {
             exit={{opacity: 0, x: 10, y: -10}}
             transition={{ease: "easeIn"}}
         >
-            <WelcomePage id="welcomeSection"/>
-            <ServicesPage id="serviceSection"/>
-            <MorePage id="moreSection"/>
+            <WelcomePage/>
+            <ServicesPage/>
+            <MorePage/>
         </motion.div>
     );
 }

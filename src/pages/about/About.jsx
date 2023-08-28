@@ -1,7 +1,6 @@
 import {FaBox, FaBuilding, FaLightbulb, FaLink} from "react-icons/fa";
 import login from "../../assets/designs/about.png";
 import React from "react";
-import Page from "../../components/page/Page";
 import Svg, {SineWavePath} from "../../components/page/Svg";
 import {motion} from "framer-motion";
 
@@ -13,7 +12,7 @@ export default function AboutPage({...rest}) {
             exit={{opacity: 0, x: 10, y: -10}}
             transition={{ease: "easeIn"}}
         >
-            <Page className="items-center" {...rest}>
+            <section className="page items-center" {...rest}>
                 <div className="flex flex-col md:flex-row gap-8 items-center py-dynamic mb-8">
                     <img src={login} alt="Takhzeen"/>
                     <h1 className="text-strong text-large-dynamic font-bold w-fit py-2">من نحن ؟</h1>
@@ -38,8 +37,8 @@ export default function AboutPage({...rest}) {
                         </p>
                     </div>
                 ))}
-            </Page>
-            <Page className="items-center bg-gray-100 py-dynamic xl:py-44">
+            </section>
+            <section className="page items-center py-dynamic xl:py-44 bg-gray-100">
                 <Svg viewBox="0 0 900 50" className="svg-layer -top-0.5 right-0 rotate-180">
                     <SineWavePath fill="#ffffff" stroke="#ffffff"/>
                 </Svg>
@@ -55,11 +54,11 @@ export default function AboutPage({...rest}) {
                             <h2 className="text-medium-dynamic text-strong font-bold only-hover:group-hover:text-back">
                                 {feature.title}
                             </h2>
-                            <p className="">{feature.description}</p>
+                            <p>{feature.description}</p>
                         </div>
                     ))}
                 </div>
-            </Page>
+            </section>
         </motion.div>
     );
 }

@@ -1,5 +1,4 @@
 import useFilters from "../../utils/hook/Filters";
-import Page from "../../components/page/Page";
 import {BsPlus} from "react-icons/bs";
 import {ExpandedInOutBackground} from "../../components/page/Background";
 import {BiSolidDownArrow} from "react-icons/bi";
@@ -42,7 +41,8 @@ export default function Search() {
     const [selectedStorage, setSelectedStorage] = useState(null);
 
     return (
-        <Page background={<ExpandedInOutBackground/>} className="px-dynamic py-dynamic">
+        <section className="page px-dynamic py-dynamic">
+            <ExpandedInOutBackground/>
             {selectedStorage === null && <>
                 <div className="flex flex-wrap flex-initial justify-center gap-8 mb-8">
                     <p className="text-xl py-2">البحث من خلال:</p>
@@ -88,7 +88,7 @@ export default function Search() {
                     initialData={selectedStorage}
                     onReturn={() => setSelectedStorage(null)}
                 />}
-        </Page>
+        </section>
     );
 }
 

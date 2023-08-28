@@ -6,7 +6,7 @@ import {FormStageContext} from "../../utils/hook/Form";
 import {SyncLoader} from "react-spinners";
 
 /**
- * SimpleForm component renders a single Formik form with no styles.
+ * A simple functional form with no styles.
  *
  * @param {object} props - The properties that define the component.
  * @param {string} props.name - The name of the form.

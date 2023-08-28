@@ -1,9 +1,8 @@
-import Page from "../../../components/page/Page";
 import React from "react";
 import {FaBoxOpen, FaClipboardList, FaComments, FaHeadset, FaShieldAlt, FaTh} from "react-icons/fa";
 
 const MorePage = ({...rest}) => (
-    <Page className="text-center py-dynamic px-dynamic gap-4" {...rest}>
+    <section className="page text-center py-dynamic px-dynamic gap-4" {...rest}>
         <h2 className="title">لــمــاذا تــخــزيــن؟</h2>
         <div className="content">
             {features.map((skill, index) => (
@@ -17,7 +16,7 @@ const MorePage = ({...rest}) => (
                 </div>
             ))}
         </div>
-    </Page>
+    </section>
 );
 
 export default MorePage;

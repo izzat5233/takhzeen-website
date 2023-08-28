@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {AnimatePresence} from "framer-motion";
-import Page from "../../components/page/Page";
 import {BackButton, ContinueButton} from "../../components/form/FormButton";
 import {SimpleWaveBackground} from "../../components/page/Background";
 import MultiStageForm from "../../components/form/Form";
@@ -15,7 +14,8 @@ export default function Management() {
     const isWideScreen = useIsWideScreen();
 
     return (
-        <Page background={isWideScreen && <SimpleWaveBackground/>}>
+        <section className="page">
+            {isWideScreen && <SimpleWaveBackground/>}
             <AnimatePresence>
                 {!finished ?
                     <MultiStageForm
@@ -32,7 +32,7 @@ export default function Management() {
                         ]}
                     />}
             </AnimatePresence>
-        </Page>
+        </section>
     );
 }
 

@@ -1,6 +1,5 @@
 import React from "react";
 import {motion} from "framer-motion";
-import Page from "../../../components/page/Page";
 import connection from "../../../assets/icons/normal/mediation.png";
 import time from "../../../assets/icons/normal/temporary.png";
 import Partial from "../../../assets/icons/normal/partial.png";
@@ -11,7 +10,7 @@ import Svg, {ShadowFilter, SineWavePath} from "../../../components/page/Svg";
 
 const ServicesPage = ({...rest}) => {
     return (
-        <Page className="relative py-20 md:py-32 lg:py-44 xl:py-48 bg-gradient-primary text-center" {...rest}>
+        <section className="page py-20 md:py-32 lg:py-44 xl:py-48 bg-gradient-primary text-center" {...rest}>
             <Svg viewBox="0 0 900 50" defs={<ShadowFilter id="shadow" offset="3"/>}
                  className="svg-layer -top-0.5 right-0 rotate-180">
                 <SineWavePath fill="#ffffff" filter="url(#shadow)" stroke="#ffffff"/>
@@ -38,7 +37,7 @@ const ServicesPage = ({...rest}) => {
                  className="svg-layer -bottom-0.5 right-0">
                 <SineWavePath fill="#ffffff" filter="url(#shadow)" stroke="#ffffff"/>
             </Svg>
-        </Page>
+        </section>
     );
 }
 

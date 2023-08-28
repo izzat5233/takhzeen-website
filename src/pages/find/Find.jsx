@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import useStages from "../../utils/hook/Stages";
 import Search from "../search/Search";
 import ServiceChoice from "./stage/ServiceChoice";
 import BasicForm from "./stage/BasicForm";
 import PartialForm from "./stage/PartialForm";
-import Page from "../../components/page/Page";
 import {ExpandedInOutBackground, ImageBackground} from "../../components/page/Background";
 import storage from "../../assets/images/storage2.png";
 import {useNavigate} from "react-router-dom";
@@ -15,7 +14,6 @@ const background2 = <ImageBackground image={storage}/>;
 
 export default function Find() {
     const navigate = useNavigate();
-    const [background, setBackground] = useState(background1);
 
     const {stage, goToStage, renderCurrentStage} = useStages({
         "choice":
@@ -36,13 +34,10 @@ export default function Find() {
             />,
     }, "choice");
 
-    useEffect(() => {
-        setBackground(stage === "choice" || stage === "finished" ? background1 : background2);
-    }, [stage]);
-
     return (
-        <Page background={background}>
+        <section className="page">
+            {stage === "choice" || stage === "finished" ? background1 : background2}
             {renderCurrentStage()}
-        </Page>
+        </section>
     );
 }

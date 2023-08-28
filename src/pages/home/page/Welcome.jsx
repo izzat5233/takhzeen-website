@@ -1,10 +1,9 @@
-import Page from "../../../components/page/Page";
 import {Link} from "react-router-dom";
 import storage from "../../../assets/designs/storage.png";
 import React from "react";
 
 const WelcomePage = ({...rest}) => (
-    <Page {...rest}>
+    <section className="page" {...rest}>
         <div className="header section__padding" id="Home">
             <div className="header-content" style={{textAlign: "right"}}>
                 <h1 className="gradient__text"> مرحبًا بك في شركة تخزين!</h1>
@@ -20,7 +19,7 @@ const WelcomePage = ({...rest}) => (
                 <img src={storage} alt="Storage Company"/>
             </div>
         </div>
-    </Page>
+    </section>
 );
 
 export default WelcomePage;

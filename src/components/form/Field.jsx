@@ -1,5 +1,6 @@
 import React from "react";
 import {Field, useField} from 'formik';
+import fields from "./Field.module.css";
 
 /**
  * TextField component renders a text input field with label and error message.
@@ -20,10 +21,7 @@ export default function TextField({name, label, type, placeholder, required}) {
                 {...field}
                 id={name}
                 name={name}
-                className="
-                    px-4 py-1 rounded-md text-gray-700
-                    outline-none border-2 focus:border-primary transition-all
-                "
+                className={fields.text}
                 type={type}
                 placeholder={placeholder}
                 required={required}
@@ -59,10 +57,7 @@ export function RadioField({name, label, options, className, required}) {
                             name={name}
                             value={option.value}
                             required={required}
-                            className="
-                                appearance-none w-3 h-3 checked:bg-primary checked:ring-primary rounded-full
-                                mr-2 text-primary ring-2 ring-gray-300 ring-offset-2 outline-none cursor-pointer
-                            "
+                            className={fields.radio}
                         />
                         {option.label}
                     </label>
@@ -92,11 +87,7 @@ export function CheckboxField({name, label}) {
                     id={name}
                     name={name}
                     type="checkbox"
-                    className="
-                        appearance-none h-5 w-5 ring-2 ring-gray-300 rounded cursor-pointer
-                        checked:bg-primary checked:ring-primary border-2 border-back
-                        mr-2 text-white align-middle transition-all
-                    "
+                    className={fields.checkbox}
                 />
                 {label}
             </label>
@@ -114,7 +105,7 @@ export function CheckboxField({name, label}) {
  * @param {Array} props.names - The names of the fields.
  * @param {Array} props.labels - The labels of the fields.
  * @param {Array} props.descriptions - The descriptions of the fields.
- * @param {boolean} props.separate - Whether fields should be seperated or not.
+ * @param {boolean} props.separate - Whether fields should be seperated with <hr> or not.
  * @param {string} props.title - The title of the field list.
  */
 export function CheckboxFieldList({names, labels, descriptions, separate, title}) {

@@ -3,7 +3,6 @@ import {AnimatePresence} from "framer-motion";
 import SimpleFormTemplate from "../../components/form/Template";
 import TextField, {CheckboxFieldList, RadioField} from "../../components/form/Field";
 import {BackButton, ContinueButton} from "../../components/form/FormButton";
-import Page from "../../components/page/Page";
 import {SimpleWaveBackground} from "../../components/page/Background";
 import MultiStageForm from "../../components/form/Form";
 import {FormFinishedTemplate, FormStartTemplate} from "../../components/page/Template";
@@ -15,7 +14,8 @@ export default function Owner() {
     const isWideScreen = useIsWideScreen();
 
     return (
-        <Page background={isWideScreen && <SimpleWaveBackground/>}>
+        <section className="page">
+            {isWideScreen && <SimpleWaveBackground/>}
             <AnimatePresence>
                 {!finished ?
                     <MultiStageForm
@@ -33,7 +33,7 @@ export default function Owner() {
                     />
                 }
             </AnimatePresence>
-        </Page>
+        </section>
     );
 }
 
