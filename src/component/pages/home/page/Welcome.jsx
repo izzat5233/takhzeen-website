@@ -1,4 +1,4 @@
-import Page from "../../../utils/page/Page";
+import Page from "../../../components/page/Page";
 import {Link} from "react-router-dom";
 import storage from "../../../../assets/designs/storage.png";
 import React from "react";

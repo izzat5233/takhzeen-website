@@ -3,10 +3,10 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
 import React, {useEffect, useState} from "react";
 import {FaArrowRightLong} from "react-icons/fa6";
-import {SimpleForm} from "../../utils/form/Form";
-import TextField from "../../utils/form/Field";
-import {ContinueButton} from "../../utils/button/FormButton";
-import {FormFinishedTemplate} from "../../utils/page/Template";
+import {SimpleForm} from "../../components/form/Form";
+import TextField from "../../components/form/Field";
+import {ContinueButton} from "../../components/form/FormButton";
+import {FormFinishedTemplate} from "../../components/page/Template";
 import {getStorageById, getStorageImages} from "../../utils/api/StorageApi";
 
 export default function StorageShowcase({initialData, onReturn}) {

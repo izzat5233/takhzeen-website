@@ -1,8 +1,8 @@
 import {Form, Formik} from "formik";
-import {finishForm, createForm, startForm, updateForm} from "../api/FormApi";
+import {finishForm, createForm, startForm, updateForm} from "../../utils/api/FormApi";
 import React, {useState} from "react";
-import {useSequenceStages} from "../hook/Stages";
-import {FormStageContext} from "../hook/Form";
+import {useSequenceStages} from "../../utils/hook/Stages";
+import {FormStageContext} from "../../utils/hook/Form";
 import {SyncLoader} from "react-spinners";
 
 /**

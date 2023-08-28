@@ -1,11 +1,11 @@
 import useFilters from "../../utils/hook/Filters";
-import Page from "../../utils/page/Page";
+import Page from "../../components/page/Page";
 import {BsPlus} from "react-icons/bs";
-import {ExpandedInOutBackground} from "../../utils/page/Background";
+import {ExpandedInOutBackground} from "../../components/page/Background";
 import {BiSolidDownArrow} from "react-icons/bi";
 import {useEffect, useState} from "react";
 import {getStorageImages, getStorages} from "../../utils/api/StorageApi";
-import SmallButton from "../../utils/button/SmallButton";
+import LabelButton from "../../components/button/Button";
 import StorageShowcase from "./Storage";
 import placeholder from "../../../assets/icons/normal/warehouse.png";
 
@@ -148,7 +148,7 @@ function Card({key, storage, onSubmit}) {
                     {storage['size'] + " متر مربع"}
                 </p>
             </div>
-            <SmallButton
+            <LabelButton
                 label="طلب استئجار"
                 icon={<BsPlus/>}
                 className="whitespace-nowrap flex-wrap-reverse"

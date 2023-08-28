@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from '../navbar/Navbar';
 import Home from '../../pages/home/Home';
 import About from '../../pages/about/About';
@@ -7,13 +6,14 @@ import Owner from '../../pages/owner/Owner';
 import NotFound from '../../pages/misc/NotFound';
 import Find from '../../pages/find/Find';
 import Management from '../../pages/management/Management';
-import {Routes, Route, useLocation} from 'react-router-dom';
+import {Route, Routes, useLocation} from 'react-router-dom';
 import Contact from "../../pages/contact/Contact";
 import {AnimatePresence} from "framer-motion";
 import ComingSoon from "../../pages/misc/ComingSoon";
 import Search from "../../pages/search/Search";
-import ScrollToTobButton from "../../utils/button/ScrollButton";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
+import withScrollBar from "./ScrollBar";
+import ScrollToTobButton from "./ScrollButton";
 
 function App() {
     const location = useLocation();
@@ -27,9 +27,9 @@ function App() {
             <Navbar/>
             <AnimatePresence>
                 <Routes location={location} key={location.pathname}>
-                    <Route path='/' element={<Home/>}/>
-                    <Route path='home' element={<Home/>}/>
-                    <Route path='about' element={<About/>}/>
+                    <Route path='/' element={withScrollBar(<Home/>)}/>
+                    <Route path='home' element={withScrollBar(<Home/>)}/>
+                    <Route path='about' element={withScrollBar(<About/>)}/>
                     <Route path='contact' element={<Contact/>}/>
                     <Route path='owner' element={<Owner/>}/>
                     <Route path='find/*' element={<Find/>}/>

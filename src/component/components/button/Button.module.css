@@ -1,0 +1,23 @@
+/* Perfect for an icon with a description */
+.bigSquare {
+    @apply
+    max-w-[72] max-h-[72] lg:w-80 lg:h-80 xl:w-96 xl:h-96
+    justifying items-center bg-back rounded transition-all duration-300
+    border-8 border-gray-200 drop-shadow-2xl
+    only-hover:hover:rounded-3xl only-hover:hover:scale-95;
+}
+
+/* Perfect for icon buttons */
+.smallRound {
+    @apply
+    w-16 h-16 justifying text-6xl rounded-full
+    border-2 border-gray-800 disabled:text-gray-500
+    hover:bg-primary hover:text-white hover:border-primary transition-all;
+}
+
+/* Perfect for fixed-on-screen buttons */
+.contrastSquare {
+    @apply
+    border border-black rounded text-large-dynamic
+    opacity-40 hover:opacity-100 transition-opacity;
+}

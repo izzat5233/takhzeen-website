@@ -1,9 +1,8 @@
 import {FaBox, FaBuilding, FaLightbulb, FaLink} from "react-icons/fa";
 import login from "../../../assets/designs/about.png";
 import React from "react";
-import Page from "../../utils/page/Page";
-import Svg, {SineWavePath} from "../../utils/page/Svg";
-import {ScrollProgressBar} from "../../utils/animation/ProgressBar";
+import Page from "../../components/page/Page";
+import Svg, {SineWavePath} from "../../components/page/Svg";
 import {motion} from "framer-motion";
 
 export default function AboutPage({...rest}) {
@@ -14,11 +13,10 @@ export default function AboutPage({...rest}) {
             exit={{opacity: 0, x: 10, y: -10}}
             transition={{ease: "easeIn"}}
         >
-            <ScrollProgressBar/>
             <Page className="items-center" {...rest}>
                 <div className="flex flex-col md:flex-row gap-8 items-center py-dynamic mb-8">
                     <img src={login} alt="Takhzeen"/>
-                    <h1 className="text-strong text-big-dynamic font-bold w-fit py-2">من نحن ؟</h1>
+                    <h1 className="text-strong text-large-dynamic font-bold w-fit py-2">من نحن ؟</h1>
                 </div>
                 {paragraphs.map(paragraph => (
                     <div className="

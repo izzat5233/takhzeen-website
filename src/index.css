@@ -1,117 +1,208 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @font-face {
-  font-family: arslan;
-  src: url('assets/fonts/(A) Arslan Wessam A (A) Arslan Wessam A.ttf');
+    font-family: arslan;
+    src: url('assets/fonts/(A) Arslan Wessam A (A) Arslan Wessam A.ttf');
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .justifying {
+        @apply flex flex-col justify-center;
+    }
+
+    .page {
+        @apply min-h-screen relative justifying;
+    }
+
+    .px-dynamic {
+        @apply px-4 sm:px-8 lg:px-16 xl:px-32 2xl:px-48;
+    }
+
+    .py-dynamic {
+        @apply py-16 lg:py-32;
+    }
+
+    .w-dynamic {
+        @apply mx-auto w-full sm:w-fit;
+    }
+
+    .text-large-dynamic {
+        @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+    }
+
+    .text-medium-dynamic {
+        @apply text-2xl sm:text-4xl md:text-5xl lg:text-6xl
+    }
+
+    .text-small-dynamic {
+        @apply text-lg sm:text-2xl md:text-3xl;
+    }
+
+    .absolute-center-x {
+        @apply absolute left-1/2 transform -translate-x-1/2;
+    }
+
+    .absolute-center-y {
+        @apply absolute top-1/2 transform -translate-y-1/2;
+    }
+
+    .svg-layer {
+        @apply absolute min-w-full overflow-hidden;
+    }
+}
+
 :root {
-  --font-family: 'Noto Kufi Arabic', serif;
+    --font-family: 'Noto Kufi Arabic', serif;
 
-  --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
-  --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+    --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+    --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
 
-  --color-bg: #040C18;
-  --color-footer : #031B34;
-  --color-blog: #042c54;
-  --color-text: #81AFDD;
-  --color-subtext: #FF8A71;
+    --color-bg: #040C18;
+    --color-footer: #031B34;
+    --color-blog: #042c54;
+    --color-text: #81AFDD;
+    --color-subtext: #FF8A71;
 }
 
 .section__padding {
-  padding: 4rem 6rem;
+    padding: 4rem 6rem;
 }
+
 .section__margin {
-  margin: 4rem 6rem;
+    margin: 4rem 6rem;
 }
+
 .scale-up-center {
-  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 @-webkit-keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
 }
+
 @keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
 }
 
 @media screen and (max-width: 700px) {
-  .section__padding {
-    padding: 4rem;
-  }
+    .section__padding {
+        padding: 4rem;
+    }
 
-  .section__margin {
-    margin: 4rem;
-  }
+    .section__margin {
+        margin: 4rem;
+    }
 
 }
 
 @media screen and (max-width: 550px) {
-  .section__padding {
-    padding: 4rem 2rem;
-  }
+    .section__padding {
+        padding: 4rem 2rem;
+    }
 
-  .section__margin {
-    margin: 4rem 2rem;
-  }
+    .section__margin {
+        margin: 4rem 2rem;
+    }
 
 }
 
-.page {
-  @apply min-h-screen relative flex flex-col justify-center;
+.gradient__bg {
+    /* ff 3.6+ */
+    background: -moz-linear-gradient(90deg, #C1C6D5 0%, #304275 100%);
+
+    /* safari 5.1+,chrome 10+ */
+    background: -webkit-linear-gradient(90deg, #C1C6D5 0%, #304275 100%);
+
+    /* opera 11.10+ */
+    background: -o-linear-gradient(90deg, #C1C6D5 0%, #304275 100%);
+
+    /* ie 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#304275', endColorstr='#C1C6D5', GradientType=0);
+
+    /* ie 10+ */
+    background: -ms-linear-gradient(90deg, #C1C6D5 0%, #304275 100%);
+
+    /* global 94%+ browsers support */
+    background: linear-gradient(90deg, #C1C6D5 0%, #304275 100%);
 }
 
-.px-dynamic {
-  @apply px-4 sm:px-8 lg:px-16 xl:px-32 2xl:px-48;
+.gradient__text {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.py-dynamic {
-  @apply py-16 lg:py-32;
+.section__padding {
+    padding: 4rem 6rem;
 }
 
-.w-dynamic {
-  @apply mx-auto w-full sm:w-fit;
+.section__margin {
+    margin: 4rem 6rem;
 }
 
-.text-big-dynamic {
-  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+.scale-up-center {
+    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
-.text-medium-dynamic {
-  @apply text-2xl sm:text-4xl md:text-5xl lg:text-6xl
+@-webkit-keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
 }
 
-.text-small-dynamic {
-  @apply text-lg sm:text-2xl md:text-3xl;
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
 }
 
-.absolute-center-x {
-  @apply absolute left-1/2 transform -translate-x-1/2;
+@media screen and (max-width: 700px) {
+    .section__padding {
+        padding: 4rem;
+    }
+
+    .section__margin {
+        margin: 4rem;
+    }
 }
 
-.absolute-center-y {
-  @apply absolute top-1/2 transform -translate-y-1/2;
-}
+@media screen and (max-width: 550px) {
+    .section__padding {
+        padding: 4rem 2rem;
+    }
 
-.svg-layer {
-  @apply absolute min-w-full overflow-hidden
+    .section__margin {
+        margin: 4rem 2rem;
+    }
 }

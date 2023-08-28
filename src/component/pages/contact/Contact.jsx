@@ -1,6 +1,6 @@
 import './contact.css';
 import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi';
-import {SimpleForm} from "../../utils/form/Form";
+import {SimpleForm} from "../../components/form/Form";
 import {Field} from "formik";
 
 export default function Contact() {
@@ -12,15 +12,16 @@ export default function Contact() {
                     <h3 className="info-sub-title">املأ الطلب الآتي وفريقنا سيتواصل معك بأقرب وقت !</h3>
                     <ul className="info-details">
                         <li>
-                            <span>رقم الهاتف : </span> <a href="tel:+ 1235 2355 98">+ 1235 2355 98</a>
+                            <span>رقم الهاتف : </span>
+                            <a href="tel:+ 1235 2355 98">+ 1235 2355 98</a>
                         </li>
                         <li>
-
-                            <span>ايميل : </span> <a href="mailto:info@takhzeen.ps">info@takhzeen.ps</a>
+                            <span>ايميل : </span>
+                            <a href="mailto:info@takhzeen.ps">info@takhzeen.ps</a>
                         </li>
                         <li>
-
-                            <span> الموقع :</span> <a href="https://takhzeen.ps/">takhzeen.ps</a>
+                            <span> الموقع :</span>
+                            <a href="https://takhzeen.ps/">takhzeen.ps</a>
                         </li>
                     </ul>
                     <ul className="social-icons">
@@ -28,7 +29,6 @@ export default function Contact() {
                         <li><a href="https://twitter.com/TakhzeenPS" target="_blank"><FiTwitter /></a></li>
                         <li><a href="https://www.instagram.com/takhzeen.ps/" target="_blank"><FiInstagram /></a></li>
                         <li><a href="https://www.linkedin.com/company/takhzeen-ps/" target="_blank"><FiLinkedin /></a></li>
-
                     </ul>
                 </div>
                 <div className="form-wrap">
@@ -65,7 +65,5 @@ export default function Contact() {
             </div>
             <div className='space'></div>
         </section>
-
-
     );
 }

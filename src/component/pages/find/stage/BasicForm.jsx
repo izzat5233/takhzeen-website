@@ -1,8 +1,8 @@
-import {SimpleForm} from "../../../utils/form/Form";
-import SimpleFormTemplate from "../../../utils/form/Template";
-import {ContinueButton} from "../../../utils/button/FormButton";
+import {SimpleForm} from "../../../components/form/Form";
+import SimpleFormTemplate from "../../../components/form/Template";
+import {ContinueButton} from "../../../components/form/FormButton";
 import React from "react";
-import TextField from "../../../utils/form/Field";
+import TextField from "../../../components/form/Field";
 
 export default function BasicForm({name, onSubmit}) {
     return (

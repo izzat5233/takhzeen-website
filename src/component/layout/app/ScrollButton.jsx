@@ -1,9 +1,14 @@
-import {BsArrowUpShort} from "react-icons/bs";
-import {animateScroll} from "react-scroll";
+import {motion, useMotionValueEvent, useScroll} from "framer-motion";
 import React, {useState} from "react";
-import {useMotionValueEvent, useScroll} from "framer-motion";
-import {motion} from "framer-motion";
+import {animateScroll} from "react-scroll";
+import buttons from "../../components/button/Button.module.css";
+import {BsArrowUpShort} from "react-icons/bs";
 
+/**
+ * A square button that scrolls to the top of page on click.
+ *
+ * @return {JSX.Element}
+ */
 export default function ScrollToTobButton() {
     const {scrollY} = useScroll();
     const [hidden, setHidden] = useState(true);
@@ -24,11 +29,7 @@ export default function ScrollToTobButton() {
             <button
                 type="button"
                 onClick={() => animateScroll.scrollToTop()}
-                className="
-                    border border-black rounded
-                    opacity-40 hover:opacity-100 transition-opacity
-                    text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-                "
+                className={buttons.contrastSquare}
             >
                 <BsArrowUpShort/>
             </button>

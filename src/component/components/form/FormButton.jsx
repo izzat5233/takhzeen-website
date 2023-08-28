@@ -1,9 +1,9 @@
 import React from "react";
 import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
 import {IoMdCheckmark} from "react-icons/io";
-import useFormContext from "../hook/Form";
+import useFormContext from "../../utils/hook/Form";
 import {useFormikContext} from "formik";
-import SmallButton from "./SmallButton";
+import LabelButton from "../button/Button";
 
 /**
  * A small button which makes it function as a submit button in a form.
@@ -20,7 +20,7 @@ export default function FormButton({label, icon, onClick, className = "mt-8"}) {
     const {handleSubmit, isSubmitting} = useFormikContext();
 
     return (
-        <SmallButton
+        <LabelButton
             label={label}
             icon={icon}
             disabled={isSubmitting}
@@ -45,7 +45,7 @@ export default function FormButton({label, icon, onClick, className = "mt-8"}) {
  * @param {object} props - The properties passed to the component.
  * @param {string} props.label - The label to be displayed next to the button.
  * @param {function} props.onClick - The function to be called when the button is clicked.
- * @returns {JSX.Element} A SmallButton component with a left arrow icon.
+ * @returns {JSX.Element} A LabelButton component with a left arrow icon.
  */
 export function ContinueButton({label, onClick}) {
     const {nextStage} = useFormContext();
@@ -74,7 +74,7 @@ export function ContinueButton({label, onClick}) {
  * @param {object} props - The properties passed to the component.
  * @param {string} props.label - The label to be displayed next to the button.
  * @param {function} props.onClick - The function to be called when the button is clicked.
- * @returns {JSX.Element} A SmallButton component with a right arrow icon.
+ * @returns {JSX.Element} A LabelButton component with a right arrow icon.
  */
 export function BackButton({label, onClick}) {
     const {prevStage} = useFormContext();
@@ -103,7 +103,7 @@ export function BackButton({label, onClick}) {
  * @param {object} props - The properties passed to the component.
  * @param {string} props.label - The label to be displayed next to the button.
  * @param {function} props.onClick - The function to be called when the button is clicked.
- * @returns {JSX.Element} A SmallButton component with a checkmark icon.
+ * @returns {JSX.Element} A LabelButton component with a checkmark icon.
  */
 export function FinishButton({label, onClick}) {
     const {nextStage} = useFormContext();

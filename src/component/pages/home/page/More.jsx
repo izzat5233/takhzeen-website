@@ -1,4 +1,4 @@
-import Page from "../../../utils/page/Page";
+import Page from "../../../components/page/Page";
 import React from "react";
 import {FaBoxOpen, FaClipboardList, FaComments, FaHeadset, FaShieldAlt, FaTh} from "react-icons/fa";
 

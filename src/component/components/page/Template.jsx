@@ -1,6 +1,9 @@
 import React from "react";
 import {motion} from "framer-motion";
-import {GoToContactButton, ReturnHomeButton} from "../button/SmallButton";
+import LabelButton from "../button/Button";
+import {BsArrowRightShort} from "react-icons/bs";
+import {useNavigate} from "react-router-dom";
+import {PiHeadphonesFill} from "react-icons/pi";
 
 /**
  * FormStartTemplate displays a simple form page with an icon, title, and a text.
@@ -59,9 +62,11 @@ export function BigChoiceTemplate({children, className, text}) {
  *
  * @param messages - All messages to be displayed
  * @param className
- * @returns {Element}
+ * @returns {JSX.Element}
  */
 export function FormFinishedTemplate({messages, className}) {
+    const navigate = useNavigate();
+
     return (
         <motion.div
             initial={{opacity: 0}}
@@ -78,8 +83,16 @@ export function FormFinishedTemplate({messages, className}) {
                 <p key={index}>{message}</p>
             ))}
             <div className="flex gap-4 justify-center flex-wrap">
-                <ReturnHomeButton label="العودة"/>
-                <GoToContactButton label="اتصل الآن"/>
+                <LabelButton
+                    label="العودة"
+                    icon={<BsArrowRightShort/>}
+                    onClick={() => navigate("/")}
+                />
+                <LabelButton
+                    label="اتصل الآن"
+                    icon={<PiHeadphonesFill className="text-4xl mx-auto"/>}
+                    onClick={() => navigate("/contact")}
+                />
             </div>
         </motion.div>
     );

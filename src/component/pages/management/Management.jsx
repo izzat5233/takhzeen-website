@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {AnimatePresence} from "framer-motion";
-import Page from "../../utils/page/Page";
-import {BackButton, ContinueButton} from "../../utils/button/FormButton";
-import {SimpleWaveBackground} from "../../utils/page/Background";
-import MultiStageForm from "../../utils/form/Form";
-import {FormFinishedTemplate, FormStartTemplate} from "../../utils/page/Template";
+import Page from "../../components/page/Page";
+import {BackButton, ContinueButton} from "../../components/form/FormButton";
+import {SimpleWaveBackground} from "../../components/page/Background";
+import MultiStageForm from "../../components/form/Form";
+import {FormFinishedTemplate, FormStartTemplate} from "../../components/page/Template";
 import icon from "../../../assets/icons/normal/management.png";
-import SimpleFormTemplate from "../../utils/form/Template";
-import TextField, {CheckboxFieldList, RadioField} from "../../utils/form/Field";
+import SimpleFormTemplate from "../../components/form/Template";
+import TextField, {CheckboxFieldList, RadioField} from "../../components/form/Field";
 import useIsWideScreen from "../../utils/hook/Screen";
 
 export default function Management() {

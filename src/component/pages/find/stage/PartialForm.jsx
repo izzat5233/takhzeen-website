@@ -1,8 +1,8 @@
 import React from "react";
-import MultiStageForm from "../../../utils/form/Form";
-import SimpleFormTemplate from "../../../utils/form/Template";
-import {BackButton, ContinueButton} from "../../../utils/button/FormButton";
-import TextField from "../../../utils/form/Field";
+import MultiStageForm from "../../../components/form/Form";
+import SimpleFormTemplate from "../../../components/form/Template";
+import {BackButton, ContinueButton} from "../../../components/form/FormButton";
+import TextField from "../../../components/form/Field";
 import {BasicFormTemplate} from "./BasicForm";
 
 export default function PartialForm({onSubmit}) {

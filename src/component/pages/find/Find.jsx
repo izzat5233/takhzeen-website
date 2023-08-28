@@ -4,11 +4,11 @@ import Search from "../search/Search";
 import ServiceChoice from "./stage/ServiceChoice";
 import BasicForm from "./stage/BasicForm";
 import PartialForm from "./stage/PartialForm";
-import Page from "../../utils/page/Page";
-import {ExpandedInOutBackground, ImageBackground} from "../../utils/page/Background";
+import Page from "../../components/page/Page";
+import {ExpandedInOutBackground, ImageBackground} from "../../components/page/Background";
 import storage from "../../../assets/images/storage2.png";
 import {useNavigate} from "react-router-dom";
-import {FormFinishedTemplate} from "../../utils/page/Template";
+import {FormFinishedTemplate} from "../../components/page/Template";
 
 const background1 = <ExpandedInOutBackground/>;
 const background2 = <ImageBackground image={storage}/>;

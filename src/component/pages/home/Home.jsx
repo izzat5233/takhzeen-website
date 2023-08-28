@@ -1,7 +1,6 @@
 import React from 'react'
 import './home.css';
 import {motion} from 'framer-motion';
-import {ScrollProgressBar} from "../../utils/animation/ProgressBar";
 import WelcomePage from "./page/Welcome";
 import ServicesPage from "./page/Services";
 import MorePage from "./page/More";
@@ -14,7 +13,6 @@ export default function Home() {
             exit={{opacity: 0, x: 10, y: -10}}
             transition={{ease: "easeIn"}}
         >
-            <ScrollProgressBar/>
             <WelcomePage id="welcomeSection"/>
             <ServicesPage id="serviceSection"/>
             <MorePage id="moreSection"/>
