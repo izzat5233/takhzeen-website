@@ -2,7 +2,6 @@ import './App.css';
 import Navbar from '../navbar/Navbar';
 import Home from '../../pages/home/Home';
 import About from '../../pages/about/About';
-import Login from '../../pages/login/Login';
 import Footer from '../footer/Footer';
 import Owner from '../../pages/owner/Owner';
 import NotFound from '../../pages/misc/NotFound';
@@ -32,7 +31,6 @@ function App() {
                     <Route path='home' element={<Home/>}/>
                     <Route path='about' element={<About/>}/>
                     <Route path='contact' element={<Contact/>}/>
-                    <Route path='login' element={<Login/>}/>
                     <Route path='owner' element={<Owner/>}/>
                     <Route path='find/*' element={<Find/>}/>
                     <Route path='search' element={<Search/>}/>

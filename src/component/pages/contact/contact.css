@@ -3,14 +3,13 @@
     margin-top: 5%;
     width: 90%;
     padding: 10px ;
-    margin-left: 5%;
+    margin-right: 5%;
 }
 .box-wrapper{
     position: relative;
     display: table;
     width:1100px;
-    margin:auto;
-    margin-top:35px;
+    margin: 35px auto auto;
     border-radius: 30px;
 }
 .info-wrap{
@@ -19,7 +18,7 @@
     padding: 40px;
     float: left;
     display: block;
-    border-radius: 30px 0px 0px 30px;
+    border-radius: 30px 0 0 30px;
     background: #042c54;
     color: #fff;
     border: 2px solid white;
@@ -28,18 +27,18 @@
 .info-title{
     text-align: right;
     font-size: 28px;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 .info-sub-title{
     font-size: 18px;
     font-weight: 300;
     margin-top: 17px;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     line-height: 26px;
 }
 .info-details {
     list-style: none;
-    margin: 60px 0px;
+    margin: 60px 0;
 }
 .info-details li {
     margin-top: 25px;
@@ -55,7 +54,7 @@
 .info-details li a {
     color: #fff;
     text-decoration: none;
-    
+
 }
 .info-details li a:hover {
     color: #FF4820;
@@ -63,7 +62,7 @@
 .social-icons {
     list-style: none;
     text-align: center;
-    margin: 20px 0px;
+    margin: 20px 0;
 }
 .social-icons li {
     display: inline-block;
@@ -75,7 +74,7 @@
     font-size: 25px;
     cursor: pointer;
     transition: all .5s;
-    
+
 }
 .social-icons li i:hover {
     background: #fff;
@@ -86,15 +85,15 @@
     height: 560px;
     float: right;
     padding:40px 25px 35px 25px;
-    border-radius: 0px 30px 30px 0px;
+    border-radius: 0 30px 30px 0;
     background: #042c54;
-  
+
 }
 .form-title{
     text-align: right;
     margin-left: 23px;
     font-size: 28px;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     color: #fff;
 }
 .form-fields{
@@ -132,7 +131,7 @@
 .submit-button{
     width: 96%;
     height: 60px;
-    margin: 0px 12px;
+    margin: 0 12px;
     border-radius: 30px;
     font-size: 20px;;
     font-weight: 700;
@@ -156,26 +155,26 @@
     .form-wrap{
         width: 100%;
         height: inherit;
-        float: none;  
+        float: none;
     }
     .info-wrap{
-        border-radius: 30px 30px 0px 0px;
+        border-radius: 30px 30px 0 0;
     }
     .form-wrap{
-        border-radius: 0px 0px 30px 30px;
+        border-radius: 0 0 30px 30px;
     }
     .form-group{
         width: 100%;
         float: none;
-        margin: 25px 0px;
+        margin: 25px 0;
     }
-    .form-fields .form-group:last-child, 
+    .form-fields .form-group:last-child,
     .form-fields .form-group:first-child,
     .submit-button{
         width: 100%;
     }
     .submit-button{
-        margin: 10px 0px;
+        margin: 10px 0;
     }
-   
+
 }

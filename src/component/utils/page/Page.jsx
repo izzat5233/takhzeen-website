@@ -13,9 +13,9 @@ import React from "react";
  */
 export default function Page({children, background, className, ...rest}) {
     return (
-        <div dir="rtl" className={`page ${className ? className : ""}`} {...rest}>
+        <section className={`page ${className ? className : ""}`} {...rest}>
             {background && background}
             {children}
-        </div>
+        </section>
     );
 }

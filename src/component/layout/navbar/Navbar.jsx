@@ -7,6 +7,21 @@ import {motion, useMotionValueEvent, useScroll} from "framer-motion";
 import DropdownMenu from "./DropdownMenu";
 import useIsWideScreen from "../../utils/hook/Screen";
 
+export const navbarLinks = [
+    {
+        title: "الرئيسية",
+        to: "home"
+    },
+    {
+        title: "عن تخزين",
+        to: "about"
+    },
+    {
+        title: "تواصل معنا",
+        to: "contact"
+    },
+];
+
 export default function Navbar() {
     const [toggleMenu, setToggleMenu] = useState(false);
     const {scrollY} = useScroll();
@@ -28,7 +43,7 @@ export default function Navbar() {
             animate={hidden ? "hidden" : "visible"}
             transition={{ease: [0.1, 0.25, 0.3, 1], duration: 0.6}}
             className="
-                bg-transparent z-20 flex lg:flex-row-reverse lg:justify-start
+                bg-transparent z-20 flex flex-row-reverse lg:flex-row lg:justify-start
                 fixed top-0 left-0 right-0
                 justify-between justify-items-center
                 py-4 px-4 md:px-8
@@ -59,24 +74,9 @@ export default function Navbar() {
     );
 };
 
-const navbarLinks = [
-    {
-        title: "الرئيسية",
-        to: "home"
-    },
-    {
-        title: "عن تخزين",
-        to: "about"
-    },
-    {
-        title: "تواصل معنا",
-        to: "contact"
-    },
-];
-
 function ExpandedNavbar() {
     return (
-        <div className="flex flex-row-reverse gap-8">
+        <div className="flex flex-row gap-8">
             {navbarLinks.map((link, index) => (
                 <Link to={link.to} className="relative text-md" key={index}>
                     <div className="
