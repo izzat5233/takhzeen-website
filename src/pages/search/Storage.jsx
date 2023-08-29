@@ -3,9 +3,8 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
 import React, {useEffect, useState} from "react";
 import {FaArrowRightLong} from "react-icons/fa6";
-import {SimpleForm} from "../../components/form/Form";
-import TextField from "../../components/form/Field";
-import {ContinueButton} from "../../components/form/FormButton";
+import FormHandler from "../../utils/form/FormHandler";
+import TextField, {ContinueButton} from "../../components/field/Field";
 import {FormFinishedTemplate} from "../../components/page/Template";
 import {getStorageById, getStorageImages} from "../../utils/api/StorageApi";
 
@@ -84,28 +83,27 @@ export default function StorageShowcase({initialData, onReturn}) {
                             {storage['size'] + " متر مربع"}
                         </p>
                     </div>
-                    <SimpleForm
+                    <FormHandler
                         name="storageOrderForm"
                         initialValues={{
                             materialType: '',
                             expectedRentalDuration: '',
                         }}
                         onSubmit={() => setSubmitted(true)}
+                        className="shadow-2xl rounded-3xl px-4 py-8"
                     >
-                        <div className="shadow-2xl rounded-3xl px-4 py-8">
-                            <TextField
-                                label="نوع المواد المراد تخزينها"
-                                name="materialType"
-                                type="text"
-                            />
-                            <TextField
-                                label="المدة المتوقعة للاستئجار"
-                                name="expectedRentalDuration"
-                                type="text"
-                            />
-                            <ContinueButton label="اطلب"/>
-                        </div>
-                    </SimpleForm>
+                        <TextField
+                            label="نوع المواد المراد تخزينها"
+                            name="materialType"
+                            type="text"
+                        />
+                        <TextField
+                            label="المدة المتوقعة للاستئجار"
+                            name="expectedRentalDuration"
+                            type="text"
+                        />
+                        <ContinueButton label="اطلب"/>
+                    </FormHandler>
                 </div>
             </div>
         </div>

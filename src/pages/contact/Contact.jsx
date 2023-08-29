@@ -1,6 +1,6 @@
 import './contact.css';
 import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi';
-import {SimpleForm} from "../../components/form/Form";
+import FormHandler from "../../utils/form/FormHandler";
 import {Field} from "formik";
 
 export default function Contact() {
@@ -32,7 +32,7 @@ export default function Contact() {
                     </ul>
                 </div>
                 <div className="form-wrap">
-                    <SimpleForm
+                    <FormHandler
                         name="contactForm"
                         initialValues={{
                             name: '',
@@ -40,12 +40,9 @@ export default function Contact() {
                             phone: '',
                             message: ''
                         }}
-                        onSubmit={() => {
-                        }}
                     >
                         <h2 className="form-title"> أرسل رسالتك الآن وتواصل معنا : </h2>
                         <div className="form-fields">
-
                             <div className="form-group">
                                 <Field type="text" className="lname input" placeholder=" الأسم " name="name"/>
                             </div>
@@ -60,7 +57,7 @@ export default function Contact() {
                             </div>
                         </div>
                         <input type="submit" defaultValue="Send Message" className="submit-button" value="ارسل"/>
-                    </SimpleForm>
+                    </FormHandler>
                 </div>
             </div>
             <div className='space'></div>

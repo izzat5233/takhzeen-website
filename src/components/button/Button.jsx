@@ -15,7 +15,7 @@ export default function LabelButton({label, icon, className, ...rest}) {
     return (
         <div className={`flex flex-row gap-4 justify-center ${className}`}>
             {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
-            <button type="button" className={buttons.smallRound} {...rest}>
+            <button className={buttons.smallRound} {...rest}>
                 {icon}
             </button>
         </div>
@@ -32,7 +32,7 @@ export default function LabelButton({label, icon, className, ...rest}) {
  */
 export function BigButton({icon, label, ...rest}) {
     return (
-        <button type="button" className={buttons.bigSquare} {...rest}>
+        <button className={buttons.bigSquare} {...rest}>
             <div className="flex-grow relative justifying gap-8 p-10">
                 <img src={icon} alt={label} className="w-40 h-40 mx-auto"/>
                 <p className="text-3xl mx-auto">{label}</p>

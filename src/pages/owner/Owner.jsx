@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
 import {AnimatePresence} from "framer-motion";
-import SimpleFormTemplate from "../../components/form/Template";
-import TextField, {CheckboxFieldList, RadioField} from "../../components/form/Field";
-import {BackButton, ContinueButton} from "../../components/form/FormButton";
+import TextField, {BackButton, CheckboxFieldList, ContinueButton, RadioField} from "../../components/field/Field";
 import {SimpleWaveBackground} from "../../components/page/Background";
-import MultiStageForm from "../../components/form/Form";
+import {MultiStageFormHandler} from "../../utils/form/FormHandler";
 import {FormFinishedTemplate, FormStartTemplate} from "../../components/page/Template";
 import icon from "../../assets/icons/normal/mediation.png";
 import useIsWideScreen from "../../utils/hook/Screen";
+import forms from "../../components/form/Form.module.css";
+import {DefaultLoader} from "../../components/form/Form";
 
 export default function Owner() {
     const [finished, setFinished] = useState(false);
@@ -18,12 +18,12 @@ export default function Owner() {
             {isWideScreen && <SimpleWaveBackground/>}
             <AnimatePresence>
                 {!finished ?
-                    <MultiStageForm
+                    <MultiStageFormHandler
                         name="ownerForm"
                         stages={[<Start/>, <Fill/>]}
                         initialValues={initialValues}
                         onSubmit={() => setFinished(true)}
-                        loaderColor="#ff684c"
+                        loader={<DefaultLoader color="#ff684c"/>}
                     /> :
                     <FormFinishedTemplate
                         messages={[
@@ -56,12 +56,12 @@ function Start() {
             title="اعرض مخزنك"
             text="مساحتنا الالكترونية تفتح لك آفاق التواصل؛ لايجاد طلبك من مخزن يلائمك أو مستأجر تبحث عنه."
             form={
-                <SimpleFormTemplate className="w-dynamic max-w-md">
+                <div className={`${forms.simpleForm} w-dynamic max-w-md`}>
                     <TextField label="الاسم" name="userName" type="text"/>
                     <TextField label="رقم الهاتف" name="phoneNumber" type="tel"/>
                     <TextField label="مكان السكن" name="residenceLocation" type="text"/>
                     <ContinueButton label="تابع"/>
-                </SimpleFormTemplate>
+                </div>
             }
         />
     );
@@ -69,7 +69,7 @@ function Start() {
 
 function Fill() {
     return (
-        <SimpleFormTemplate className="mx-auto py-16 lg:py-10 lg:my-28 w-full lg:max-w-screen-md">
+        <div className={`${forms.simpleForm} mx-auto py-16 lg:py-10 lg:my-28 w-full lg:max-w-screen-md`}>
             <div className="flex flex-col gap-5 mb-8">
                 <TextField name="storageSize" label="ما هي مساحة مخزنك ؟" type="number"/>
                 <TextField name="storageFinish" label="ما درجة تشطيب مخزنك ؟" type="text"/>
@@ -108,6 +108,6 @@ function Fill() {
                 <BackButton label="ارجع"/>
                 <ContinueButton label="تابع"/>
             </div>
-        </SimpleFormTemplate>
+        </div>
     );
 }

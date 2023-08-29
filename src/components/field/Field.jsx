@@ -1,6 +1,9 @@
 import React from "react";
 import {Field, useField} from 'formik';
 import fields from "./Field.module.css";
+import NextStageButton, {PrevStageButton} from "../../utils/form/FormButton";
+import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
+import buttons from "../button/Button.module.css";
 
 /**
  * TextField component renders a text input field with label and error message.
@@ -123,6 +126,28 @@ export function CheckboxFieldList({names, labels, descriptions, separate, title}
                     {separate && index !== names.length - 1 && <hr className="mb-4"/>}
                 </div>
             ))}
+        </div>
+    );
+}
+
+export function ContinueButton({label, ...rest}) {
+    return (
+        <div className="flex flex-row gap-4 justify-center">
+            {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
+            <NextStageButton className={buttons.smallRound} {...rest}>
+                <BsArrowLeftShort/>
+            </NextStageButton>
+        </div>
+    );
+}
+
+export function BackButton({label, ...rest}) {
+    return (
+        <div className="flex flex-row gap-4 justify-center">
+            {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
+            <PrevStageButton className={buttons.smallRound} {...rest}>
+                <BsArrowRightShort/>
+            </PrevStageButton>
         </div>
     );
 }

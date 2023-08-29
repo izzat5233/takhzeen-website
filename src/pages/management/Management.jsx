@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {AnimatePresence} from "framer-motion";
-import {BackButton, ContinueButton} from "../../components/form/FormButton";
 import {SimpleWaveBackground} from "../../components/page/Background";
-import MultiStageForm from "../../components/form/Form";
+import {MultiStageFormHandler} from "../../utils/form/FormHandler";
 import {FormFinishedTemplate, FormStartTemplate} from "../../components/page/Template";
 import icon from "../../assets/icons/normal/management.png";
-import SimpleFormTemplate from "../../components/form/Template";
-import TextField, {CheckboxFieldList, RadioField} from "../../components/form/Field";
+import TextField, {BackButton, CheckboxFieldList, ContinueButton, RadioField} from "../../components/field/Field";
 import useIsWideScreen from "../../utils/hook/Screen";
+import forms from "../../components/form/Form.module.css";
+import {DefaultLoader} from "../../components/form/Form";
 
 export default function Management() {
     const [finished, setFinished] = useState(false);
@@ -18,12 +18,12 @@ export default function Management() {
             {isWideScreen && <SimpleWaveBackground/>}
             <AnimatePresence>
                 {!finished ?
-                    <MultiStageForm
+                    <MultiStageFormHandler
                         name="managementForm"
                         stages={[<Start/>, <Fill/>]}
                         initialValues={initialValues}
                         onSubmit={() => setFinished(true)}
-                        loaderColor="#ff684c" // primary color
+                        loader={<DefaultLoader color="#ff684c"/>}
                     /> :
                     <FormFinishedTemplate
                         messages={[
@@ -63,12 +63,13 @@ function Start() {
             title="ادارة المخازن"
             text="نضمن لك خدمات ادارية لمخازنك تتمثل بأعلى مواصفات الجودة والكفاءة؛ لنحقق لك سلاسة عملياتك التخزينية…"
             form={
-                <SimpleFormTemplate title="عرفنا عن نفسك" className="w-dynamic max-w-md">
+                <div className={`${forms.simpleForm} w-dynamic max-w-md`}>
+                    <h2 className={forms.simpleTitle}>عرفنا عن نفسك</h2>
                     <TextField name="companyName" label="اسم الشركة" type="text" required/>
                     <TextField name="phoneNumber" label="رقم الهاتف" type="tel" required/>
                     <TextField name="email" label="البريد الاكتروني" type="email"/>
                     <ContinueButton label="ابدأ"/>
-                </SimpleFormTemplate>
+                </div>
             }
         />
     );
@@ -76,10 +77,8 @@ function Start() {
 
 export function Fill() {
     return (
-        <SimpleFormTemplate
-            title="زودنا بمعلوماتك لنحدد حاجتك"
-            className="mx-auto py-16 lg:py-10 lg:my-28 w-full lg:max-w-screen-md"
-        >
+        <div className={`${forms.simpleForm} gap-8 mx-auto py-16 lg:py-10 lg:my-28 w-full lg:max-w-screen-md`}>
+            <h2 className={forms.simpleTitle}>زودنا بمعلوماتك لنحدد حاجتك</h2>
             <div className="flex flex-col gap-5">
                 <TextField name="storageSize" label="ما هي مساحة مخزنك ؟" type="number"/>
                 <TextField name="storageFinish" label="ما درجة تشطيب مخزنك ؟" type="text"/>
@@ -129,6 +128,6 @@ export function Fill() {
                 <BackButton label="ارجع"/>
                 <ContinueButton label="تابع"/>
             </div>
-        </SimpleFormTemplate>
+        </div>
     );
 }

@@ -118,10 +118,10 @@
 .form-group{
     width: 46%;
     float: left;
-    padding: 0px 30px;
+    padding: 0 30px;
     margin: 14px 12px;
     border-radius: 25px;
-    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+    @apply bg-back bg-opacity-90 drop-shadow shadow-back
 }
 .form-fields .form-group:last-child,
 .form-fields .form-group:first-child {

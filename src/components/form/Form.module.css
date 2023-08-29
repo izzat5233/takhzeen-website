@@ -1,0 +1,10 @@
+.simpleForm {
+    @apply
+    px-4 sm:px-10 py-10 flex flex-col
+    bg-white drop-shadow-2xl rounded-sm sm:rounded-md
+    transition-all duration-150;
+}
+
+.simpleTitle {
+    @apply text-center text-4xl mb-10;
+}
