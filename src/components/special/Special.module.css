@@ -1,0 +1,5 @@
+.progressBar {
+    @apply
+    fixed right-0 bottom-0 w-full h-1
+    z-20 origin-right bg-gradient-orange-blue;
+}

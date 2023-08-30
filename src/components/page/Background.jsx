@@ -1,6 +1,6 @@
 import {motion} from "framer-motion";
 import React from "react";
-import Svg, {ShadowFilter, SimpleWavePath} from "./Svg";
+import Svg, {ShadowFilter, SimpleWavePath} from "../special/Svg";
 
 /**
  * A HOC wrapper that adds a background to the component.

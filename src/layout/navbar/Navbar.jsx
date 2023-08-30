@@ -4,8 +4,9 @@ import logoWithText from '../../assets/icons/normal/logoWithText.png';
 import {RiMenu3Line, RiCloseLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 import {motion, useMotionValueEvent, useScroll} from "framer-motion";
-import DropdownMenu from "./DropdownMenu";
 import useIsWideScreen from "../../utils/hook/Screen";
+import navbar from "./Navbar.module.css";
+import DropdownMenu from "./DropdownMenu";
 
 export const navbarLinks = [
     {
@@ -24,13 +25,13 @@ export const navbarLinks = [
 
 export default function Navbar() {
     const [toggleMenu, setToggleMenu] = useState(false);
-    const {scrollY} = useScroll();
-    const [prevScrollY, setPrevScrollY] = useState(0);
-    const [hidden, setHidden] = useState(false);
+    const [navbarHidden, setNavbarHidden] = useState(false);
     const isWideScreen = useIsWideScreen();
 
+    const {scrollY} = useScroll();
+    const [prevScrollY, setPrevScrollY] = useState(0);
     useMotionValueEvent(scrollY, "change", (latest) => {
-        setHidden(latest > 30 && latest > prevScrollY);
+        setNavbarHidden(latest > 30 && latest > prevScrollY);
         setPrevScrollY(latest);
     });
 
@@ -40,22 +41,14 @@ export default function Navbar() {
                 visible: {opacity: 1, y: 0},
                 hidden: {opacity: 0, y: -25}
             }}
-            animate={hidden ? "hidden" : "visible"}
+            animate={navbarHidden ? "hidden" : "visible"}
             transition={{ease: [0.1, 0.25, 0.3, 1], duration: 0.6}}
-            className="
-                bg-transparent z-20 flex flex-row-reverse lg:flex-row lg:justify-start
-                fixed top-0 left-0 right-0
-                justify-between justify-items-center
-                py-4 px-4 md:px-8
-            "
+            className={navbar.defaultNavbar}
         >
             <img src={isWideScreen ? logoWithText : logo} alt="logo"
                  className={`justify-start w-auto ${isWideScreen ? "h-16" : "h-10"}`}/>
             <div className="hidden lg:flex flex-col justify-center">
-                <div className="
-                    flex flex-row-reverse justify-end
-                    pr-8 justify-items-center
-                ">
+                <div className="flex flex-row-reverse justify-end pr-8 justify-items-center">
                     <ExpandedNavbar/>
                 </div>
             </div>
@@ -66,7 +59,7 @@ export default function Navbar() {
                     : <RiMenu3Line color="#000" size={27} onClick={() => setToggleMenu(true)}
                                    className="cursor-pointer"/>}
                 {toggleMenu &&
-                    <DropdownMenu toggle={setToggleMenu}>
+                    <DropdownMenu setToggled={setToggleMenu} className={`${navbar.dropdownMenu} scale-up-center`}>
                         <FoldedNavbar toggle={setToggleMenu}/>
                     </DropdownMenu>}
             </div>
@@ -79,13 +72,7 @@ function ExpandedNavbar() {
         <div className="flex flex-row gap-8">
             {navbarLinks.map((link, index) => (
                 <Link to={link.to} className="relative text-md" key={index}>
-                    <div className="
-                        before:content-{}
-                        before:absolute before:-bottom-1 before:left-0 before:w-full before:h-0.5
-                        before:bg-strong before:text-back
-                        before:scale-x-0 before:origin-left before:transition before:duration-200 before:ease-out
-                        hover:before:scale-x-100
-                    ">
+                    <div className={navbar.titleHover}>
                         {link.title}
                     </div>
                 </Link>

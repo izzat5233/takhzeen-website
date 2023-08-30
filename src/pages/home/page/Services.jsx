@@ -6,13 +6,13 @@ import Partial from "../../../assets/icons/normal/partial.png";
 import sys from "../../../assets/icons/normal/management.png";
 import {FaArrowLeftLong} from "react-icons/fa6";
 import {Link} from "react-router-dom";
-import Svg, {ShadowFilter, SineWavePath} from "../../../components/page/Svg";
+import Svg, {ShadowFilter, SineWavePath} from "../../../components/special/Svg";
 
 const ServicesPage = ({...rest}) => {
     return (
         <section className="page py-20 md:py-32 lg:py-44 xl:py-48 bg-gradient-primary text-center" {...rest}>
             <Svg viewBox="0 0 900 50" defs={<ShadowFilter id="shadow" offset="3"/>}
-                 className="svg-layer -top-0.5 right-0 rotate-180">
+                 className="absolute-layer -top-0.5 right-0 rotate-180">
                 <SineWavePath fill="#ffffff" filter="url(#shadow)" stroke="#ffffff"/>
             </Svg>
             <div className="flex flex-col justify-center gap-10 lg:gap-14 xl:gap-16">
@@ -34,7 +34,7 @@ const ServicesPage = ({...rest}) => {
                 </div>
             </div>
             <Svg viewBox="0 0 900 50" defs={<ShadowFilter id="shadow" offset="5"/>}
-                 className="svg-layer -bottom-0.5 right-0">
+                 className="absolute-layer -bottom-0.5 right-0">
                 <SineWavePath fill="#ffffff" filter="url(#shadow)" stroke="#ffffff"/>
             </Svg>
         </section>

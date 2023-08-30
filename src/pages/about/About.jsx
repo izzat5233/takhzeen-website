@@ -1,7 +1,7 @@
 import {FaBox, FaBuilding, FaLightbulb, FaLink} from "react-icons/fa";
 import login from "../../assets/designs/about.png";
 import React from "react";
-import Svg, {SineWavePath} from "../../components/page/Svg";
+import Svg, {SineWavePath} from "../../components/special/Svg";
 import {motion} from "framer-motion";
 
 export default function AboutPage({...rest}) {
@@ -22,7 +22,7 @@ export default function AboutPage({...rest}) {
                         w-full flex flex-col sm:flex-row justify-center items-center text-center gap-8
                         even:bg-gray-100 py-16 sm:py-32 xl:py-44 px-dynamic relative group
                     ">
-                        <Svg viewBox="0 0 900 50" className="svg-layer -top-0.5 right-0 rotate-180">
+                        <Svg viewBox="0 0 900 50" className="absolute-layer -top-0.5 right-0 rotate-180">
                             <SineWavePath fill="#ffffff" stroke="#ffffff"/>
                         </Svg>
                         <p className="
@@ -39,7 +39,7 @@ export default function AboutPage({...rest}) {
                 ))}
             </section>
             <section className="page items-center py-dynamic xl:py-44 bg-gray-100">
-                <Svg viewBox="0 0 900 50" className="svg-layer -top-0.5 right-0 rotate-180">
+                <Svg viewBox="0 0 900 50" className="absolute-layer -top-0.5 right-0 rotate-180">
                     <SineWavePath fill="#ffffff" stroke="#ffffff"/>
                 </Svg>
                 <div className="

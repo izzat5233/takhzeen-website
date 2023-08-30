@@ -7,7 +7,7 @@ import icon from "../../assets/icons/normal/management.png";
 import TextField, {BackButton, CheckboxFieldList, ContinueButton, RadioField} from "../../components/field/Field";
 import useIsWideScreen from "../../utils/hook/Screen";
 import forms from "../../components/form/Form.module.css";
-import {DefaultLoader} from "../../components/form/Form";
+import {DefaultLoader} from "../../components/special/Progress";
 
 export default function Management() {
     const [finished, setFinished] = useState(false);

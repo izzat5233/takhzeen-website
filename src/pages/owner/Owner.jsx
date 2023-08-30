@@ -7,7 +7,7 @@ import {FormFinishedTemplate, FormStartTemplate} from "../../components/page/Tem
 import icon from "../../assets/icons/normal/mediation.png";
 import useIsWideScreen from "../../utils/hook/Screen";
 import forms from "../../components/form/Form.module.css";
-import {DefaultLoader} from "../../components/form/Form";
+import {DefaultLoader} from "../../components/special/Progress";
 
 export default function Owner() {
     const [finished, setFinished] = useState(false);

@@ -1,7 +1,7 @@
 import FormHandler from "../../utils/form/FormHandler";
-import {SyncLoader} from "react-spinners";
 import forms from "./Form.module.css";
 import React from "react";
+import {DefaultLoader} from "../special/Progress";
 
 export default function SimpleForm({name, initialValues, onSubmit, loader, title, children, className, ...rest}) {
     return (
@@ -20,8 +20,3 @@ export default function SimpleForm({name, initialValues, onSubmit, loader, title
     );
 }
 
-export const DefaultLoader = ({color = "white", size = 14}) => (
-    <div className="flex justify-center">
-        <SyncLoader color={color} size={size}/>
-    </div>
-);

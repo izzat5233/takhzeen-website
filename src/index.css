@@ -50,7 +50,7 @@
         @apply absolute top-1/2 transform -translate-y-1/2;
     }
 
-    .svg-layer {
+    .absolute-layer {
         @apply absolute min-w-full overflow-hidden;
     }
 }
