@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 import {FaArrowRightLong} from "react-icons/fa6";
 import FormHandler from "../../utils/form/FormHandler";
 import TextField, {ContinueButton} from "../../components/field/Field";
-import {FormFinishedTemplate} from "../../components/page/Template";
+import {FormFinishedPage} from "../../components/page/Page";
 import {getStorageById, getStorageImages} from "../../utils/api/StorageApi";
 
 export default function StorageShowcase({initialData, onReturn}) {
@@ -18,7 +18,7 @@ export default function StorageShowcase({initialData, onReturn}) {
             .catch(error => console.error(error));
     }, []);
 
-    return submitted ? <FormFinishedTemplate
+    return submitted ? <FormFinishedPage
         messages={[
             "تم طلب المخزن... سنتواصل معك في أقرب فرصة",
             "في حال واجهتك اية استفسارات يرجى التواصل معنا."

@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {PiHeadphonesFill} from "react-icons/pi";
 
 /**
- * FormStartTemplate displays a simple form page with an icon, title, and a text.
+ * FormStartPage displays a simple form page with an icon, title, and a text.
  *
  * @param {object} props - The properties passed to the component.
  * @param {string} props.icon - The URL of the icon to be displayed.
@@ -15,7 +15,7 @@ import {PiHeadphonesFill} from "react-icons/pi";
  * @param {React.ReactNode} props.form - The form to be displayed on the page.
  * @returns {JSX.Element} A div element that wraps the icon, title, text, and form.
  */
-export function FormStartTemplate({icon, title, text, form}) {
+export function FormStartPage({icon, title, text, form}) {
     return (
         <div className="pt-12 lg:py-32 flex flex-col lg:flex-row gap-10 lg:gap-0">
             <div className="mx-auto flex flex-col gap-6 px-4 md:mr-12 lg:mr-20">
@@ -33,15 +33,16 @@ export function FormStartTemplate({icon, title, text, form}) {
 }
 
 /**
- * BigChoicePage is a React component that serves as a page for presenting multiple choices to the user.
+ * A page presenting multiple choices to the user.
+ * Preferably the children should be BigButton's.
  *
  * @param {object} props - The properties passed to the component.
- * @param {React.ReactNode} props.children - The choice components to be displayed.
+ * @param {JSX.Element} props.children - The choice components to be displayed.
  * @param {string} props.className - Additional CSS classes to apply to the page.
  * @param {string} props.text - The text to be displayed above the choices.
  * @returns {JSX.Element} A Page component that wraps the provided choice components.
  */
-export function BigChoiceTemplate({children, className, text}) {
+export function BigChoicePage({children, className, text}) {
     return (
         <div className={`${className} ${text && "flex flex-col py-20 text-center"}`}>
             {text && <p className="text-4xl mx-auto px-10">{text}</p>}
@@ -49,7 +50,7 @@ export function BigChoiceTemplate({children, className, text}) {
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
-                className="flex flex-col lg:flex-row flex-wrap gap-2 justify-center mx-auto py-20">
+                className="justifying lg:flex-row flex-wrap gap-2 mx-auto py-20">
                 {children}
             </motion.div>
         </div>
@@ -57,14 +58,14 @@ export function BigChoiceTemplate({children, className, text}) {
 }
 
 /**
- * FormFinishedTemplate is a page shown after finishing a form.
- * It shows the user several messages, a return button, and a contact button.
+ * FormFinishedPage is a page shown after finishing a form.
+ * It displays several messages, a return button, and a contact button.
  *
  * @param messages - All messages to be displayed
  * @param className
  * @returns {JSX.Element}
  */
-export function FormFinishedTemplate({messages, className}) {
+export function FormFinishedPage({messages, className}) {
     const navigate = useNavigate();
 
     return (
@@ -73,25 +74,26 @@ export function FormFinishedTemplate({messages, className}) {
             animate={{opacity: 1}}
             exit={{opacity: 0}}
             className={`
-                px-dynamic mx-auto
-                flex flex-col gap-5
-                text-start text-md md:text-xl lg:text-2xl
+                px-dynamic mx-auto flex flex-col gap-5
+                text-start text-base md:text-xl lg:text-2xl
                 ${className ? className : ""}
             `}
         >
             {messages.map((message, index) => (
                 <p key={index}>{message}</p>
             ))}
-            <div className="flex gap-4 justify-center flex-wrap">
+            <div className="justifying items-center sm:flex-row gap-4 flex-wrap">
                 <LabelButton
                     label="العودة"
                     icon={<BsArrowRightShort/>}
                     onClick={() => navigate("/")}
+                    className="sm:flex-row flex-col-reverse items-center"
                 />
                 <LabelButton
                     label="اتصل الآن"
                     icon={<PiHeadphonesFill className="text-4xl mx-auto"/>}
                     onClick={() => navigate("/contact")}
+                    className="sm:flex-row flex-col-reverse items-center"
                 />
             </div>
         </motion.div>

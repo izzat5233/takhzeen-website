@@ -12,7 +12,7 @@ export const DefaultLoader = ({color = "white", size = 14}) => (
 export default function ProgressBar({progress}) {
     return (
         <motion.div
-            className={special.progressBar}
+            className={special.defaultProgressBar}
             style={{scaleX: progress}}
         />
     );

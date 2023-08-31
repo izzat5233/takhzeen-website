@@ -6,7 +6,7 @@ import Partial from "../../../assets/icons/normal/partial.png";
 import sys from "../../../assets/icons/normal/management.png";
 import {FaArrowLeftLong} from "react-icons/fa6";
 import {Link} from "react-router-dom";
-import Svg, {ShadowFilter, SineWavePath} from "../../../components/special/Svg";
+import Svg, {ShadowFilter, SineWavePath} from "../../../components/background/Svg";
 
 const ServicesPage = ({...rest}) => {
     return (

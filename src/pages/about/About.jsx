@@ -1,7 +1,7 @@
 import {FaBox, FaBuilding, FaLightbulb, FaLink} from "react-icons/fa";
 import login from "../../assets/designs/about.png";
 import React from "react";
-import Svg, {SineWavePath} from "../../components/special/Svg";
+import Svg, {SineWavePath} from "../../components/background/Svg";
 import {motion} from "framer-motion";
 
 export default function AboutPage({...rest}) {

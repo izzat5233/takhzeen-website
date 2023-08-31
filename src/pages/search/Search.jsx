@@ -1,6 +1,6 @@
 import useFilters from "../../utils/hook/Filters";
 import {BsPlus} from "react-icons/bs";
-import {ExpandedInOutBackground} from "../../components/page/Background";
+import {ExpandedInOutBackground} from "../../components/background/Background";
 import {BiSolidDownArrow} from "react-icons/bi";
 import {useEffect, useState} from "react";
 import {getStorageImages, getStorages} from "../../utils/api/StorageApi";

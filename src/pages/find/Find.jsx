@@ -3,10 +3,10 @@ import useStages from "../../utils/hook/Stages";
 import Search from "../search/Search";
 import ServiceChoice from "./stage/ServiceChoice";
 import PartialForm from "./stage/PartialForm";
-import {ExpandedInOutBackground, ImageBackground} from "../../components/page/Background";
+import {ExpandedInOutBackground, ImageBackground} from "../../components/background/Background";
 import storage from "../../assets/images/storage2.png";
 import {useNavigate} from "react-router-dom";
-import {FormFinishedTemplate} from "../../components/page/Template";
+import {FormFinishedPage} from "../../components/page/Page";
 import TextField, {ContinueButton} from "../../components/field/Field";
 import SimpleForm from "../../components/form/Form";
 
@@ -27,7 +27,7 @@ export default function Find() {
         "mediation": <BasicForm name="mediationForm" onSubmit={() => navigate("/search")}/>,
         "search": <Search/>,
         "finished":
-            <FormFinishedTemplate
+            <FormFinishedPage
                 messages={[
                     "نشكرك على ثقتك بنا، سنتواصل معك بأقرب وقت خلال اليومين القادمين؛ لنحقق لك إدارة مخزنية متميزة…",
                     "في حال واجهتك اية استفسارات يرجى التواصل معنا."

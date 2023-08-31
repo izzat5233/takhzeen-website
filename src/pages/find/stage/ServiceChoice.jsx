@@ -1,13 +1,13 @@
 import temporary from "../../../assets/icons/black/temporary.png";
 import partial from "../../../assets/icons/black/partial.png";
 import mediation from "../../../assets/icons/black/mediation.png";
-import {BigChoiceTemplate} from "../../../components/page/Template";
+import {BigChoicePage} from "../../../components/page/Page";
 import React from "react";
 import {BigButton} from "../../../components/button/Button";
 
 export default function ServiceChoice({choices, onChoice}) {
     return (
-        <BigChoiceTemplate text="ما الخدمة التي ترغب بالاستفادة منها ؟" className="py-dynamic lg:w-fit mx-auto">
+        <BigChoicePage text="ما الخدمة التي ترغب بالاستفادة منها ؟" className="py-dynamic lg:w-fit mx-auto">
             <BigButton
                 label="التخزين الوجيز"
                 icon={temporary}
@@ -23,6 +23,6 @@ export default function ServiceChoice({choices, onChoice}) {
                 icon={mediation}
                 onClick={() => onChoice(choices[2])}
             />
-        </BigChoiceTemplate>
+        </BigChoicePage>
     );
 }

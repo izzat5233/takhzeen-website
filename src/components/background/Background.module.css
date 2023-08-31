@@ -1,0 +1,7 @@
+.cover {
+    @apply fixed top-0 left-0 min-h-screen w-screen object-cover -z-10;
+}
+
+.exact {
+    @apply absolute w-full h-full -z-10;
+}

@@ -1,6 +1,7 @@
 import {motion} from "framer-motion";
 import React from "react";
-import Svg, {ShadowFilter, SimpleWavePath} from "../special/Svg";
+import Svg, {ShadowFilter, SimpleWavePath} from "./Svg";
+import backgrounds from "./Background.module.css";
 
 /**
  * A HOC wrapper that adds a background to the component.
@@ -34,7 +35,7 @@ export function ImageBackground({image}) {
         <motion.img
             src={image}
             alt="Backround"
-            className="-z-10 fixed top-0 left-0 min-h-screen w-screen object-cover"
+            className={backgrounds.cover}
             initial={{scale: 1.05}}
             animate={{scale: 1}}
             transition={{duration: 0.5}}
@@ -46,13 +47,13 @@ export function ImageBackground({image}) {
  * An animated background.
  * The background starts from a scale of 0 (fully contracted) and expands to a scale of 1 (fully expanded).
  *
- * @param {string} className - A string of class names that will be added to the background. The default class is "bg-gradient-primary".
+ * @param {string} className - The style classNames of the background. Default is "bg-gradient-primary".
  * @returns {JSX.Element} A `motion.div` component that represents the animated background.
  */
 export function ExpandedInOutBackground({className = "bg-gradient-primary"}) {
     return (
         <motion.div
-            className={`absolute -z-10 origin-right w-full right-0 h-full ${className}`}
+            className={`origin-right right-0 ${backgrounds.exact} ${className}`}
             initial={{scaleX: 0}}
             animate={{scaleX: 1}}
             exit={{scaleX: 0}}
@@ -73,9 +74,9 @@ export function SimpleWaveBackground() {
             initial={{translateY: 500}}
             animate={{translateY: 0}}
             transition={{duration: 1, ease: "anticipate"}}
-            className="absolute min-h-screen bottom-0 left-0 w-full h-full -z-10"
+            className={`${backgrounds.exact} min-h-screen bottom-0 left-0`}
         >
-            <Svg className="absolute bottom-0 left-0 w-full overflow-hidden"
+            <Svg className="absolute bottom-0"
                  viewBox="0 0 1600 450" defs={<ShadowFilter id="shadow" offset="2"/>}>
                 <SimpleWavePath fill="#ff684c" filter="url(#shadow)"/>
             </Svg>

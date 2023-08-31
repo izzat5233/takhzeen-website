@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import {AnimatePresence} from "framer-motion";
 import TextField, {BackButton, CheckboxFieldList, ContinueButton, RadioField} from "../../components/field/Field";
-import {SimpleWaveBackground} from "../../components/page/Background";
+import {SimpleWaveBackground} from "../../components/background/Background";
 import {MultiStageFormHandler} from "../../utils/form/FormHandler";
-import {FormFinishedTemplate, FormStartTemplate} from "../../components/page/Template";
+import {FormFinishedPage, FormStartPage} from "../../components/page/Page";
 import icon from "../../assets/icons/normal/mediation.png";
 import useIsWideScreen from "../../utils/hook/Screen";
 import forms from "../../components/form/Form.module.css";
@@ -25,7 +25,7 @@ export default function Owner() {
                         onSubmit={() => setFinished(true)}
                         loader={<DefaultLoader color="#ff684c"/>}
                     /> :
-                    <FormFinishedTemplate
+                    <FormFinishedPage
                         messages={[
                             "نشكرك على ثقتك بنا، سنتواصل معك بأقرب وقت خلال اليومين القادمين؛ لنحقق لك إدارة مخزنية متميزة…",
                             "في حال واجهتك اية استفسارات يرجى التواصل معنا."
@@ -51,7 +51,7 @@ const initialValues = {
 
 function Start() {
     return (
-        <FormStartTemplate
+        <FormStartPage
             icon={icon}
             title="اعرض مخزنك"
             text="مساحتنا الالكترونية تفتح لك آفاق التواصل؛ لايجاد طلبك من مخزن يلائمك أو مستأجر تبحث عنه."

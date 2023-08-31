@@ -6,6 +6,43 @@ import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
 import buttons from "../button/Button.module.css";
 
 /**
+ * A label button that functions as 'Next' button in a form.
+ * It contains a left arrow icon.
+ *
+ * @param {object} props - The properties that define the ContinueButton component.
+ * @param {string} props.label - Label displayed next to the button
+ * @return {JSX.Element}
+ */
+export function ContinueButton({label, ...rest}) {
+    return (
+        <div className="flex flex-row gap-4 justify-center">
+            {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
+            <NextStageButton className={buttons.smallRound} {...rest}>
+                <BsArrowLeftShort/>
+            </NextStageButton>
+        </div>
+    );
+}
+
+/**
+ * A label button that functions as 'Back' button in a form.
+ * It contains a right arrow icon.
+ *
+ * @param {object} props - The properties that define the BackButton component.
+ * @param {string} props.label - Label displayed next to the button
+ */
+export function BackButton({label, ...rest}) {
+    return (
+        <div className="flex flex-row gap-4 justify-center">
+            {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
+            <PrevStageButton className={buttons.smallRound} {...rest}>
+                <BsArrowRightShort/>
+            </PrevStageButton>
+        </div>
+    );
+}
+
+/**
  * TextField component renders a text input field with label and error message.
  *
  * @param {object} props - The properties that define the TextField component.
@@ -43,15 +80,13 @@ export default function TextField({name, label, type, placeholder, required}) {
  * @param {string} props.name - The name of the field.
  * @param {string} props.label - The label of the field.
  * @param {Array} props.options - The options for the radio buttons.
- * @param {string} props.className - The CSS classes for the radio buttons.
- * @param {boolean} props.required - Whether the field is required.
  */
-export function RadioField({name, label, options, className, required}) {
+export function RadioField({name, label, options, ...rest}) {
     const [field, meta] = useField(name);
     return (
         <fieldset className="flex flex-col text-xl">
             <legend className="mb-4">{label}</legend>
-            <div className={`flex gap-6 flex-wrap justify-start text-lg ${className}`}>
+            <div className="flex gap-6 flex-wrap justify-start text-lg">
                 {options.map((option, index) => (
                     <label key={index} className="inline-flex gap-4 items-center cursor-pointer">
                         <Field
@@ -59,8 +94,8 @@ export function RadioField({name, label, options, className, required}) {
                             type="radio"
                             name={name}
                             value={option.value}
-                            required={required}
                             className={fields.radio}
+                            {...rest}
                         />
                         {option.label}
                     </label>
@@ -80,7 +115,7 @@ export function RadioField({name, label, options, className, required}) {
  * @param {string} props.name - The name of the field.
  * @param {string} props.label - The label of the field.
  */
-export function CheckboxField({name, label}) {
+export function CheckboxField({name, label, ...rest}) {
     const [field, meta] = useField({name, type: 'checkbox'});
     return (
         <div className="flex flex-col gap-2 mb-4 text-xl">
@@ -91,6 +126,7 @@ export function CheckboxField({name, label}) {
                     name={name}
                     type="checkbox"
                     className={fields.checkbox}
+                    {...rest}
                 />
                 {label}
             </label>
@@ -126,28 +162,6 @@ export function CheckboxFieldList({names, labels, descriptions, separate, title}
                     {separate && index !== names.length - 1 && <hr className="mb-4"/>}
                 </div>
             ))}
-        </div>
-    );
-}
-
-export function ContinueButton({label, ...rest}) {
-    return (
-        <div className="flex flex-row gap-4 justify-center">
-            {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
-            <NextStageButton className={buttons.smallRound} {...rest}>
-                <BsArrowLeftShort/>
-            </NextStageButton>
-        </div>
-    );
-}
-
-export function BackButton({label, ...rest}) {
-    return (
-        <div className="flex flex-row gap-4 justify-center">
-            {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
-            <PrevStageButton className={buttons.smallRound} {...rest}>
-                <BsArrowRightShort/>
-            </PrevStageButton>
         </div>
     );
 }

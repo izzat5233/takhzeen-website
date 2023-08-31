@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {AnimatePresence} from "framer-motion";
-import {SimpleWaveBackground} from "../../components/page/Background";
+import {SimpleWaveBackground} from "../../components/background/Background";
 import {MultiStageFormHandler} from "../../utils/form/FormHandler";
-import {FormFinishedTemplate, FormStartTemplate} from "../../components/page/Template";
+import {FormFinishedPage, FormStartPage} from "../../components/page/Page";
 import icon from "../../assets/icons/normal/management.png";
 import TextField, {BackButton, CheckboxFieldList, ContinueButton, RadioField} from "../../components/field/Field";
 import useIsWideScreen from "../../utils/hook/Screen";
@@ -25,7 +25,7 @@ export default function Management() {
                         onSubmit={() => setFinished(true)}
                         loader={<DefaultLoader color="#ff684c"/>}
                     /> :
-                    <FormFinishedTemplate
+                    <FormFinishedPage
                         messages={[
                             "نشكرك على ثقتك بنا، سنتواصل معك بأقرب وقت خلال اليومين القادمين؛ لنحقق لك إدارة مخزنية متميزة…",
                             "في حال واجهتك اية استفسارات يرجى التواصل معنا."
@@ -58,7 +58,7 @@ const initialValues = {
 
 function Start() {
     return (
-        <FormStartTemplate
+        <FormStartPage
             icon={icon}
             title="ادارة المخازن"
             text="نضمن لك خدمات ادارية لمخازنك تتمثل بأعلى مواصفات الجودة والكفاءة؛ لنحقق لك سلاسة عملياتك التخزينية…"

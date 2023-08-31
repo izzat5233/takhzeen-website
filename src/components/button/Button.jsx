@@ -13,7 +13,7 @@ import buttons from "./Button.module.css";
  */
 export default function LabelButton({label, icon, className, ...rest}) {
     return (
-        <div className={`flex flex-row gap-4 justify-center ${className}`}>
+        <div className={`flex gap-4 justify-center ${className}`}>
             {label && <p className="text-xl md:text-2xl my-auto">{label}</p>}
             <button className={buttons.smallRound} {...rest}>
                 {icon}
