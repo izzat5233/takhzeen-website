@@ -12,10 +12,10 @@ import {AnimatePresence} from "framer-motion";
 import ComingSoon from "../../pages/misc/ComingSoon";
 import Search from "../../pages/search/Search";
 import React, {useEffect} from "react";
-import ScrollToTobButton from "../../components/special/ScrollButton";
-import {withScrollBar} from "../../components/special/Progress";
+import ScrollToTobButton from "./ScrollButton";
+import {withScrollBar} from "../../components/progress/ProgressBar";
 
-function App() {
+export default function App() {
     const location = useLocation();
 
     useEffect(() => {
@@ -44,5 +44,3 @@ function App() {
         </>
     );
 }
-
-export default App;

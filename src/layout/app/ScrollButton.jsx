@@ -1,7 +1,7 @@
 import {motion, useMotionValueEvent, useScroll} from "framer-motion";
 import React, {useState} from "react";
 import {animateScroll} from "react-scroll";
-import buttons from "../button/Button.module.css";
+import buttons from "../../components/button/Button.module.css";
 import {BsArrowUpShort} from "react-icons/bs";
 
 /**

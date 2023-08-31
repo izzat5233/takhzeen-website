@@ -1,8 +1,8 @@
-import {FaBox, FaBuilding, FaLightbulb, FaLink} from "react-icons/fa";
 import login from "../../assets/designs/about.png";
 import React from "react";
 import Svg, {SineWavePath} from "../../components/background/Svg";
 import {motion} from "framer-motion";
+import {features, paragraphs} from "./content";
 
 export default function AboutPage({...rest}) {
     return (
@@ -19,7 +19,7 @@ export default function AboutPage({...rest}) {
                 </div>
                 {paragraphs.map(paragraph => (
                     <div className="
-                        w-full flex flex-col sm:flex-row justify-center items-center text-center gap-8
+                        w-full justifying sm:flex-row items-center text-center gap-8
                         even:bg-gray-100 py-16 sm:py-32 xl:py-44 px-dynamic relative group
                     ">
                         <Svg viewBox="0 0 900 50" className="absolute-layer -top-0.5 right-0 rotate-180">
@@ -63,37 +63,4 @@ export default function AboutPage({...rest}) {
     );
 }
 
-const paragraphs = [
-    {
-        icon: <FaBuilding/>,
-        description: "تخزين هي شركة محلية فلسطينية المنشأ، نطرح خدمات متنوعة عبر موقعنا الاكتروني، تستهدف مختلف فئات المستأجرين واصحاب المخازن."
-    },
-    {
-        icon: <FaLink/>,
-        description: "نعمل كحلقة وصل بين كلا المستأجر والمؤجر لنحقق الفائدة القصوى لكليهما."
-    },
-    {
-        icon: <FaBox/>,
-        description: "نتيح فرصة الاستئجار الجزئي لمخزن، او استئجار مخزن بشكل مؤقت، او تقديم خدمة ادارة المخازن تبعا لحاجة المتوجه لنا."
-    },
-    {
-        icon: <FaLightbulb/>,
-        description: "نهدف في تخزين الى خلق حلول لمختلف المشاكل التي تواجه المستأجرين واصحاب المخازن عن طريق تقديم خدمات مبتكرة وفريدة تخدم كلا الطرفين."
-    },
-]
 
-
-const features = [
-    {
-        title: 'رؤيتنا',
-        description: 'أن نكون الأفضل في كل عمل نقوم به ، من خلال سعينا لخلق فرص استثمارية تقدم الدعم للقطاع التجاري و تساند أصحاب المشاريع لتحقيق أهدافهم برؤية جديدة للمستقبل.',
-    },
-    {
-        title: 'رسالتنا',
-        description: 'تتمثل مهمتنا في توفير حلول تخزين ملائمة وآمنة تلبي احتياجات الأفراد والشركات، نحول المساحات الفارغة الى فرص استثمارية،كما ونقدم دعم لامتناهي لعملائنا لتجربة خدماتنا اللوجستية المتكاملة بجودة عالية ،وبصورة خالية من المتاعب .',
-    },
-    {
-        title: 'قِيَمنا',
-        description: 'نحن ملتزمون بتوفير أعلى درجات الأمان، الشفافية والمصداقية، نبني ثقة مستديمة مع عملائنا، نوفر سرعة خدماتية، سلاسة في الإجراءات ، والتزاماً بالمواعيد، تحت ظروف عمل مثالية.',
-    },
-];

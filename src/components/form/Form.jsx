@@ -1,7 +1,7 @@
 import FormHandler from "../../utils/form/FormHandler";
 import forms from "./Form.module.css";
 import React from "react";
-import {DefaultLoader} from "../special/Progress";
+import {DefaultLoader} from "../progress/Loader";
 
 export default function SimpleForm({name, initialValues, onSubmit, loader, title, children, className, ...rest}) {
     return (

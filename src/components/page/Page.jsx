@@ -37,15 +37,23 @@ export function FormStartPage({icon, title, text, form}) {
  * Preferably the children should be BigButton's.
  *
  * @param {object} props - The properties passed to the component.
+ * @param {string} props.title - The text to be displayed above the choices.
  * @param {JSX.Element} props.children - The choice components to be displayed.
  * @param {string} props.className - Additional CSS classes to apply to the page.
- * @param {string} props.text - The text to be displayed above the choices.
  * @returns {JSX.Element} A Page component that wraps the provided choice components.
  */
-export function BigChoicePage({children, className, text}) {
+export function BigChoicePage({title, children, className}) {
     return (
-        <div className={`${className} ${text && "flex flex-col py-20 text-center"}`}>
-            {text && <p className="text-4xl mx-auto px-10">{text}</p>}
+        <div className={`${className} ${title && "flex flex-col py-20 text-center"}`}>
+            {title &&
+                <motion.p
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}
+                    className="text-4xl mx-auto px-10"
+                >
+                    {title}
+                </motion.p>}
             <motion.div
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
