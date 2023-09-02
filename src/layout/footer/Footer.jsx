@@ -2,7 +2,8 @@ import React from 'react';
 import './footer.css';
 import {FiFacebook, FiTwitter, FiInstagram, FiLinkedin} from 'react-icons/fi';
 import {Link} from "react-router-dom";
-import {navbarLinks} from "../navbar/navbarLinks";
+
+import {navbarLinks} from "../navbar/Navbar";
 
 const Footer = () => {
     return (

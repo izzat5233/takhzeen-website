@@ -3,8 +3,8 @@ import {MultiStageFormHandler} from "../../../utils/form/FormHandler";
 import forms from "../../../components/form/Form.module.css";
 import {ImageBackground, withBackground} from "../../../components/background/Background";
 import storage from "../../../assets/images/storage2.png";
-import {basicFormFields, basicFormInitialValues} from "../content/basicFormFields";
-import {partialFormFields, partialFormInitialValues} from "../content/partialFormFields";
+import StartFields, {startFieldsInitialValues} from "../fields/StartFields";
+import PartialFields, {partialFieldsInitialValues} from "../fields/PartialFields";
 
 function PartialFormStage({onSubmit}) {
     return (
@@ -12,15 +12,15 @@ function PartialFormStage({onSubmit}) {
             name="partialForm"
             onSubmit={onSubmit}
             initialValues={{
-                ...basicFormInitialValues,
-                ...partialFormInitialValues,
+                ...startFieldsInitialValues,
+                ...partialFieldsInitialValues,
             }}
             stages={[
                 <div className={`${forms.simpleForm} w-dynamic max-w-md`}>
-                    {basicFormFields}
+                    <StartFields/>
                 </div>,
                 <div className={`${forms.simpleForm} max-w-2xl mx-auto`}>
-                    {partialFormFields}
+                    <PartialFields/>
                 </div>,
             ]}
         />

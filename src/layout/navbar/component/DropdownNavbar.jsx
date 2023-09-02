@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {RiCloseLine, RiMenu3Line} from "react-icons/ri";
-import Focusable from "../../utils/effect/Focusable";
-import navbar from "./Navbar.module.css";
-import {navbarLinks} from "./navbarLinks";
+import Focusable from "../../../utils/effect/Focusable";
+import navbar from "../Navbar.module.css";
 import {Link} from "react-router-dom";
+import {navbarLinks} from "../Navbar";
 
 export default function DropdownNavbar() {
     const [toggled, setToggled] = useState(false);
