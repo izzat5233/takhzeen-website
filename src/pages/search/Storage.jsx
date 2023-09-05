@@ -4,9 +4,10 @@ import {BsArrowLeftShort, BsArrowRightShort} from "react-icons/bs";
 import React, {useEffect, useState} from "react";
 import {FaArrowRightLong} from "react-icons/fa6";
 import FormHandler from "../../utils/form/FormHandler";
-import TextField, {ContinueButton} from "../../components/field/Field";
-import {FormFinishedPage} from "../../components/page/Page";
 import {getStorageById, getStorageImages} from "../../utils/api/StorageApi";
+import {ContinueButton} from "../../components/form/field/Button";
+import TextField from "../../components/form/field/Text";
+import FormFinishedPage from "../../components/page/FormFinish";
 
 export default function StorageShowcase({initialData, onReturn}) {
     const [storage, setStorage] = useState(initialData);

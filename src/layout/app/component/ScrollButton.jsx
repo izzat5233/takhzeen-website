@@ -1,7 +1,7 @@
 import {motion, useMotionValueEvent, useScroll} from "framer-motion";
 import React, {useState} from "react";
 import {animateScroll} from "react-scroll";
-import buttons from "../../components/button/Button.module.css";
+import buttons from "../../../components/button/Button.module.css";
 import {BsArrowUpShort} from "react-icons/bs";
 
 /**
@@ -9,11 +9,11 @@ import {BsArrowUpShort} from "react-icons/bs";
  *
  * @return {JSX.Element}
  */
-export default function ScrollToTobButton({visibleAt = 500}) {
+export default function ScrollToTobButton({threshold = 500}) {
     const {scrollY} = useScroll();
     const [hidden, setHidden] = useState(true);
     useMotionValueEvent(scrollY, "change", (latest) => {
-        setHidden(latest <= visibleAt);
+        setHidden(latest <= threshold);
     });
 
     return (

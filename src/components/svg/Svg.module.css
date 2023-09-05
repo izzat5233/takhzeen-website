@@ -1,0 +1,7 @@
+.topLayer {
+    @apply absolute-layer -top-0.5 right-0 rotate-180;
+}
+
+.bottomLayer {
+    @apply absolute-layer -bottom-0.5 right-0;
+}

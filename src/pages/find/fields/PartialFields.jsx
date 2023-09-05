@@ -1,5 +1,6 @@
-import TextField, {BackButton, ContinueButton} from "../../../components/field/Field";
 import React from "react";
+import {BackButton, ContinueButton} from "../../../components/form/field/Button";
+import TextField from "../../../components/form/field/Text";
 
 export default function PartialFields() {
     return (

@@ -1,6 +1,6 @@
-import {FormFinishedPage} from "../../../components/page/Page";
 import {ExpandedInOutBackground, withBackground} from "../../../components/background/Background";
 import React from "react";
+import FormFinishedPage from "../../../components/page/FormFinish";
 
 function FormFinishedStage() {
     return (

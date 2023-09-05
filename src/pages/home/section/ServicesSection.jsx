@@ -6,42 +6,39 @@ import Partial from "../../../assets/icons/normal/partial.png";
 import sys from "../../../assets/icons/normal/management.png";
 import {FaArrowLeftLong} from "react-icons/fa6";
 import {Link} from "react-router-dom";
-import Svg, {ShadowFilter, SineWavePath} from "../../../components/background/Svg";
+import Svg from "../../../components/svg/Svg";
+import svg from "../../../components/svg/Svg.module.css";
+import {ShadowFilter} from "../../../components/svg/Filter";
+import {SineWavePath} from "../../../components/svg/Path";
 
-const ServicesPage = ({...rest}) => {
+export default function ServicesSection({...rest}) {
     return (
         <section className="page py-20 md:py-32 lg:py-44 xl:py-48 bg-gradient-primary text-center" {...rest}>
-            <Svg viewBox="0 0 900 50" defs={<ShadowFilter id="shadow" offset="3"/>}
-                 className="absolute-layer -top-0.5 right-0 rotate-180">
+            <Svg viewBox="0 0 900 50" defs={<ShadowFilter id="shadow" offset="3"/>} className={svg.topLayer}>
                 <SineWavePath fill="#ffffff" filter="url(#shadow)" stroke="#ffffff"/>
             </Svg>
-            <div className="flex flex-col justify-center gap-10 lg:gap-14 xl:gap-16">
-                <div className="flex flex-col justify-center gap-10 lg:gap-14 xl:gap-16">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black drop-shadow-xl">خـــدمـــاتـــنـــا</h1>
-                    <h2 className="sub_title px-4 text-md lg:text-2xl">
+            <div className="justifying items-center gap-dynamic">
+                <div className="justifying py-dynamic sm:px-8 gap-10 lg:gap-14 xl:gap-16">
+                    <h1 className="text-lg-dynamic font-black drop-shadow-xl">خـــدمـــاتـــنـــا</h1>
+                    <h2 className="sub_title px-dynamic text-sm-dynamic">
                         احصل على حلول تخزينية محسوبة بالملّي؛ لتنهض بالكفاءات والخدمات المقدمة من قبلنا
                     </h2>
                 </div>
                 <div className="
-                    flex flex-col justify-center font-light
-                    gap-2 sm:gap-8 lg:gap-12 xl:gap-16 mx-auto
-                    px-2 sm:px-8 lg:px-16 xl:px-32 2xl:px-48
-                    text-sm sm:text-lg lg:text-xl xl:text-2xl
+                    justifying font-light text-xs-dynamic
+                    gap-dynamic px-2 sm:px-dynamic
                 ">
                     {cardsData.map((card, index) => (
-                        <Card card={card} index={index}/>
+                        <Card card={card} key={index}/>
                     ))}
                 </div>
             </div>
-            <Svg viewBox="0 0 900 50" defs={<ShadowFilter id="shadow" offset="5"/>}
-                 className="absolute-layer -bottom-0.5 right-0">
+            <Svg viewBox="0 0 900 50" defs={<ShadowFilter id="shadow" offset="5"/>} className={svg.bottomLayer}>
                 <SineWavePath fill="#ffffff" filter="url(#shadow)" stroke="#ffffff"/>
             </Svg>
         </section>
     );
 }
-
-export default ServicesPage;
 
 const cardsData = [
     {
@@ -74,7 +71,7 @@ const cardsData = [
     },
 ];
 
-function Card({card, index}) {
+function Card({card, ...rest}) {
     return (
         <motion.div
             initial={{opacity: 0, y: '20vh'}}
@@ -88,10 +85,10 @@ function Card({card, index}) {
                 flex flex-col md:flex-row even:md:flex-row-reverse
                 border-4 border-gray-200
             "
-            key={index}
+            {...rest}
         >
             <div className="flex flex-col gap-8 mx-auto">
-                <img src={card.imgSrc} alt={`Card ${index + 1}`} className="mx-auto w-36 sm:w-64 md:w-96"/>
+                <img src={card.imgSrc} alt={card.title} className="mx-auto w-36 sm:w-64 md:w-96"/>
                 <h3 className="font-extrabold text-3xl lg:text-4xl sm:whitespace-nowrap">
                     {card.title}
                 </h3>
@@ -110,5 +107,5 @@ function Card({card, index}) {
                 </Link>
             </div>
         </motion.div>
-    )
+    );
 }

@@ -2,8 +2,8 @@ import {BigButton} from "../../../components/button/Button";
 import temporary from "../../../assets/icons/black/temporary.png";
 import partial from "../../../assets/icons/black/partial.png";
 import mediation from "../../../assets/icons/black/mediation.png";
-import {BigChoicePage} from "../../../components/page/Page";
 import {ExpandedInOutBackground, withBackground} from "../../../components/background/Background";
+import BigChoicePage from "../../../components/page/BigChoice";
 
 function InitialChoiceStage({navigate}) {
     return (

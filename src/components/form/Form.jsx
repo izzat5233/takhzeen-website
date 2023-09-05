@@ -1,7 +1,7 @@
 import FormHandler from "../../utils/form/FormHandler";
 import forms from "./Form.module.css";
 import React from "react";
-import {DefaultLoader} from "../progress/Loader";
+import DefaultLoader from "./Loader";
 
 export default function SimpleForm({name, initialValues, onSubmit, loader, title, children, className, ...rest}) {
     return (
@@ -19,4 +19,3 @@ export default function SimpleForm({name, initialValues, onSubmit, loader, title
         </FormHandler>
     );
 }
-

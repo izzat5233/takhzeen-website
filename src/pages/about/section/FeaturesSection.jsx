@@ -1,10 +1,12 @@
-import Svg, {SineWavePath} from "../../../components/background/Svg";
+import Svg from "../../../components/svg/Svg";
+import svg from "../../../components/svg/Svg.module.css";
 import about from "../About.module.css";
+import {SineWavePath} from "../../../components/svg/Path";
 
 export default function FeaturesSection({...rest}) {
     return (
         <section className="page items-center py-dynamic xl:py-44 bg-gray-100" {...rest}>
-            <Svg viewBox="0 0 900 50" className={about.svgLayer}>
+            <Svg viewBox="0 0 900 50" className={svg.topLayer}>
                 <SineWavePath fill="#ffffff" stroke="#ffffff"/>
             </Svg>
             <div className={about.featuresContainer}>

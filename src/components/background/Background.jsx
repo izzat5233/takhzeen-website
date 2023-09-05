@@ -1,7 +1,9 @@
 import {motion} from "framer-motion";
 import React from "react";
-import Svg, {ShadowFilter, SimpleWavePath} from "./Svg";
+import Svg from "../svg/Svg";
 import backgrounds from "./Background.module.css";
+import {ShadowFilter} from "../svg/Filter";
+import {SimpleWavePath} from "../svg/Path";
 
 /**
  * A HOC wrapper that adds a background to the component.
@@ -76,8 +78,7 @@ export function SimpleWaveBackground() {
             transition={{duration: 1, ease: "anticipate"}}
             className={`${backgrounds.exact} min-h-screen bottom-0 left-0`}
         >
-            <Svg className="absolute bottom-0"
-                 viewBox="0 0 1600 450" defs={<ShadowFilter id="shadow" offset="2"/>}>
+            <Svg className="absolute bottom-0" viewBox="0 0 1600 450" defs={<ShadowFilter id="shadow" offset="2"/>}>
                 <SimpleWavePath fill="#ff684c" filter="url(#shadow)"/>
             </Svg>
         </motion.div>

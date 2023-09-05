@@ -1,5 +1,6 @@
-import TextField, {ContinueButton} from "../../../components/field/Field";
 import React from "react";
+import {ContinueButton} from "../../../components/form/field/Button";
+import TextField from "../../../components/form/field/Text";
 
 export default function StartFields() {
     return (

@@ -12,8 +12,8 @@ import {AnimatePresence} from "framer-motion";
 import ComingSoon from "../../pages/misc/ComingSoon";
 import Search from "../../pages/search/Search";
 import React, {useEffect} from "react";
-import ScrollToTobButton from "./ScrollButton";
-import {withScrollBar} from "../../components/progress/ProgressBar";
+import ScrollToTobButton from "./component/ScrollButton";
+import withScrollBar from "./component/ScrollBar";
 
 export default function App() {
     const location = useLocation();
