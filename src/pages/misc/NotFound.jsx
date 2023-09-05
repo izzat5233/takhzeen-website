@@ -7,20 +7,22 @@ export default function NotFound() {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen flex justify-center">
-            <div className="flex-grow my-auto py-10 text-center bg-primary">
-                <p className="text-8xl font-bold tracking-widest">
-                    404<br/>
-                </p>
-                <p className="text-3xl">
-                    الصفحة غير موجودة<br/>
-                </p>
+        <section className="page">
+            <div className="py-10 text-center bg-primary flex flex-col gap-8">
+                <div className="flex flex-col gap-2">
+                    <p className="text-lg-dynamic font-bold tracking-widest">
+                        404<br/>
+                    </p>
+                    <p className="text-sm-dynamic">
+                        الصفحة غير موجودة<br/>
+                    </p>
+                </div>
                 <LabelButton
                     label="ارجع"
                     icon={<BsArrowRightShort/>}
                     onClick={() => navigate("/", {replace: true})}
                 />
             </div>
-        </div>
+        </section>
     );
 }

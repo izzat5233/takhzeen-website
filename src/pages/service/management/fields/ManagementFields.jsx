@@ -1,11 +1,11 @@
-import forms from "../../../components/form/Form.module.css";
+import forms from "../../../../components/form/Form.module.css";
 import React from "react";
-import {BackButton, ContinueButton} from "../../../components/form/field/Button";
-import TextField from "../../../components/form/field/Text";
-import RadioField from "../../../components/form/field/Radio";
-import {CheckboxFieldList} from "../../../components/form/field/Checkbox";
+import {BackButton, ContinueButton} from "../../../../components/form/field/Button";
+import TextField from "../../../../components/form/field/Text";
+import RadioField from "../../../../components/form/field/Radio";
+import {CheckboxFieldList} from "../../../../components/form/field/Checkbox";
 
-export default function DetailsForm() {
+export default function ManagementFields() {
     return (
         <div className={`${forms.simpleForm} gap-8 mx-auto py-16 lg:py-10 lg:my-28 w-full lg:max-w-screen-md`}>
             <h2 className={forms.simpleTitle}>زودنا بمعلوماتك لنحدد حاجتك</h2>
@@ -62,7 +62,7 @@ export default function DetailsForm() {
     );
 }
 
-export const detailsFormInitialValues = {
+export const managementFieldsInitialValues = {
     storageSize: '',
     storageFinish: '',
     goodsNature: '',

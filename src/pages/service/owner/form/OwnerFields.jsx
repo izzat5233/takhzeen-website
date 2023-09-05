@@ -1,11 +1,11 @@
-import forms from "../../../components/form/Form.module.css";
-import TextField from "../../../components/form/field/Text";
-import {CheckboxFieldList} from "../../../components/form/field/Checkbox";
-import RadioField from "../../../components/form/field/Radio";
-import {BackButton, ContinueButton} from "../../../components/form/field/Button";
+import forms from "../../../../components/form/Form.module.css";
+import TextField from "../../../../components/form/field/Text";
+import {CheckboxFieldList} from "../../../../components/form/field/Checkbox";
+import RadioField from "../../../../components/form/field/Radio";
+import {BackButton, ContinueButton} from "../../../../components/form/field/Button";
 import React from "react";
 
-export default function DetailsForm() {
+export default function OwnerFields() {
     return (
         <div className={`${forms.simpleForm} mx-auto py-16 lg:py-10 lg:my-28 w-full lg:max-w-screen-md`}>
             <div className="flex flex-col gap-5 mb-8">
@@ -50,7 +50,7 @@ export default function DetailsForm() {
     );
 }
 
-export const detailsFormInitialValues = {
+export const ownerFieldsInitialValues = {
     storageSize: '',
     storageFinish: '',
     servicesTemporal: false,

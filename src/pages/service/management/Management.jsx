@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {AnimatePresence} from "framer-motion";
-import {SimpleWaveBackground} from "../../components/background/Background";
-import {MultiStageFormHandler} from "../../utils/form/FormHandler";
-import useIsWideScreen from "../../utils/hook/Screen";
-import DefaultLoader from "../../components/form/Loader";
-import StartForm, {startFormInitialValues} from "./form/StartForm";
-import DetailsForm, {detailsFormInitialValues} from "./form/DetailsForm";
-import FormFinishedPage from "../../components/page/FormFinish";
+import {SimpleWaveBackground} from "../../../components/background/Background";
+import {MultiStageFormHandler} from "../../../utils/form/FormHandler";
+import useIsWideScreen from "../../../utils/hook/Screen";
+import DefaultLoader from "../../../components/form/Loader";
+import StartFields, {startFieldsInitialValues} from "./fields/StartFields";
+import ManagementFields, {managementFieldsInitialValues} from "./fields/ManagementFields";
+import FormFinishedPage from "../../../components/page/FormFinish";
 
 export default function Management() {
     const [finished, setFinished] = useState(false);
@@ -20,12 +20,12 @@ export default function Management() {
                     <MultiStageFormHandler
                         name="managementForm"
                         stages={[
-                            <StartForm/>,
-                            <DetailsForm/>
+                            <StartFields/>,
+                            <ManagementFields/>
                         ]}
                         initialValues={{
-                            ...startFormInitialValues,
-                            ...detailsFormInitialValues
+                            ...startFieldsInitialValues,
+                            ...managementFieldsInitialValues
                         }}
                         onSubmit={() => setFinished(true)}
                         loader={<DefaultLoader color="#ff684c"/>}

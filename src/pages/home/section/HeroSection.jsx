@@ -33,10 +33,10 @@ export const heroLinks = [
     },
     {
         title: "اعرض مخزنك",
-        to: "/owner",
+        to: "/service/owner",
     },
     {
         title: "لِنُدر لك مخزنك",
-        to: "/management",
+        to: "/service/management",
     },
 ];

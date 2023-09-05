@@ -1,11 +1,11 @@
-import icon from "../../../assets/icons/normal/mediation.png";
-import forms from "../../../components/form/Form.module.css";
+import icon from "../../../../assets/icons/normal/mediation.png";
+import forms from "../../../../components/form/Form.module.css";
 import React from "react";
-import {ContinueButton} from "../../../components/form/field/Button";
-import TextField from "../../../components/form/field/Text";
-import FormStartPage from "../../../components/page/FormStart";
+import {ContinueButton} from "../../../../components/form/field/Button";
+import TextField from "../../../../components/form/field/Text";
+import FormStartPage from "../../../../components/page/FormStart";
 
-export default function StartForm() {
+export default function StartFields() {
     return (
         <FormStartPage
             icon={icon}
@@ -23,7 +23,7 @@ export default function StartForm() {
     );
 }
 
-export const startFormInitialValues = {
+export const startFieldsInitialValues = {
     userName: '',
     phoneNumber: '',
     residenceLocation: '',

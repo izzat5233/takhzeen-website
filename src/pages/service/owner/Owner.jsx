@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import {AnimatePresence} from "framer-motion";
-import {SimpleWaveBackground} from "../../components/background/Background";
-import {MultiStageFormHandler} from "../../utils/form/FormHandler";
-import useIsWideScreen from "../../utils/hook/Screen";
-import DefaultLoader from "../../components/form/Loader";
-import DetailsForm, {detailsFormInitialValues} from "./form/DetailsForm";
-import FormFinishedPage from "../../components/page/FormFinish";
-import StartForm, {startFormInitialValues} from "./form/StartForm";
+import {SimpleWaveBackground} from "../../../components/background/Background";
+import {MultiStageFormHandler} from "../../../utils/form/FormHandler";
+import useIsWideScreen from "../../../utils/hook/Screen";
+import DefaultLoader from "../../../components/form/Loader";
+import OwnerFields, {ownerFieldsInitialValues} from "./form/OwnerFields";
+import FormFinishedPage from "../../../components/page/FormFinish";
+import StartFields, {startFieldsInitialValues} from "./form/StartFields";
 
 export default function Owner() {
     const [finished, setFinished] = useState(false);
@@ -19,10 +19,10 @@ export default function Owner() {
                 {!finished ?
                     <MultiStageFormHandler
                         name="ownerForm"
-                        stages={[<StartForm/>, <DetailsForm/>]}
+                        stages={[<StartFields/>, <OwnerFields/>]}
                         initialValues={{
-                            ...startFormInitialValues,
-                            ...detailsFormInitialValues
+                            ...startFieldsInitialValues,
+                            ...ownerFieldsInitialValues
                         }}
                         onSubmit={() => setFinished(true)}
                         loader={<DefaultLoader color="#ff684c"/>}

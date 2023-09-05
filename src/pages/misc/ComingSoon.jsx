@@ -7,9 +7,9 @@ export default function ComingSoon() {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen flex justify-center">
-            <div className="flex-grow my-auto py-10 text-center bg-primary">
-                <p className="text-5xl sm:text-7xl font-bold">
+        <section className="page">
+            <div className="flex flex-col gap-8 py-10 text-center bg-primary font-bold">
+                <p className="text-lg-dynamic">
                     قيد التطوير<br/>
                 </p>
                 <LabelButton
@@ -18,6 +18,6 @@ export default function ComingSoon() {
                     onClick={() => navigate(-1)}
                 />
             </div>
-        </div>
+        </section>
     );
 }
