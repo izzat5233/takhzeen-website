@@ -18,6 +18,6 @@
 /* Perfect for fixed-on-screen buttons */
 .contrastSquare {
     @apply
-    border border-black rounded text-large-dynamic
+    border border-black rounded text-lg-dynamic
     opacity-40 hover:opacity-100 transition-opacity;
 }
