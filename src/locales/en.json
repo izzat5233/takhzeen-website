@@ -1,0 +1,22 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Takhzeen",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "welcome": "Welcome to Takhzeen Company!",
+    "description": "We work alongside both tenants and landlords, facing the challenges they experience by creating innovative storage solutions.",
+    "findStorage": "Find Your Storage",
+    "displayStorage": "Display Your Storage",
+    "manageStorage": "Let Us Manage Your Storage"
+  },
+  "footer": {
+    "companyName": "Takhzeen Company",
+    "brandName": "Takhzeen",
+    "description": "A Palestinian platform offering innovative storage solutions, providing unlimited logistical support tailored to customers' needs",
+    "contactUs": "Contact Us",
+    "location": "Nablus - Palestine",
+    "copyright": "Takhzeen 2023, All Rights Reserved"
+  }
+}

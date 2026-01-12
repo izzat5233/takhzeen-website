@@ -3,10 +3,13 @@ import {RiCloseLine, RiMenu3Line} from "react-icons/ri";
 import Focusable from "../../../utils/effect/Focusable";
 import navbar from "../Navbar.module.css";
 import {Link} from "react-router-dom";
-import {navbarLinks} from "../Navbar";
+import { useTranslation } from 'react-i18next';
+import { getNavbarLinks } from "../Navbar";
 
 export default function DropdownNavbar() {
     const [toggled, setToggled] = useState(false);
+    const { t } = useTranslation();
+    const navbarLinks = getNavbarLinks(t);
 
     return toggled ? (
         <div className="relative">

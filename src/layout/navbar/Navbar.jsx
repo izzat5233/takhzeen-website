@@ -6,9 +6,12 @@ import navbar from "./Navbar.module.css";
 import DropdownNavbar from "./component/DropdownNavbar";
 import NavbarContainer from "./component/NavbarContainer";
 import {ExpandedNavbar} from "./component/ExpandedNavbar";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
+import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
     const isWideScreen = useIsWideScreen();
+    const { t } = useTranslation();
 
     return (
         <NavbarContainer className={navbar.defaultNavbar}>
@@ -17,15 +20,32 @@ export default function Navbar() {
                 alt="Takhzeen"
                 className="justify-start w-auto h-10 lg:h-16"
             />
-            <div className="hidden lg:justifying">
+            <div className="hidden lg:flex lg:items-center lg:gap-8">
                 <ExpandedNavbar/>
+                <LanguageSwitcher/>
             </div>
-            <div className="lg:hidden justifying">
+            <div className="lg:hidden flex items-center gap-4">
+                <LanguageSwitcher/>
                 <DropdownNavbar/>
             </div>
         </NavbarContainer>
     );
 };
+
+export const getNavbarLinks = (t) => [
+    {
+        title: t('navbar.home'),
+        to: "/home"
+    },
+    {
+        title: t('navbar.about'),
+        to: "/about"
+    },
+    {
+        title: t('navbar.contact'),
+        to: "/contact"
+    },
+];
 
 export const navbarLinks = [
     {

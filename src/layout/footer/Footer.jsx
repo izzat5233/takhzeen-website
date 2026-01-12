@@ -2,10 +2,13 @@ import React from 'react';
 import './footer.css';
 import {FiFacebook, FiTwitter, FiInstagram, FiLinkedin} from 'react-icons/fi';
 import {Link} from "react-router-dom";
-
-import {navbarLinks} from "../navbar/Navbar";
+import { useTranslation } from 'react-i18next';
+import { getNavbarLinks } from "../navbar/Navbar";
 
 const Footer = () => {
+    const { t } = useTranslation();
+    const navbarLinks = getNavbarLinks(t);
+    
     return (
         <div className="
             w-full relative text-white font-light
@@ -19,7 +22,7 @@ const Footer = () => {
                         footer-headtext font-normal capitalize mb-4
                         text-3xl tracking-normal leading-normal md:text-4xl lg:text-4xl
                     ">
-                        شركة تخزين
+                        {t('footer.companyName')}
                     </h1>
                     {navbarLinks.map((link, index) => (
                         <Link to={link.to} key={index}>
@@ -33,10 +36,10 @@ const Footer = () => {
                         footer-headtext font-normal capitalize mb-4
                         text-3xl tracking-normal leading-normal md:text-4xl lg:text-4xl
                     ">
-                        تخزين
+                        {t('footer.brandName')}
                     </h1>
                     <p className="text-xl mb-4 p__opensans">
-                        منصة فلسطينية تطرح حلول تخزينية مبتكرة، كما وتقدم دعم لوجستياً لامتناهي يناسب العملاء
+                        {t('footer.description')}
                     </p>
                     <div className="footer-links_icons mt-2 flex justify-center space-x-2">
                         <a href="https://www.facebook.com/ta5zeen" target="_blank" rel="noopener noreferrer">
@@ -59,14 +62,14 @@ const Footer = () => {
                         footer-headtext font-normal capitalize text-3xl mb-4
                         tracking-normal leading-normal  md:text-4xl lg:text-4xl lg:leading-10
                     ">
-                        تواصل معنا
+                        {t('footer.contactUs')}
                     </h1>
-                    <p className="text-xl mb-4 p__opensans">نابلس - فلسطين</p>
+                    <p className="text-xl mb-4 p__opensans">{t('footer.location')}</p>
                     <p className="text-xl mb-4 p__opensans">+972-593-456-7852</p>
                 </div>
             </div>
             <div className="footer__copyright">
-                <p className="text-xl p__opensans">تخزين 2023 ، كل الحقوق محفوظة</p>
+                <p className="text-xl p__opensans">{t('footer.copyright')}</p>
             </div>
         </div>
     );
