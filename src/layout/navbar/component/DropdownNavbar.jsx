@@ -21,8 +21,9 @@ export default function DropdownNavbar() {
             />
             <Focusable setToggled={setToggled} className={`${navbar.dropdownMenu} scale-up-center`}>
                 <div className="flex flex-col gap-8 text-xl">
-                    {navbarLinks.map(link => (
+                    {navbarLinks.map((link, index) => (
                         <Link
+                            key={index}
                             to={link.to}
                             onClick={() => setToggled(false)}
                             className="active:bg-gray-200 rounded text-center py-2 px-4 w-full"

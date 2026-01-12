@@ -42,18 +42,3 @@ export default function HeroSection({...rest}) {
         </section>
     );
 }
-
-export const heroLinks = [
-    {
-        title: "ابحث عن مخزنك",
-        to: "/find",
-    },
-    {
-        title: "اعرض مخزنك",
-        to: "/service/owner",
-    },
-    {
-        title: "لِنُدر لك مخزنك",
-        to: "/service/management",
-    },
-];
